@@ -1,0 +1,27 @@
+project:
+  type: book
+
+book:
+  title: "OpenCollections Manual"
+  author: "Daniel Antal"
+  date: "2024-05-06"
+  chapters:
+    - index.qmd
+    - wikidata.qmd
+    - wikibase.qmd
+    - sandbox.qmd
+    - opencollections.qmd
+    - references.qmd
+
+bibliography: 
+    - bib/cm.bib
+    - bib/wikidata.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

@@ -1,0 +1,53 @@
+# OpenCollections
+
+`OpenCollections` aims to provide a high degree of technical, syntactic, and semantic interoperability among the data systems of the partners in the data-sharing space. It imports data (or data maps) into a graph format, which is optimal for using heterogeneous data sources. Our innovative solutions aim to make this complex process as fast and weightless as possible.
+
+The system is built around Wikibase, an information management software developed by Wikipedia based on the MariaDB relational database management system. Wikibase manages the world's most extensive open knowledge graph, Wikidata, and enables users to work in many natural languages with little or no IT or information science knowledge. Many use cases, including the creation of the EU Knowledge graph, inspired us because Wikibase has a much lower learning need than more optimised graph database management systems.
+
+`OpenCollections` improves the Wikibase experience with automated data-importing components with suitable job aids for users and exporting tools into more complex graphs that can provide data for training trustworthy AI systems.
+
+-   [x] We understand the importance of compatibility. That's why we provide tools for mass importing data and schematic information from existing relational database management systems like MySQL, PostgreSQL, or simpler, spreadsheet-based data sources. This reassures our users that OpenCollections can seamlessly integrate with their existing systems, providing a secure and confident data management experience.
+
+-   [x] We provide training and job aids for manual data processes to keep partners' domain-level experts in the loop and provide human agency and oversight for trustworthy AI systems.
+
+-   [x] We create a model supported by automation that translates the data held in Wikibase to standard machine-actionable ontologies like CIDOC, EDM, RiC, and DCAT-AP.
+
+## Going Beyond Wikibase
+
+Our system is inspired by the WB-CIDOC model developed at the University of Helsinki for translating knowledge stored in Wikibase into the statements described with the CIDOC ontology used by intelligent cultural heritage systems [@kesaniemi_wb_cidoc_2022]. CIDOC is a modern, events-based ontology that allows building trustworthy inference and deduction AI engines.
+
+The WB-CIDOC provides rules for writing data into Wikibase in a way that translates correctly into an event-based model, but we find its use counter-intuitive and laborious for domain expert data curators.
+
+Most domain experts would think that a biographical entity of `Albert Einstein` should have a birthday property with the date of `March 14, 1879`, while an event-based ontology would create first an abstract event, the `Birth of Albert Einstein`, with a timespan of `March 14, 1879, 0:00` to `23.59`. It is far easier to search for parallel events in this time window or connect further information— like persons present at birth, certificates created, etc.—than to connect this information to a simple, literal date.
+
+Domain-level experts like copyright specialists, ESG experts, musicologists, bank professionals, and other users usually need formal computer- or information science training and find the entity-based approach closer to real-world experience. We design our knowledge-base instances with hooks for more complex knowledge-base ontologies. This allows our users to review the information in a natural, entity-based format; our intelligent applications translate the information to more complex structures, such as event-based conceptual models, to allow more reasoning capacity for our AI systems.
+
+### Translation to more complex data models
+
+Our system is inspired by the WB-CIDOC model developed at the University of Helsinki for translating knowledge stored in Wikibase into the statements described with the CIDOC ontology used by intelligent cultural heritage systems [@kesaniemi_wb_cidoc_2022]. CIDOC is a modern, events-based ontology that allows building trustworthy inference and deduction AI engines.
+
+The WB-CIDOC provides rules for writing data into Wikibase in a way that translates correctly into an event-based model, but we find its use counter-intuitive and laborious for domain expert data curators.
+
+Most domain experts would think that a biographical entity of `Albert Einstein` should have a birthday property with the date of `March 14, 1879`, while an event-based ontology would create first an abstract event, the `Birth of Albert Einstein`, with a timespan of `March 14, 1879, 0:00` to `23.59`. It is far easier to search for parallel events in this time window or connect further information— like persons present at birth, certificates created, etc.—than to connect this information to a simple, literal date.
+
+::: callout-note
+Domain-level experts like copyright specialists, ESG experts, musicologists, bank professionals, and other users usually need formal computer- or information science training and find the entity-based approach closer to real-world experience. We design our knowledge-base instances with hooks for more complex knowledge-base ontologies. This allows our users to review the information in a natural, entity-based format; our intelligent applications translate the information to more complex structures, such as event-based conceptual models, to allow more reasoning capacity for our AI systems.
+:::
+
+### Record-keeping and retention
+
+National archives play a crucial role in preserving the collective memory and history of a nation. Connecting national archives to institutional enterprise record-keeping systems has many advantages.
+
+1.  **Contextualising institutional or enterprise records**: Private organisations and users cannot copy all legally or historically relevant documents in their inventory. Connecting to memory institutions, such as records or legal databases, allows one to find precedents and understand one and one's own historical records in context without the need to hoard information on an excessive scale. Just the way we do not need to burden our office bookshelves with bilingual dictionaries or printed copies of changing regulations, we can further lower the burden by making our records system compatible with national records.
+
+2.  **Record retention and public archiving** is a regulated process that serves as the foundation of many business processes' regulatory or assurance oversight. Businesses often must deposit copies of legally important disclosures and certificates at public bodies. Larger institutions, primarily if they work for the public benefit, usually have a legal mandate to place some of their documents into a public archive. Private persons and companies often donate documents to such archives when they want to be credited with their work, intellectual property, or the value of their activities.
+
+Because OpenCollections is based around a document-based database, it is very well suited to support document exchanges between private institutions (e.g., the exchange of technical and delivery documentation along the supply chain), public institutions (e.g., the exchange of public documents), and public-private exchanges.
+
+We provide mappings, software tools and training to apply Records in Context (RiC), a novel ontology released in 2023 after over a decade's work to replace the four international standards on archiving. The last international standards on the topic were created before the commercial Internet; RiC provides backwards compatibility to millennia of historical records, corporate document inventories, and physical data vaults on one hand, and opens up the use of modern knowledge graphs to link information in the archives with your documents in use. RiC is the gateway to corporate and institutional textual big data.
+
+### Data catalogues, and the meaning of data tables
+
+Following the DCAT-AP specification of the EU Open Data Portal and Stat-DCAT-AP to offer full compatibility with European statistical portals and open data portals, we translate information about datasets, data codes and structures, and variable descriptions. This translation works with few limitations for global resources beyond Europe. It connects corporate or institutional datasets and accounts with statistical and national accounts data from public sources, offering unparalleled ease in creating economic or sustainability-controlling applications.
+
+### Collections and inventories
