@@ -51,32 +51,44 @@ Writing in Wikidata is free for all and subject to community review. If you read
 
 In this tutorial, you can learn how to create a new item on Wikidata. Countless web and AI applications and millions of people use Wikidata, so in the beginning it is recommended to not experiment with it in the live system. Wikidata has a [Sandbox](https://www.wikidata.org/wiki/Wikidata:Sandbox) for practising. We recommend using it as a first step. If you work with Wikibase, particularly with Reprex's OpenCollections, you will have access to a similar sandbox. It will be prefilled with data, concepts, and properties suitable for your learning needs, often going beyond what you would find in the public Wikidata.
 
-<!--- How to access the page for creating a new item?---->
+Let's see how you can create your own János Barasits item.
+<!---Shoudl they do them through the general Sandbox or the Reprex one? --->
+
+<!--- Define how to access the page for creating a new item?---->
 
 You can see how creating a new item looks like in the system:
 
 ![](png/wikidata-tutorial/wikidata-create-new-item-20240204.png){fig-align="center"}
 
-The first step in creating an item (in this case an item for János Barasits) is providing the two most important information for an item, which is the "Label" and the "Description". 
+The first step in creating an item (in this case an item for János Barasits) is providing the two most important information for an item, which is the "Label" and the "Description".
+
 The "Label" is the name of the item (in our case the label of the item will be "János Barasits"). 
+
 The "Description" contains a short explanation of our item (in our case the description for the item will be "Hungarian postcard maker and publisher).
+
 "Aliases" are alternative names for the item.  
 
 <!--- A description regarding the different language inputs for the same item is needed (e.g., János Barasits in English, and Barasits János in Hungarian, following the Eastern name order) ---->
 
-After creating the item with the basic information of "Label" and "Description" we can weave this information entry into the knowledge graph. At this point, `János Barasits` could be a person, it could be a book titled after the person, or a photo of the person. Connecting János Barasits to other entities, such as the concept of a human being, will allow other people and their computer systems to understand that we are talking about a person here.
+After creating the item with the basic information of "Label" and "Description" we can weave this information entry into the knowledge graph. At this point, `János Barasits` could be a person, it could be a book titled after the person, or a photo of the person. Connecting János Barasits to other entities, such as the concept of a human being, will allow other people and their computer systems to understand that we are talking about a person here.You can do that by creating "Statements". The property "instance of" defines the class our item is a particular example or member of. In this case we would like to make a statement about our item "János Barasits" defining with the property "instance of" that he is a member of the "human" class.
 
 ![](png/wikidata-tutorial/wikidata-create-new-item-Janos-Barasits-20240204-2.png){fig-align="center"}
 
-Add a few, basic statements to your new item, for example, that János Barasits is a human, he was male, born in 1859 (with the precision of a year only) and died in 1935.
+Through the sandbox explore the different type of properties and statements. Add a few basic statement to your new item:
+- János Barasits is a human
+- his gender was male
+- he was born in 1859 (with the precision of a year only) 
+- he died in 1935
+
+It should look similar to this:
 
 ![](png/wikidata-tutorial/wikidata-create-new-item-Janos-Barasits-20240204-3.png){fig-align="center"}
 
-The four characters, `1935` can be understood as a number for most readers, but such a data point without meaning is useless. When we add the "metadata", and we connect 1935 to the definition of `date of death`, we add meaning ("semantics") to the number 1935.
+To see another example on how useful knowledge graphs can be consider the following. The four character, `1935` can be understood as a number for most readers, but such a data point without a defined meaning is useless. In a basic database you would see 1935 and know that it is a number. However, in knowledge graphs, like here on Wikidata, when we add the "metadata", and we connect 1935 to the definition of `date of death`, we add a meaning ("semantics") to the number 1935. Now, 1935 is not only a number but also a date of someone's death. 
 
-The definition of date of death is useful in a database, but in a knowledge base, we can do a lot more with this piece of information. With this information we can combine the fact that in Europe the copyright protection term of people's creation runs up to 70 years after their death. Thus, a knowledge base can infere the fact that currently János Barasits's postcards are out of copyright and they can be freely copied and distributed!
+The definition of date of death is useful in itself, but in a knowledge base, we can do even more with this piece of information. With this information we can combine the fact that in Europe the copyright protection term of people's creation runs up to 70 years after their death. Thus, a knowledge base can infere the fact that currently János Barasits's postcards are out of copyright and they can be freely copied and distributed!
 
-Here is a very basic Wikidata page for [János Barasits](https://www.wikidata.org/wiki/Q124423018). What is very important that we have a globally unique identifier, `Q124423018` that uniquely identifies him as a human. If you have a collection of postcards (digitals or analogue, vintage physical objects), connecting your own database with `Q124423018` will help you to import the knowledge of the expired copyright protection term; it will help you finding other out-of-copyright scanned copies of Barasits' postcards; it will be easier to connect to other collections that hold items from them, and so on.
+Here is a very basic Wikidata page for [János Barasits](https://www.wikidata.org/wiki/Q124423018). What is very important, is that we have a globally unique identifier, `Q124423018` that uniquely identifies him as a human. If you have a collection of postcards (digitals or analogue, vintage physical objects), connecting your own database with `Q124423018` will help you to import the knowledge of the expired copyright protection term; it will help you finding other out-of-copyright scanned copies of Barasits' postcards; it will be easier to connect to other collections that hold items from them, and so on.
 
 ### Retrieve an item from Wikidata
 
