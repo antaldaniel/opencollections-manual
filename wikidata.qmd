@@ -77,7 +77,7 @@ Remember, the significant advantage of Wikidata and other open knowledge graphs 
 
 A simple SPARQL query looks like this:
 
-```{r, eval=FALSE}
+```{r minimal-sparql-query, eval=FALSE}
 SELECT ?a ?b ?c
 WHERE
 {
@@ -91,7 +91,7 @@ Suppose we want to list all children of the baroque composer Johann Sebastian Ba
 
 Hopefully you got something like this:
 
-```{r, eval=FALSE}
+```{r child-parent-bach, eval=FALSE}
 SELECT ?child
 WHERE
 {
@@ -103,7 +103,7 @@ WHERE
 
 or this,
 
-```{r, eval=FALSE}
+```{r bach-father, eval=FALSE}
 SELECT ?child
 WHERE
 {
@@ -114,7 +114,7 @@ WHERE
 
 or this,
 
-```{r, eval=FALSE}
+```{r bach-child, eval=FALSE}
 SELECT ?child
 WHERE
 {
@@ -160,13 +160,62 @@ WHERE
 }
 ```
 
-[![Click on the image to try it out live on the Wikidata SPARQL Endpoint. The query will run if you press the ▶ sign on the endpoint in the bottom left corner.](png/wikidata-tutorial/sparql-example-bach-children-with-labels.png){fig-align="center"}](https://query.wikidata.org/#SELECT%20%3Fchild%20%3FchildLabel%0AWHERE%0A%7B%0A%20%20%3Fchild%20wdt%3AP22%20wd%3AQ1339%3B%0A%20%20%20%20%20%20%20%20%20wdt%3AP25%20wd%3AQ57487.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%22.%20%7D%0A%7D)
+[![Click on the image to try it out live on the Wikidata SPARQL Endpoint. The query will run if you press the ▶ sign on the endpoint in the bottom left corner↗.](png/wikidata-tutorial/sparql-example-bach-children-with-labels.png){fig-align="center"}](https://query.wikidata.org/#SELECT%20%3Fchild%20%3FchildLabel%0AWHERE%0A%7B%0A%20%20%3Fchild%20wdt%3AP22%20wd%3AQ1339%3B%0A%20%20%20%20%20%20%20%20%20wdt%3AP25%20wd%3AQ57487.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%22.%20%7D%0A%7D)
 
 Try running that query – you should see not only the item numbers, but also the names of the various children.
 
-| child           | childLabel                      |
-|-----------------|---------------------------------|
-| [wd:Q57225](http://www.wikidata.org/entity/Q76428)   | Johann Christoph Friedrich Bach |
-| [wd:Q76428](http://www.wikidata.org/entity/Q76428)   | Carl Philipp Emanuel Bach       |
-| …                    |                                 |
+| child                                              | childLabel                      |
+|-------------------------|-----------------------------------------------|
+| [wd:Q57225](http://www.wikidata.org/entity/Q76428) | Johann Christoph Friedrich Bach |
+| [wd:Q76428](http://www.wikidata.org/entity/Q76428) | Carl Philipp Emanuel Bach       |
+| …                                                  |                                 |
 
+### Pre-filter Wikidata
+
+When you work with OpenCollections or Wikibase, you may want to synchronize your knowledge graph with Wikidata. A straightforward way to do this is to import a part of the Wikidata knowledge graph into your instance.
+
+Imagine you would like to work with the biographical data of photographers connected to Hungary. The following query can show you who has information on Wikidata. You may decide to import this information and use it as a starting point.
+
+```{r hungary-photographers, eval=FALSE}
+# Photographers: citizens of Hungary
+
+SELECT ?item ?itemLabel  ?givenNameLabel ?lastnameLabel ?birthdate ?deathdate ?nationalityLabel ?itemDescription WHERE {
+    ?item wdt:P31 wd:Q5 .                # instance of human
+    ?item wdt:P106/wdt:P279* wd:Q33231.  # occupation,subclass of occupation photographer 
+    ?item wdt:P27 wd:Q28.                # country of citizenship is Hungary  
+    optional { ?item wdt:P735 ?lastname . }
+    optional { ?item wdt:P734 ?givenName . }
+    optional { ?item wdt:P569 ?birthdate . }
+    optional { ?item wdt:P570 ?deathdate . }
+    optional { ?item wdt:P27 ?nationality . }
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en,hu" }
+}
+
+order by ?itemLabel
+```
+
+[Try it out↗](https://query.wikidata.org/#%23%20Photographers%20who%20were%20citizens%20of%20Hungary%0A%0ASELECT%20%3Fitem%20%3FitemLabel%20%20%3FgivenNameLabel%20%3FlastnameLabel%20%3Fbirthdate%20%3Fdeathdate%20%3FnationalityLabel%20%3FitemDescription%20WHERE%20%7B%0A%20%20%20%20%3Fitem%20wdt%3AP31%20wd%3AQ5%20.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20instance%20of%20human%0A%20%20%20%20%3Fitem%20wdt%3AP106%2Fwdt%3AP279%2a%20wd%3AQ33231.%20%20%23%20occupation%20or%20subclass%20of%20occupation%20that%20is%20photographer%20%0A%20%20%20%20%23%3Fitem%20wdt%3AP27%20wd%3AQ28.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20country%20of%20citizenship%20is%20Hungary%20%20%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP735%20%3Flastname%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP734%20%3FgivenName%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP569%20%3Fbirthdate%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP570%20%3Fdeathdate%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP27%20%3Fnationality%20.%20%7D%0A%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%2Chu%22%20%7D%0A%7D%0A%0Aorder%20by%20%3FitemLabel). Beware, that Wikidata is huge, and query may take minutes to run; you often get an error message that your query run out of resources. Then try again.
+
+Or similarly, with composers connected to Slovakia:
+
+```{r, eval=FALSE}
+# Composers: citizens of Slovakia
+
+SELECT ?item ?itemLabel  ?givenNameLabel ?lastnameLabel ?birthdate ?deathdate ?nationalityLabel ?itemDescription WHERE {
+    ?item wdt:P31 wd:Q5 .                # instance of human
+    ?item wdt:P106/wdt:P279* wd:Q36834.  # occupation or subclass of occupation that is composer
+    ?item wdt:P27 wd:Q214.               # country of citizenship is Slovakia  
+    optional { ?item wdt:P735 ?lastname . }
+    optional { ?item wdt:P734 ?givenName . }
+    optional { ?item wdt:P569 ?birthdate . }
+    optional { ?item wdt:P570 ?deathdate . }
+    optional { ?item wdt:P27 ?nationality . }
+
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "en,sk,de,hu" }
+}
+
+order by ?itemLabel
+```
+
+[Try it out↗](https://query.wikidata.org/#%23%20Composers%3A%20citizens%20of%20Slovakia%0A%0ASELECT%20%3Fitem%20%3FitemLabel%20%20%3FgivenNameLabel%20%3FlastnameLabel%20%3Fbirthdate%20%3Fdeathdate%20%3FnationalityLabel%20%3FitemDescription%20WHERE%20%7B%0A%20%20%20%20%3Fitem%20wdt%3AP31%20wd%3AQ5%20.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20instance%20of%20human%0A%20%20%20%20%3Fitem%20wdt%3AP106%2Fwdt%3AP279%2a%20wd%3AQ36834.%20%20%23%20occupation%20or%20subclass%20of%20occupation%20that%20is%20composer%0A%20%20%20%20%3Fitem%20wdt%3AP27%20wd%3AQ214.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20country%20of%20citizenship%20is%20Slovakia%20%20%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP735%20%3Flastname%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP734%20%3FgivenName%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP569%20%3Fbirthdate%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP570%20%3Fdeathdate%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP27%20%3Fnationality%20.%20%7D%0A%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%2Csk%2Cde%2Chu%22%20%7D%0A%7D%0A%0Aorder%20by%20%3FitemLabel)
