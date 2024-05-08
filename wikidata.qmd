@@ -1,35 +1,39 @@
 # Wikidata and Other Open Knowledge Graphs {#wikidata-open-graph}
 
-A knowledge graph represents a network of real-world entities—such as objects, events, situations or concepts—and illustrates the relationship between them.
+A knowledge graph represents a network of real-world entities—such as objects, events, situations or concepts—and illustrates the relationship among them.
 
-Most companies and institutions work with a variety of information systems that are not well integrated. Information is located in different places, inside and outside the organisation, and it cannot be accessed as a whole. In the last decades, it has become clear that unifying these information sources into central databases or data lakes is rarely a good solution. Creating such centralised data stores is very costly and requires a lot of organisation, and by the time the centralisation is completed and finished, it usually turns out that the organisation needs different knowledge and a different organisation of the data.
+Most companies and institutions work with a variety of information systems that are not well integrated. Information is located in different places, inside and outside the organisation, and it cannot be simply accessed as a whole. In the last decades, it has become clear that unifying these information sources into central databases or data lakes is rarely a good solution. Creating such centralised data stores is very costly and requires a lot of organisation. By the time centralisation is completed and finished, it often becomes apparent that both the knowledge requirements and the methodology for organising data have changed. 
 
 Here's where knowledge graphs come in. They have the unique ability to automatically integrate and present a unified view of diverse and initially unrelated data sources. For instance, in an enterprise, they can power initiatives like Customer 360. Moreover, knowledge graphs are an ideal tool for implementing the Human-in-the-Loop (HITL) design principle in AI deployment. They offer a comprehensive view of the knowledge base that algorithms rely on, enhancing oversight and control.
 
 ## Connect to Wikidata {#sec-wikidata}
 
-Wikidata is a collaboratively edited multilingual knowledge graph hosted by the Wikimedia Foundation. It is a common source of open data that Wikimedia projects such as Wikipedia, and anyone else, is able to use under the CC0 public domain license. As of early 2023, Wikidata had 1.54 billion item statements, or small, verifiable, scientific statements about our world.
+Wikidata is a collaboratively edited multilingual knowledge graph hosted by the Wikimedia Foundation. It is a common source of open data that Wikimedia projects, such as Wikipedia, and anyone else, is able to use under the CC0 public domain license. As of early 2023, Wikidata had 1.54 billion item statements, or small, verifiable, scientific statements about our world.
 
 Wikidata is a [document-oriented database](https://en.wikipedia.org/wiki/Document-oriented_database "Document-oriented database"), focusing on items, which represent any kind of topic, concept, or object.
 
-![Wikidata is an document-oriented database. This document connect a lot of knowledge about the late English writer and humorist, Douglas Adams.](png/wikidata/File_Datamodel_in_Wikidata.png){fig-align="center"}
+![Wikidata is a document-oriented database. This document connects a lot of knowledge about the late English writer and humorist, Douglas Adams.](png/wikidata/File_Datamodel_in_Wikidata.png){fig-align="center"}
 
-We say that the knowledge graphs is connecting things in the real world, because its nodes, in Wikidata, the conceptual document, represent people, objects, and their relationships as they are out there, and not as they are represented by an "ordinary" database. The [Q42](https://www.wikidata.org/wiki/Q42) document about the late English writer and humorist Douglas Adams connects facts about his life (birthday, place of birth, time of death), and connects him to his books, their translations, identifiers to look up these books, and so on.
+Knowledge graphs connect things in the real world, because their nodes - in Wikidata, the conceptual document -, represent people, objects, and their relationships as they are out there, and not as they are represented by an "ordinary" database <!--- how it is compared to Wikidata an ordinary database? --->. The [Q42](https://www.wikidata.org/wiki/Q42) document about the late English writer and humorist Douglas Adams connects facts about his life (birthday, place of birth, time of death), and connects him to his books, their translations, identifiers to look up these books, and so on.
 
-Wikidata is a knowledge graph, so it is connecting the Q42 concept of Douglas Adams, in honour of the most quoted humorous episode from his world-famous *Hitchhiker's Guide to the Galaxy*, to the [Q25169](https://www.wikidata.org/wiki/Q25169) concept, which is a similarly structured document about the five books of his series which is further connected in the graph to its Serbian translation ([Q117279887](https://www.wikidata.org/wiki/Q117279887)).
+Wikidata is a knowledge graph: it connects the concept of Douglas Adams ([Q42](https://www.wikidata.org/wiki/Q42)), to the concept of his most quoted humorous episode from his world-famous *Hitchhiker's Guide to the Galaxy* ([Q25169](https://www.wikidata.org/wiki/Q25169)) , which is a similarly structured document about the five books of his series, which  document is further connected in the graph to the concept of the books' Serbian translation ([Q117279887](https://www.wikidata.org/wiki/Q117279887)). <!--- this item is missing its label and description --->
 
 Wikidata is not a database but a very useful system for filling up and keeping many databases in sync worldwide. If your own institutional or private library has a catalogue, you may have a copy of the *Hitchhiker's Guide to the Galaxy*; in this case, your catalogue is likely to have a local, private identifier to your copy of the book. Imagine your little private catalogue, where you, like the editors of Wikidata, reserved the #42 entry to Douglas Adams' book.
 
 | ID    | Author                                                         | Title                                                                               |
-|-------------------|-------------------|----------------------------------|
+|-------------------|-------------------|---------------------------------|
 | My-01 | Martell, Yann ([Q13914](https://www.wikidata.org/wiki/Q13914)) | *Life of Pi* ([Q374204](https://www.wikidata.org/wiki/Q374204))                     |
 | ...   | ...                                                            | ...                                                                                 |
 | My-42 | Adams, Douglas ([Q42](https://www.wikidata.org/wiki/Q42))      | *Hitchhiker's Guide to the Galaxy (*[Q25169](https://www.wikidata.org/wiki/Q25169)) |
 | ...   | ...                                                            | ...                                                                                 |
 
-If you can connect your My-42 entry with [Q25169](https://www.wikidata.org/wiki/Q25169) on Wikidata, you can import a wealth of information into your private catalogue. And if you add [Q42](https://www.wikidata.org/wiki/Q42) to the author Douglas Adams, you can import a lot of knowledge, for example, information about his other works or the end of the copyright protection term of these books, after which they will become public domain and free for copying and distribution.
+If you can connect your **My-42** entry of *Hitchhiker's Guide to the Galaxy* with the books' Wikidata entry [Q25169](https://www.wikidata.org/wiki/Q25169), you can import a wealth of information into your private catalogue. Furthermore, if you connect the Wikidata item [Q42](https://www.wikidata.org/wiki/Q42) of the author Douglas Adams to your catalogue's own entry about the author, you can import a lot of additional knowledge, for example, information about his other works, or the end term of these books' copyright protection, after which they will become public domain and they will be free to copy and distribute.
 
-In Wikidata, each item has a unique, [persistent identifier](https://en.wikipedia.org/wiki/Persistent_identifier), a positive integer prefixed with the upper-case letter Q, known as a "QID".Global information systems like to anchor authoritative information about people, books, musical works, and other important things to persistent identifiers.For example, in the Portugese National Library, Douglas Adams' persistent identifier is [68537](http://id.bnportugal.gov.pt/aut/catbnp/68537), whereas in VIAF, the authority file that keeps information synchronised across national libraries it is [113230702](https://viaf.org/viaf/113230702/). Wikidata is particularly useful because it serves as an "identity broker", and this linking information can be retrieved directly from Douglas Adams' [Q42](https://www.wikidata.org/wiki/Q42) page.
+In Wikidata, each item has a unique, [persistent identifier](https://en.wikipedia.org/wiki/Persistent_identifier), a positive integer number, prefixed with the upper-case letter Q, known as a "QID".Global information systems like to anchor authoritative information about people, books, musical works, and other important things to persistent identifiers. For example, in VIAF, the authority file that keeps information synchronised across national libraries, Douglas Adams' persistent identifier is [113230702](https://viaf.org/viaf/113230702/), whereas in the Portugese National Library it is [68537](http://id.bnportugal.gov.pt/aut/catbnp/68537). Wikidata is particularly useful because it serves as an "identity broker", and this linking information can be retrieved directly from Douglas Adams' [Q42](https://www.wikidata.org/wiki/Q42) page.
+
+![](png/wikidata-tutorial/Douglas-Adams_VIAF-identifier.png){fig-align="center"}
+
+![](png/wikidata-tutorial/Douglas-Adams_portugal-national-library-identifier.png){fig-align="center"}
 
 ### Getting started with Wikidata {#sec-getting-started-wikidata}
 
@@ -37,31 +41,54 @@ In Wikidata, each item has a unique, [persistent identifier](https://en.wikipedi
 
 Mr and Mrs Barasits, a.k.a. `János Barasits` (1859-1935) and his wife, `Barasits, Jánosné`, born Pichler, Kornélia, were prominent postcard producers and publishers at the beginning of the 20th century. They produced plenty of beautiful postcards.
 
-In the 1920s and 1930s, the authors' right (\~copyright) protection of photographs and postcards was relatively short, only 15 years, so their postcards went into the public domain in terms of copying long ago. There are plenty of their beautiful works is out there on the internet, but it is very hard to put them into a collection, because most databases know next to nothing about the identities of these creators.
+In the 1920s and 1930s, the authors' right (\~copyright) protection of photographs and postcards was relatively short, only 15 years, so their postcards went into the public domain in terms of copying long ago. Plenty of their beautiful works is out there on the internet, but it is very hard to put them into a collection, because most databases know next to nothing about the identities of these creators and their creations.
 
-Unfortunately, I did not find their name in the most commonly used authority controls, i.e., VIAF or ISNI. Writing to VIAF is only possible via member institutions, and ISNI costs money. As a temporary solution, I created a Wikidata QID for János Barakovits until somebody registers his name into VIAF. Now, it will get easier and easier to find further postcards from them, or other information about them all over the world!
+Unfortunately, you cannot find their name in the most commonly used authority controls, i.e., VIAF or ISNI. Writing to VIAF is only possible via member institutions, and ISNI costs money. A temporary solution is to create a Wikidata QID for János Barasits ([Q124423018](https://www.wikidata.org/wiki/Q124423018)), until somebody registers his name into VIAF. With this entry, it will be easier to find further postcards from them, or other information about them all over the world!
 
-Writing in Wikidata is free for all and subject to community review. If you read this tutorial, please pledge to record new persons (or other items) into Wikidata if your knowledge is solid. You can verify the information with research.
+Writing in Wikidata is free for all and subject to community review. If you read this tutorial, please pledge to record new persons (or other items) into Wikidata, only if your knowledge is solid. You can verify the information needed through proper research.
 
 #### Create a Wikidata Item
 
-In this tutorial, you learn how to create a new item on Wikidata. Countless web and AI applications use Wikidata; millions of people use it, so they do not experiment with it in the live system. Wikidata has a [Sandbox](https://www.wikidata.org/wiki/Wikidata:Sandbox) for practising. We recommend using it as a first step. If you work with Wikibase, particularly with Reprex's OpenCollections, you will have access to a similar sandbox. It will be prefilled with data, concepts, and properties suitable for your needs, often going beyond what you would find in the public Wikidata.
+In this tutorial, you can learn how to create a new item on Wikidata. Countless web and AI applications and millions of people use Wikidata, so in the beginning it is recommended to not experiment with it in the live system. Wikidata has a [Sandbox](https://www.wikidata.org/wiki/Wikidata:Sandbox) for practising. We recommend using it as a first step. If you work with Wikibase, particularly with Reprex's OpenCollections, you will have access to a similar sandbox. It will be prefilled with data, concepts, and properties suitable for your learning needs, often going beyond what you would find in the public Wikidata.
+
+Let's see how you can create your own János Barasits item.
+<!---Shoudl they do them through the general Sandbox or the Reprex one? --->
+
+<!--- Define how to access the page for creating a new item?---->
+
+You can see how creating a new item looks like in the system:
 
 ![](png/wikidata-tutorial/wikidata-create-new-item-20240204.png){fig-align="center"}
 
-After filling out the most important information, the "Label" of the new information entity and its brief description (in this case, János Barasits in English, and Barasits János in Hungarian, following the Eastern name order) we can weave this information entry the knowledge graphs. At a start, `János Barasits` could be a person, it could be a book titled after the person, or a photo of the person. Connecting János Barasits to other entities, such as the concept a human being, will allow other people and their computer systems to understand that we are talking about a person here.
+The first step in creating an item (in this case an item for János Barasits) is providing the two most important information for an item, which is the "Label" and the "Description".
+
+The "Label" is the name of the item (in our case the label of the item will be "János Barasits"). 
+
+The "Description" contains a short explanation of our item (in our case the description for the item will be "Hungarian postcard maker and publisher).
+
+"Aliases" are alternative names for the item.  
+
+<!--- A description regarding the different language inputs for the same item is needed (e.g., János Barasits in English, and Barasits János in Hungarian, following the Eastern name order) ---->
+
+After creating the item with the basic information of "Label" and "Description" we can weave this information entry into the knowledge graph. At this point, `János Barasits` could be a person, it could be a book titled after the person, or a photo of the person. Connecting János Barasits to other entities, such as the concept of a human being, will allow other people and their computer systems to understand that we are talking about a person here.You can do that by creating "Statements". The property "instance of" defines the class our item is a particular example or member of. In this case we would like to make a statement about our item "János Barasits" defining with the property "instance of" that he is a member of the "human" class.
 
 ![](png/wikidata-tutorial/wikidata-create-new-item-Janos-Barasits-20240204-2.png){fig-align="center"}
 
-Add a few, basic statements to your new item, for example, the János Barasits is a human, he was male, born in 1859 (with the precision of a year only) and died in 1935.
+Through the sandbox explore the different type of properties and statements. Add a few basic statement to your new item:
+- János Barasits is a human
+- his gender was male
+- he was born in 1859 (with the precision of a year only) 
+- he died in 1935
+
+It should look similar to this:
 
 ![](png/wikidata-tutorial/wikidata-create-new-item-Janos-Barasits-20240204-3.png){fig-align="center"}
 
-The four characters, `1935` can be understood as a number for most readers, but such a data point without meaning is useless. When we add the "metadata", and we connect 1935 to the definition of `date of death`, we add meaning ("semantics") to the number 1935.
+To see another example on how useful knowledge graphs can be consider the following. The four character, `1935` can be understood as a number for most readers, but such a data point without a defined meaning is useless. In a basic database you would see 1935 and know that it is a number. However, in knowledge graphs, like here on Wikidata, when we add the "metadata", and we connect 1935 to the definition of `date of death`, we add a meaning ("semantics") to the number 1935. Now, 1935 is not only a number but also a date of someone's death. 
 
-The definition of date of death is useful in a database, but in a knowledge base, we can do a lot more with this piece of information. We can add the knowledge of the fact that in Europe the copyright protection term of a people's creation runs up to 70 years after their death. Such a knowledge base can infere the fact that János Barasits's postcards are out of copyright and they can be freely copied and distributed!
+The definition of date of death is useful in itself, but in a knowledge base, we can do even more with this piece of information. With this information we can combine the fact that in Europe the copyright protection term of people's creation runs up to 70 years after their death. Thus, a knowledge base can infere the fact that currently János Barasits's postcards are out of copyright and they can be freely copied and distributed!
 
-Here is a very basic Wikidata page for [János Barasits](https://www.wikidata.org/wiki/Q124423018). What is very important that we have a globally unique identifier, `Q124423018` that uniquely identifies him as a human. If you have a collection of postcards (digitals or analogue, vintage physical objects), connecting your own database with `Q124423018` will help you to import the knowledge of the expired copyright protection term; it will help you finding other out-of-copyright scanned copies of Barasits' postcards; connect to other collections that hold items from them, and so on.
+Here is a very basic Wikidata page for [János Barasits](https://www.wikidata.org/wiki/Q124423018). What is very important, is that we have a globally unique identifier, `Q124423018` that uniquely identifies him as a human. If you have a collection of postcards (digitals or analogue, vintage physical objects), connecting your own database with `Q124423018` will help you to import the knowledge of the expired copyright protection term; it will help you finding other out-of-copyright scanned copies of Barasits' postcards; it will be easier to connect to other collections that hold items from them, and so on.
 
 ### Retrieve an item from Wikidata
 
@@ -219,3 +246,4 @@ order by ?itemLabel
 ```
 
 [Try it out↗](https://query.wikidata.org/#%23%20Composers%3A%20citizens%20of%20Slovakia%0A%0ASELECT%20%3Fitem%20%3FitemLabel%20%20%3FgivenNameLabel%20%3FlastnameLabel%20%3Fbirthdate%20%3Fdeathdate%20%3FnationalityLabel%20%3FitemDescription%20WHERE%20%7B%0A%20%20%20%20%3Fitem%20wdt%3AP31%20wd%3AQ5%20.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20instance%20of%20human%0A%20%20%20%20%3Fitem%20wdt%3AP106%2Fwdt%3AP279%2a%20wd%3AQ36834.%20%20%23%20occupation%20or%20subclass%20of%20occupation%20that%20is%20composer%0A%20%20%20%20%3Fitem%20wdt%3AP27%20wd%3AQ214.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20country%20of%20citizenship%20is%20Slovakia%20%20%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP735%20%3Flastname%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP734%20%3FgivenName%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP569%20%3Fbirthdate%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP570%20%3Fdeathdate%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP27%20%3Fnationality%20.%20%7D%0A%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%2Csk%2Cde%2Chu%22%20%7D%0A%7D%0A%0Aorder%20by%20%3FitemLabel)
+
