@@ -1,6 +1,7 @@
 # Final output
 
-_book
+_book/
+_wikidata_files/
 
 # History files
 .Rhistory

@@ -10,4 +10,68 @@ Private enterprise knowledge graphs are usually made for precisely this purpos
 
 The [data model](https://en.wikipedia.org/wiki/Data_model "Data model") for Wikibase links consists of "entities" which include individual "items", labels or identifier to describe them (potentially in multiple languages), and semantic statements that attribute "properties" to the item. These properties may either be other items within the database, or textual information.
 
+::: callout-note
+Wikidata itself is a gigantic Wikibase instance. Their user interface is similar, but depending on what the administrator of your Wikibase instance allows you to do, you are likely to have more freedom to edit certain elements, like properties, than on Wikidata. Wikidata must protect the integrity of one of the world's largest knowledge systems, and does not allow editing access to certain elements.
+:::
+
 Wikibase has a [JavaScript](https://en.wikipedia.org/wiki/JavaScript "JavaScript")-based user interface, and provides exports of all or subsets of data in many formats. Projects using it include Wikidata, [Wikimedia Commons](https://en.wikipedia.org/wiki/Wikimedia_Commons "Wikimedia Commons"),^[\[5\]](https://en.wikipedia.org/wiki/Wikibase#cite_note-5)^ [Europeana](https://en.wikipedia.org/wiki/Europeana "Europeana")'s [Eagle Project](https://wiki.eagle-network.eu/wiki/Main_Page), [Lingua Libre](https://en.wikipedia.org/wiki/Lingua_Libre "Lingua Libre"),^[\[6\]](https://en.wikipedia.org/wiki/Wikibase#cite_note-6)^ [FactGrid](https://en.wikipedia.org/wiki/FactGrid "FactGrid"), and the [OpenStreetMap](https://en.wikipedia.org/wiki/OpenStreetMap "OpenStreetMap") wiki.^[\[7\]](https://en.wikipedia.org/wiki/Wikibase#cite_note-7)^
+
+## Populating a Wikibase
+
+Wikibase is an open knowledge base or universe when installed. We start populating it with some **items**. In the Wikidata data model, items are similar to things, and classes are also defined as items.
+
+### Creating entities or items
+
+![Special pages ➔ Wikibase ➔ Create a new item](png/wikibase/edit/create_new_item-1.png){fig-align="center"}
+
+![Identical to Wikidata: you must fill out at least the main Label of the item, and a description. We use English (en) as the master language for international cooperations.](png/wikibase/edit/create_new_item-2.png)
+
+### Creating properties
+
+Properties are describing relationships between items. You can create them similary to items, but navigating to Special pages ➔ Wikibase ➔ Create a new property (*not item*). Properties are far more important than items, because they define the rules of the knowledge base. The type of relationships will allow our artificial intelligence applications to make deductive or inductive new discoveries and expand our knowledge.
+
+In our introduction to Wikidata (@sec-wikidata), you found exactly the same graphical interface to work with items as on Wikibase, but on the public Wikidata instance of Wikibase, you cannot find an add new property button.
+
+::: callout-note
+On Wikidata, you are not allowed to create new properties: they are created after a consultation with the Wikidata community. The addition of properties determines who the knowledge graph will work in the future.
+:::
+
+Needless to say that when you work with a Wikibase instance, you should be also very careful with properties. While changing items usually requires domain-specific knowledge, which you likely possess if you work on an instance, the property sometimes requies knowledge about the information or data model of the instance.
+
+Not always: some properties are self-explanatory and very easy to create and maintain. For example, the adition of identifiers to other data systems is straightforward. Adding properties that define family relationships (which have their logical rules) requires more careful planning.
+
+![Properties have an extra field that you must fill out: the type of expected data type.](png/wikibase/edit/create_new_property-2.png)
+
+Properties have expected data types:
+
+-   Use a URL for connecting to other ontologies, data models (and add persistent URIs)
+
+-   Use *item* for entities that you want to weave together in the knowledge graph.
+
+-   Use literal values like *string* that for data that will be entered, but not will be placed on a graph.
+
+For example, if you add *Mai Manó* as a string, it will be recorded, but you cannot connected with the works of Mai Manó, the photographer. If you create an entity (item) for `Mai Manó`, you will be able to link this entity to the works of Mai Manó, to his children, to his house.
+
+### Adding statements
+
+Now we are ready to start to build an intelligent knowledge base. We connect the **person** item in our Wikibase via the **equivalent class** property to the [E21_Person](https://www.cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E21) definition of the CIDOC CRM. This will allow us to export our knowledge base to a standard museological graph.
+
+![](png/wikibase/edit/add_new_statement-1.png){fig-align="center"}
+
+In this case, the `equivalent class` property only accepts URLs. The URI of the CIDOC definition of `E_21 Person` takes the format of a URL so you can enter it here, but a simple string like E21 would not be allowed.
+
+::: callout-note
+Adding statements is exactly the same procedure on Wikibase as on Wikidata (which is a gigantic Wikibase instance itself.) The only difference is that you can only use properties (or items) that exist on the Wikibase instance or Wikidata. Because Wikibase instances usually should have a different knowledge coverage, some properties and items are not available on others.
+:::
+
+### Synchronize with Wikidata
+
+In our case, we want to be able to pre-fill data from Wikidata, and then, eventually suggest changes in the public Wikidata. This requires adding statements about Wikidata equivalent properties and items when applicable.
+
+![We created a special property, equivalent Wikidata property, to link the P69 property definition in our Wikibase instance to Wikidata's equivalent P1709. This will allow us synchronisation among the public Wikidata and our Wikibase.](png/wikibase/edit/data_fabric_property-1.png){fig-align="center"}
+
+![For items (and classes are defined as items in Wikibase, just like instances of persons), we created a special property equivalent Wikidata item to keep the Person entity (see above its creation) synchronized with Wikidata's Q5 item.](png/wikibase/edit/data_fabric_entity-2.png){fig-align="center"}
+
+Let us put this all together and create a bibliographic entry. Here we will use a slight deviation from CIDOC, and use the [instance of](https://www.wikidata.org/wiki/Property:P31) property (equivalently defined in our Wikibase with Wikidata) for class inheritance. When we create a new entity (Manó Mai), we will define this entity as an instance of a `person`. Persons have birth date, family members, they can create new creative works. In ontologies and in RDF we call these abstract concepts classes.
+
+![Putting it all together: creating a first bibliographic entry of a person with clear linking to Wikidata.](png/wikibase/edit/create_new_item_mano-mai.png) We immediately record that our entries about Manó Mai, the great photographer, should be talking about the same person as Wikidata's [Q1163414](https://www.wikidata.org/wiki/Q1163414) document item.
