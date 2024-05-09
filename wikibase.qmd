@@ -6,6 +6,8 @@ Private enterprise knowledge graphs are usually made for precisely this purpos
 
 ## Wikibase
 
+Wikibase is the software that runs Wikidata. Wikidata evolved into a central hub on the web of data and one of the largest existing knowledge graphs, with more than 100 million items maintained by a community effort. Since its launch, an impressive 1.3 billion edits have been made by 20 000+ active users. Today, Wikidata contains information about a wide range of topics such as people, taxons, countries, chemical compounds, astronomical objects, and more. This information is linked to other key data repositories maintained by institutions such as Eurostat, the German National Library, the BBC, and many others, using 6 000+ external identifiers. The knowledge from Wikidata is used by search engines such as Google Search, and smart assistants including Siri, Alexa, and Google Assistant in order to provide more structured results. While one of the main success factors of Wikidata is its community of editors, the software behind it also plays an important role. It enables the numerous editors to modify a substantial data repository in a scalable, multilingual, collaborative effort.
+
 **Wikibase** is a softver system that help the collaborative management of knowledge in a central repository. It was originally developed for the management of [Wikidata](https://en.wikipedia.org/wiki/Wikidata "Wikidata"), but it is available now for the creation of private, or public-private partnership knowledge graphs. Its primary components are the *Wikibase Repository*, an extension for storing and managing data, and the *Wikibase Client* which allows for the retrieval and embedding of [structured data](https://en.wikipedia.org/wiki/Structured_data "Structured data") from a Wikibase repository. It was developed by [Wikimedia Deutschland](https://en.wikipedia.org/wiki/Wikimedia_Deutschland "Wikimedia Deutschland").
 
 The [data model](https://en.wikipedia.org/wiki/Data_model "Data model") for Wikibase links consists of "entities" which include individual "items", labels or identifier to describe them (potentially in multiple languages), and semantic statements that attribute "properties" to the item. These properties may either be other items within the database, or textual information.
@@ -75,3 +77,45 @@ In our case, we want to be able to pre-fill data from Wikidata, and then, eventu
 Let us put this all together and create a bibliographic entry. Here we will use a slight deviation from CIDOC, and use the [instance of](https://www.wikidata.org/wiki/Property:P31) property (equivalently defined in our Wikibase with Wikidata) for class inheritance. When we create a new entity (Manó Mai), we will define this entity as an instance of a `person`. Persons have birth date, family members, they can create new creative works. In ontologies and in RDF we call these abstract concepts classes.
 
 ![Putting it all together: creating a first bibliographic entry of a person with clear linking to Wikidata.](png/wikibase/edit/create_new_item_mano-mai.png) We immediately record that our entries about Manó Mai, the great photographer, should be talking about the same person as Wikidata's [Q1163414](https://www.wikidata.org/wiki/Q1163414) document item.
+
+## The EU knowledge graph
+
+[![sad](png/wikibase/EU-academy-course/EU-knowledge-graph.png){fig-align="center"}](https://linkedopendata.eu/wiki/The_EU_Knowledge_Graph)
+
+Because of the success of Wikidata, many projects and institutions are looking into Wikibase, the software that runs Wikidata. They aim to reuse the software to construct institutional or cross-institutional, domain-specific knowledge graphs. Two main factors make Wikibase attractive: 
+
+\- \[x\] the fact that it is a well-maintained open-source software, 
+
+\- \[x\] There is a rich ecosystem of users and tools around it. 
+
+\- \[x\] Wikimedia Deutschland (WMDE), the maintainer of Wikibase, has made considerable investments in optimising the software's use outside of Wikidata or other Wikimedia projects. 
+
+\- \[x\] The EU Knowledge graph runs on Wikibase.
+
+\- \[x\] The EU Academy and the EU Open Data Portal actively disseminate good practices and know-how on its implementation in cross-institutional data-sharing programs.
+
+Our OpenCollections instances are prepared with a similar mindset to the creation of the EU Knowledge Graph. We pre-populate a Wikibase instance from Wikidata about many institutional, geographical or biographical facts of the domain [@diefenbach_wikibase_2021], or with elements of the Wikidata data model and its compatibility classes with other ontologies.
+
+## EU Academy Course on Wikibase
+
+[![The EU Academy course on using Wikibase and Semantic MediaWiki](png/wikibase/EU-academy-course/eu_academy_course.png)](https://academy.europa.eu/courses/wikibase-and-semantic-mediawiki-for-data-driven-semantics)
+
+**Target audience**
+
+Policymakers, public administrators, data maintainers, IT professionals.
+
+**Learning objectives**
+
+-   Pros and cons of using Wikibase/SMW for your dataspace
+
+-   Lessons learnt from projects already using Wikibase/SMW instances
+
+-   Practical know-how about setting up a new Wikibase/SMW from scratch
+
+-   What should be on Wikidata vs in a local Wikibase/SMW
+
+-   Comparison between Wikibase and SMW
+
+**Offered by**
+
+This content is offered by the European Commission. The European Commission is the European Union's politically independent executive arm. It is alone responsible for drawing up proposals for new European legislation, and it implements the decisions of the European Parliament and the Council of the European Union.
