@@ -1,6 +1,5 @@
 # Introduction {.unnumbered}
 
-
 Reprex's new OpenCollections system wants to help small and large enterprises work with big data without huge investments into data infrastructure. OpenCollections is a collaborative tool that enables owners of small, local databases to remain competitive in training AI in the age of big data. It helps to fill your databases with up-to-date information, find and correct errors in your databases, and connect your database entries to new information as you need them, without further IT and data investments.
 
 OpenCollections aims to link various open, public, and private databases and let the knowledge flow among them. OpenCollections is not a database system but a knowledge system that helps to fill up databases with the latest information, find errors in private databases, or support the human-in-the-loop process of overseeing what AI systems are doing on your behalf or perhaps against you.
