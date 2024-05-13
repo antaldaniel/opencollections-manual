@@ -21,6 +21,7 @@ Wikidata is a knowledge graph: it connects the concept of Douglas Adams ([Q42](h
 Wikidata is not a database but a very useful system for filling up and keeping many databases in sync worldwide. If your own institutional or private library has a catalogue, you may have a copy of the *Hitchhiker's Guide to the Galaxy*; in this case, your catalogue is likely to have a local, private identifier to your copy of the book. Imagine your little private catalogue, where you, like the editors of Wikidata, reserved the #42 entry to Douglas Adams' book.
 
 | ID    | Author                                                         | Title                                                                               |
+
 |-------|----------------------------------------------------------------|-------------------------------------------------------------------------------------|
 | My-01 | Martell, Yann ([Q13914](https://www.wikidata.org/wiki/Q13914)) | *Life of Pi* ([Q374204](https://www.wikidata.org/wiki/Q374204))                     |
 | ...   | ...                                                            | ...                                                                                 |
@@ -186,7 +187,7 @@ WHERE
 
 Try running that query – you should see not only the item numbers, but also the names of the various children.
 
-| child                                              | childLabel                      |
+| child                                              | childLabel                 
 |----------------------------------------------------|---------------------------------|
 | [wd:Q57225](http://www.wikidata.org/entity/Q76428) | Johann Christoph Friedrich Bach |
 | [wd:Q76428](http://www.wikidata.org/entity/Q76428) | Carl Philipp Emanuel Bach       |
@@ -195,6 +196,69 @@ Try running that query – you should see not only the item numbers, but also th
 ### Pre-filter Wikidata
 
 When you work with OpenCollections or Wikibase, you may want to synchronize your knowledge graph with Wikidata. A straightforward way to do this is to import a part of the Wikidata knowledge graph into your instance.
+
+Imagine you would like to copy the definition of a human, Béla Bartók, to your Wikibase instances. The following querry
+
+```{r copy-qid, eval=FALSE}
+SELECT DISTINCT ?itemLabel ?itemLabelLang ?itemDescription ?itemDescriptionLang ?aliases ?aliasesLang WHERE {
+  wd:Q83326 rdfs:label ?itemLabel ;
+            schema:description ?itemDescription .
+  OPTIONAL {
+    wd:Q83326 skos:altLabel ?aliases .
+    BIND(LANG(?aliases) AS ?aliasesLang)
+  }
+  BIND(LANG(?itemLabel) AS ?itemLabelLang)
+  BIND(LANG(?itemDescription) AS ?itemDescriptionLang)
+  FILTER(?itemLabelLang IN ("en", "de", "hu", "sk", "lt", "bg"))
+  FILTER(?itemDescriptionLang IN ("en", "de", "hu", "sk", "lt", "bg"))
+  FILTER(?aliasesLang IN ("en", "de", "hu", "sk", "lt", "bg"))
+}
+```
+
+[Try it out↗](https://query.wikidata.org/#SELECT%20DISTINCT%20%3FitemLabel%20%3FitemLabelLang%20%3FitemDescription%20%3FitemDescriptionLang%20%3Faliases%20%3FaliasesLang%20WHERE%20%7B%0A%20%20wd%3AQ83326%20rdfs%3Alabel%20%3FitemLabel%20%3B%0A%20%20%20%20%20%20%20%20%20%20%20%20schema%3Adescription%20%3FitemDescription%20.%0A%20%20OPTIONAL%20%7B%0A%20%20%20%20wd%3AQ83326%20skos%3AaltLabel%20%3Faliases%20.%0A%20%20%20%20BIND%28LANG%28%3Faliases%29%20AS%20%3FaliasesLang%29%0A%20%20%7D%0A%20%20BIND%28LANG%28%3FitemLabel%29%20AS%20%3FitemLabelLang%29%0A%20%20BIND%28LANG%28%3FitemDescription%29%20AS%20%3FitemDescriptionLang%29%0A%20%20FILTER%28%3FitemLabelLang%20IN%20%28%22en%22%2C%20%22de%22%2C%20%22hu%22%2C%20%22sk%22%2C%20%22lt%22%2C%20%22bg%22%29%29%0A%20%20FILTER%28%3FitemDescriptionLang%20IN%20%28%22en%22%2C%20%22de%22%2C%20%22hu%22%2C%20%22sk%22%2C%20%22lt%22%2C%20%22bg%22%29%29%0A%20%20FILTER%28%3FaliasesLang%20IN%20%28%22en%22%2C%20%22de%22%2C%20%22hu%22%2C%20%22sk%22%2C%20%22lt%22%2C%20%22bg%22%29%29%0A%7D)
+
+-  [x] You can modify the querry. In Line 3, the `wd:Q83326` identifies the QID for Béla Bartók. Try it out with `wd:``28104185`!
+
+-  [x] We asked the labelling in six languages. You can use `IN ("en", "de")` or even `IN ("de")` if you want to reduce the number of languages or change the language codes.
+
+
+You would like to copy property definitions to your Wikibase instance. The following code will provide you the necessary information (without additional statements) about the property `wd:P31`--a very important property for data modeling.
+
+```{r property-heading, eval=FALSE}
+SELECT ?property ?propertyLabel ?dataType ?propertyDescription ?lang ?alias WHERE {
+  VALUES ?property { wd:P31 }  # Replace these IDs with the property IDs you are interested in
+  ?property a wikibase:Property .
+  ?property wikibase:propertyType ?dataType .
+
+  # Fetch labels in the specified languages
+  ?property rdfs:label ?propertyLabel .
+  BIND(LANG(?propertyLabel) AS ?lang)
+  FILTER(?lang IN ("en", "fr", "sk", "hu", "bg", "lt"))  # Replace these your languages
+  BIND(IF(?lang = "en", 1, 2) AS ?labelRank)
+
+  # Fetch descriptions in the specified languages
+  OPTIONAL {
+    ?property schema:description ?propertyDescription .
+    FILTER(LANG(?propertyDescription) IN ("en", "fr", "sk", "hu", "bg", "lt"))
+    FILTER(LANG(?propertyDescription) = ?lang)  # Ensure matching languages
+  }
+  # Fetch aliases in the specified languages
+  OPTIONAL {
+  ?property skos:altLabel ?alias .
+  FILTER(LANG(?alias) IN ("en", "fr", "sk", "hu", "bg", "lt"))
+  FILTER(LANG(?alias) = ?lang)  # Ensure matching languages
+  }
+
+}
+ORDER BY ?labelRank ?lang
+```
+
+[Try it out↗](https://query.wikidata.org/#SELECT%20%3Fproperty%20%3FpropertyLabel%20%3FdataType%20%3FpropertyDescription%20%3Flang%20%3Falias%20WHERE%20%7B%0A%20%20VALUES%20%3Fproperty%20%7B%20wd%3AP31%20%7D%20%20%23%20Replace%20these%20IDs%20with%20the%20property%20IDs%20you%20are%20interested%20in%0A%20%20%3Fproperty%20a%20wikibase%3AProperty%20.%0A%20%20%3Fproperty%20wikibase%3ApropertyType%20%3FdataType%20.%0A%0A%20%20%23%20Fetch%20labels%20in%20the%20specified%20languages%0A%20%20%3Fproperty%20rdfs%3Alabel%20%3FpropertyLabel%20.%0A%20%20BIND%28LANG%28%3FpropertyLabel%29%20AS%20%3Flang%29%0A%20%20FILTER%28%3Flang%20IN%20%28%22en%22%2C%20%22fr%22%2C%20%22sk%22%2C%20%22hu%22%2C%20%22bg%22%2C%20%22lt%22%29%29%0A%20%20BIND%28IF%28%3Flang%20%3D%20%22en%22%2C%201%2C%202%29%20AS%20%3FlabelRank%29%0A%0A%20%20%23%20Fetch%20descriptions%20in%20the%20specified%20languages%0A%20%20OPTIONAL%20%7B%0A%20%20%20%20%3Fproperty%20schema%3Adescription%20%3FpropertyDescription%20.%0A%20%20%20%20FILTER%28LANG%28%3FpropertyDescription%29%20IN%20%28%22en%22%2C%20%22fr%22%2C%20%22sk%22%2C%20%22hu%22%2C%20%22bg%22%2C%20%22lt%22%29%29%0A%20%20%20%20FILTER%28LANG%28%3FpropertyDescription%29%20%3D%20%3Flang%29%20%20%23%20Ensure%20matching%20languages%0A%20%20%7D%0A%20%20%23%20Fetch%20aliases%20in%20the%20specified%20languages%0A%20%20OPTIONAL%20%7B%0A%20%20%3Fproperty%20skos%3AaltLabel%20%3Falias%20.%0A%20%20FILTER%28LANG%28%3Falias%29%20IN%20%28%22en%22%2C%20%22fr%22%2C%20%22sk%22%2C%20%22hu%22%2C%20%22bg%22%2C%20%22lt%22%29%29%0A%20%20FILTER%28LANG%28%3Falias%29%20%3D%20%3Flang%29%20%20%23%20Ensure%20matching%20languages%0A%20%20%7D%0A%0A%7D%0AORDER%20BY%20%3FlabelRank%20%3Flang)
+
+The same query without [aliases](https://query.wikidata.org/#SELECT%20%3Fproperty%20%3FpropertyLabel%20%3FdataType%20%3FpropertyDescription%20%3Flang%20WHERE%20%7B%0A%20%20VALUES%20%3Fproperty%20%7B%20wd%3AP31%20%7D%20%20%23%20Replace%20these%20IDs%20with%20the%20property%20IDs%20you%20are%20interested%20in%0A%20%20%3Fproperty%20a%20wikibase%3AProperty%20.%0A%20%20%3Fproperty%20wikibase%3ApropertyType%20%3FdataType%20.%0A%0A%20%20%23%20Fetch%20labels%20in%20the%20specified%20languages%0A%20%20%3Fproperty%20rdfs%3Alabel%20%3FpropertyLabel%20.%0A%20%20BIND%28LANG%28%3FpropertyLabel%29%20AS%20%3Flang%29%0A%20%20FILTER%28%3Flang%20IN%20%28%22en%22%2C%20%22fr%22%2C%20%22sk%22%2C%20%22hu%22%2C%20%22bg%22%2C%20%22lt%22%29%29%0A%20%20BIND%28IF%28%3Flang%20%3D%20%22en%22%2C%201%2C%202%29%20AS%20%3FlabelRank%29%0A%0A%20%20%23%20Fetch%20descriptions%20in%20the%20specified%20languages%0A%20%20OPTIONAL%20%7B%0A%20%20%20%20%3Fproperty%20schema%3Adescription%20%3FpropertyDescription%20.%0A%20%20%20%20FILTER%28LANG%28%3FpropertyDescription%29%20IN%20%28%22en%22%2C%20%22fr%22%2C%20%22sk%22%2C%20%22hu%22%2C%20%22bg%22%2C%20%22lt%22%29%29%0A%20%20%20%20FILTER%28LANG%28%3FpropertyDescription%29%20%3D%20%3Flang%29%20%20%23%20Ensure%20matching%20languages%0A%20%20%7D%0A%7D%0AORDER%20BY%20%3FlabelRank%20%3Flang)
+
+- [x] Try it with replacing the property value to `wd:P434`. 
+- [x] Change the language codes for labelling.  If a certain label does not exist on Wikidata in one of the languages, you will get no label.
 
 Imagine you would like to work with the biographical data of photographers connected to Hungary. The following query can show you who has information on Wikidata. You may decide to import this information and use it as a starting point.
 

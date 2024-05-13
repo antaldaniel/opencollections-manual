@@ -4,7 +4,7 @@
 
 Depending on the type of MediaWiki+Wikibase instance you are using, you may need to create an account to access the site. The process may be less or more strict, depending on how much private data the instance holds.
 
-1.  Access [Reprex's Sandbox Environment.](https://reprexbase.eu/sandbox/index.php?title=Main_Page)
+1.  Access [Reprex's Sandbox Environment.](https://reprexbase.eu/sandbox/index.php?title=Main_Page) Beware, we have multiple instances, so *access the instance with its URL where you have an invitation*.
 
 2.  On this page, select **Request Account**.
 
@@ -43,7 +43,7 @@ When we start importing information into a knowledge graph or begin editing and 
 When the aim is to improve the data quality, content, or timeliness of a relational database system, the first and most essential candidates to become entities are the database's primary and secondary keys. To recall our simple example from @sec-wikidata,
 
 | ID    | Author                                                         | Title                                                                              |
-|-------|----------------------------------------------------------------|------------------------------------------------------------------------------------|
+|--------------|-------------------------|----------------------------------|
 | My-01 | Martell, Yann ([Q13914](https://www.wikidata.org/wiki/Q13914)) | *Life of Pi* ([Q374204](https://www.wikidata.org/wiki/Q374204))                    |
 | ...   | ...                                                            | ...                                                                                |
 | My-42 | Adams, Douglas ([Q42](https://www.wikidata.org/wiki/Q42))      | *Hitchhiker's Guide to the Galaxy* [Q25169](https://www.wikidata.org/wiki/Q25169)) |
