@@ -6,7 +6,7 @@ Depending on the type of MediaWiki+Wikibase instance you are using, you may need
 
 1.  Access [Reprex's Sandbox Environment.](https://reprexbase.eu/sandbox/index.php?title=Main_Page)
 
-2.  On this page, select **Requess Account**.
+2.  On this page, select **Request Account**.
 
 ![](png/wikibase/request-account_1.png)
 
@@ -56,10 +56,6 @@ Intuitively, in Wikibase, this means that we "conceptualise" authors and their b
 Conceptualisation is possibly manually, as we have shown in @sec-wikidata; but usually we do this after data modelling with bulk importing. You tells us what is your data about: books and author, and we import them as `Books` and `Authors`, so that we can start to look for more information about these books and authors in various knowledge systems.
 
 ### Improving spreadsheet databases
-
-Smaller organisations often do not use relational databases; instead, they use Excel or OpenOffice spreadsheets maintained by workers, often for decades. Turning such spreadsheets into knowledge base elements is similar to working with a relational database, but sometimes, it is a smaller and more difficult task.
-
-Well-organised spreadsheets can be good databases because spreadsheet applications like Excel, OpenOffice, or Google Spreadsheet allow the use of primary and secondary keys by connecting worksheets and the creation of pivot tables.
 
 Smaller organisations often do not use relational databases; instead, they use Excel or OpenOffice spreadsheets maintained by workers, often for decades. Turning such spreadsheets into knowledge base elements is similar to working with a relational database, but sometimes, it is a smaller and more difficult task.
 
