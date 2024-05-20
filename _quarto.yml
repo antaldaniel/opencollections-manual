@@ -1,10 +1,13 @@
 project:
   type: book
+  output-dir: _book
 
 book:
   title: "OpenCollections Manual"
   author: "Daniel Antal"
-  date: "2024-05-06"
+  date: "2024-05-20"
+  repo-url: https://github.com/dataobservatory-eu/opencollections-manual
+  repo-actions: [edit]
   chapters:
     - index.qmd
     - wikidata.qmd
@@ -22,6 +25,7 @@ format:
     theme: cosmo
   pdf:
     documentclass: scrreprt
+  epub: default 
 
 editor: visual
 
