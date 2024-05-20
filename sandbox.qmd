@@ -1,4 +1,4 @@
-# Reprex's Sandbox
+# Reprex's Sandbox {#sec-reprex-sandbox}
 
 ## Create an Account {#sec-opencollections-create-account}
 
@@ -8,17 +8,19 @@ Depending on the type of MediaWiki+Wikibase instance you are using, you may need
 
 2.  On this page, select **Request Account**.
 
-![](png/wikibase/request-account_1.png)
+![Request account - beware, we maintain several sandbox and live production instances, you must navigate to the one wher eyou really want to have this account.](png/wikibase/request-account_1.png)
 
 3.  On the next page, type in your chosen **username** and your **email address**. For a username, use a professional one that is similar to what you use on Keybase, Github, etc. Then confirm by clicking **request account** again.
 
-![](png/wikibase/request-account_2.png)
+![Usernames on Wikibase always start wih a capital letter, i.e., Janedoe, or Jane.doe, Or Jane.Doe.](png/wikibase/request-account_2.png)
 
 4.  Check your email inbox now. You should receive an email with a confirmation link. Click on this confirmation link. (The machine-generated email may easily go to the spam box.)
 
-![](png/wikibase/request-account_confirmation-email.png)
+![Often the confirmation mail ends up in your spam.](png/wikibase/request-account_confirmation-email.png)
 
-5.  After you confirm your account request, the administrators of the Wikibase instance will evaluate it. Then, you will receive another email with your login credentials, including your temporary password. ![](png/wikibase/request-account_email-with-temporary-login-credentials.png)
+5.  After you confirm your account request, the administrators of the Wikibase instance will evaluate it. Then, you will receive another email with your login credentials, including your temporary password.
+
+![](png/wikibase/request-account_email-with-temporary-login-credentials.png)
 
 6.  Revisit the sandbox page and log in. On the login page, type your username and the temporary password you received, then click **Log In**. You will be automatically taken to the next page, where you must change your password by typing your new permanent password. Provide your new password, then confirm it.
 

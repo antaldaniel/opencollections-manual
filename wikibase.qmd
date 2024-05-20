@@ -1,19 +1,19 @@
-# Wikibase and Enterprise Knowledge Graphs
+# Wikibase and Enterprise Knowledge Graphs {#sec-wikibase}
 
 In the previous chapter, we introduced the idea of an open knowledge graph that connects knowledge curated by many people and organisations. We have shown how valuable an open knowledge graph, like Wikidata, can be in reducing a private database's data curation, data control, and other related costs. Can we rely on similar knowledge graphs that are more specific to our professional domain and have more nuanced information than Wikidata? What if we want to keep music rights management databases or music distribution inventories updated and prefilled with data? Do we want to connect reliable, science-based data to our internal ESG systems?
 
-Private enterprise knowledge graphs are usually made for precisely this purpose. Wikidata was originally created to support the increasingly automated corrections of the vast, open-source Wikipedia encyclopedias. Encyclopedias have a limit of notability: they do not want to store information about every human living on Earth, but only those whose lives and work are notable enough to be interesting for the general public and who are living anyway in the public eye. (It would be unethical and even illegal to connect personal data about private individuals who do not wish to go out to the public space.) A private knowledge graph can connect information about all writers as rightsholders or their heirs, if they are deceased, to pay out royalties wherever they live. 
+Private enterprise knowledge graphs are usually made for precisely this purpose. Wikidata was originally created to support the increasingly automated corrections of the vast, open-source Wikipedia encyclopedias. Encyclopedias have a limit of notability: they do not want to store information about every human living on Earth, but only those whose lives and work are notable enough to be interesting for the general public and who are living anyway in the public eye. (It would be unethical and even illegal to connect personal data about private individuals who do not wish to go out to the public space.) A private knowledge graph can connect information about all writers as rightsholders or their heirs, if they are deceased, to pay out royalties wherever they live.
 
 ## Wikibase
 
-Wikibase is the software that runs Wikidata. Wikidata evolved into a central hub on the web of data and one of the largest existing knowledge graphs, with more than 100 million items maintained by a community effort. Since its launch, an impressive 1.3 billion edits have been made by 20,000+ active users. Today, Wikidata contains information about a wide range of topics such as people, taxons, countries, chemical compounds, astronomical objects, and more. This information is linked to other key data repositories maintained by institutions such as Eurostat, the German National Library, the BBC, and many others, using 6 000+ external identifiers. The knowledge from Wikidata is used by search engines such as Google Search, and smart assistants including Siri, Alexa, and Google Assistant in order to provide more structured results. While one of the main success factors of Wikidata is its community of editors, the software behind it also plays an important role. It enables the numerous editors to modify a substantial data repository in a scalable, multilingual, collaborative effort.
+Wikibase is the software that runs Wikidata. Wikidata evolved into a central hub on the web of data and one of the largest existing knowledge graphs, with more than 100 million items maintained by a community effort. Since its launch, an impressive 1.3 billion edits have been made by 20,000+ active users. Today, Wikidata contains information about a wide range of topics such as people, taxons, countries, chemical compounds, astronomical objects, and more. This information is linked to other key data repositories maintained by institutions such as Eurostat, the German National Library, the BBC, and many others, using 6,000+ external identifiers. The knowledge from Wikidata is used by search engines such as Google Search, and smart assistants including Siri, Alexa, and Google Assistant in order to provide more structured results. While one of the main success factors of Wikidata is its community of editors, the software behind it also plays an important role. It enables the numerous editors to modify a substantial data repository in a scalable, multilingual, collaborative effort.
 
 **Wikibase** is a software system that help the collaborative management of knowledge in a central repository. It was originally developed for the management of [Wikidata](https://en.wikipedia.org/wiki/Wikidata "Wikidata"), but it is available now for the creation of private, or public-private partnership knowledge graphs. Its primary components are the *Wikibase Repository*, an extension for storing and managing data, and the *Wikibase Client* which allows for the retrieval and embedding of [structured data](https://en.wikipedia.org/wiki/Structured_data "Structured data") from a Wikibase repository. It was developed by [Wikimedia Deutschland](https://en.wikipedia.org/wiki/Wikimedia_Deutschland "Wikimedia Deutschland").
 
 The [data model](https://en.wikipedia.org/wiki/Data_model "Data model") for Wikibase links consists of "entities" which include individual "items", labels or identifier to describe them (potentially in multiple languages), and semantic statements that attribute "properties" to the item. These properties may either be other items within the database, or textual information.
 
 ::: callout-note
-Wikidata itself is a gigantic Wikibase instance. Their user interface is similar, but depending on what the administrator of your Wikibase instance allows you to do, you are likely to have more freedom to edit certain elements, like properties, than on Wikidata. Wikidata must protect the integrity of one of the world's largest knowledge systems, and does not allow editing access to certain elements.
+**Wikidata** itself is a gigantic *Wikibase instance*. Their user interface is similar, but depending on what the administrator of your Wikibase instance allows you to do, you are likely to have more freedom to edit certain elements, like properties, than on Wikidata. Wikidata must protect the integrity of one of the world's largest knowledge systems, and does not allow editing access to certain elements.
 :::
 
 Wikibase has a [JavaScript](https://en.wikipedia.org/wiki/JavaScript "JavaScript")-based user interface, and provides exports of all or subsets of data in many formats. Projects using it include Wikidata, [Wikimedia Commons](https://en.wikipedia.org/wiki/Wikimedia_Commons "Wikimedia Commons"),^[\[5\]](https://en.wikipedia.org/wiki/Wikibase#cite_note-5)^ [Europeana](https://en.wikipedia.org/wiki/Europeana "Europeana")'s [Eagle Project](https://wiki.eagle-network.eu/wiki/Main_Page), [Lingua Libre](https://en.wikipedia.org/wiki/Lingua_Libre "Lingua Libre"),^[\[6\]](https://en.wikipedia.org/wiki/Wikibase#cite_note-6)^ [FactGrid](https://en.wikipedia.org/wiki/FactGrid "FactGrid"), and the [OpenStreetMap](https://en.wikipedia.org/wiki/OpenStreetMap "OpenStreetMap") wiki.^[\[7\]](https://en.wikipedia.org/wiki/Wikibase#cite_note-7)^
@@ -21,6 +21,10 @@ Wikibase has a [JavaScript](https://en.wikipedia.org/wiki/JavaScript "JavaScript
 ## Populating a Wikibase
 
 Wikibase is an open knowledge base or universe when installed. We start populating it with some **items**. In the Wikidata data model, items are similar to things, and classes are also defined as items.
+
+::: callout-note
+A _sandbox_ instance is a Wikibase instance designated for learning, testing, experimenting. Reprex has created several sandbox instances for onboarding our data curators and for educational purposes. Please see @sec-reprex-sandbox for getting an account on such an instance.
+:::
 
 ### Creating entities or items
 
@@ -76,25 +80,63 @@ In our case, we want to be able to pre-fill data from Wikidata, and then, eventu
 
 Let us put this all together and create a bibliographic entry. Here we will use a slight deviation from CIDOC, and use the [instance of](https://www.wikidata.org/wiki/Property:P31) property (equivalently defined in our Wikibase with Wikidata) for class inheritance. When we create a new entity (Manó Mai), we will define this entity as an instance of a `person`. Persons have birth date, family members, they can create new creative works. In ontologies and in RDF we call these abstract concepts classes.
 
-![Putting it all together: creating a first bibliographic entry of a person with clear linking to Wikidata.](png/wikibase/edit/create_new_item_mano-mai.png) We immediately record that our entries about Manó Mai, the great photographer, should be talking about the same person as Wikidata's [Q1163414](https://www.wikidata.org/wiki/Q1163414) document item.
+![Putting it all together: creating a first bibliographic entry of a person with clear linking to Wikidata.](png/wikibase/edit/create_new_item_mano-mai.png) We immediately record that our entries about _Manó Mai_, the great photographer, should be talking about the same person as Wikidata's [Q1163414](https://www.wikidata.org/wiki/Q1163414) document item.
 
-## The EU knowledge graph
+## Good practices
 
-[![sad](png/wikibase/EU-academy-course/EU-knowledge-graph.png){fig-align="center"}](https://linkedopendata.eu/wiki/The_EU_Knowledge_Graph)
+Let us consider the creation of an entry for the Slovak composer, 
+![](png/wikibase/edit/bella/bella_1.png)
 
-Because of the success of Wikidata, many projects and institutions are looking into Wikibase, the software that runs Wikidata. They aim to reuse the software to construct institutional or cross-institutional, domain-specific knowledge graphs. Two main factors make Wikibase attractive: 
+### Use of name strings or controlled vocabularies
 
-\- \[x\] the fact that it is a well-maintained open-source software, 
+In this case, we would like to code the `given name` property to `Ján`. We can do it in two ways:
+- add the string _Ján_ without further control, or, 
+- add `Ján` as a controlled string (an item _datatype_ on Wikibase.)
 
-\- \[x\] There is a rich ecosystem of users and tools around it. 
+![](png/wikibase/edit/bella/bella_2.png)
+Unless we can import comprehensive datasets, usually data enrichment is a second step. In such cases, we import first to a `name string` property given names, locations, venue names, and other important nodes of our knowledge graph.
 
-\- \[x\] Wikimedia Deutschland (WMDE), the maintainer of Wikibase, has made considerable investments in optimising the software's use outside of Wikidata or other Wikimedia projects. 
+![Using name strings is in many cases a first importing step before data enrichment.](png/wikibase/edit/bella/bella_3.png)
+The use of controlled vocabularies makes filtering the database easier, and reduces the likelihood of errorneous entries.  In the Wikidata data model, we can add a taxonomical class to such controlled vocabulary items. By coding `Ján` as an instance of the `Slovak make given name`, we can later search composers or persons easer by this name given name or we can infer that the composer was born as a man. 
 
-\- \[x\] The EU Knowledge graph runs on Wikibase.
+![The use of controlled vocabularies (and items) have many advantages.](png/wikibase/edit/bella/bella_4.png)
 
-\- \[x\] The EU Academy and the EU Open Data Portal actively disseminate good practices and know-how on its implementation in cross-institutional data-sharing programs.
+In this case, we would like to code the `given name` property to `Ján`. We can do it in two ways:
+add `Ján` as a controlled string (an item _datatype_ on Wikibase)
+add the string _Ján_ without further control.
 
-Our OpenCollections instances are prepared with a similar mindset to the creation of the EU Knowledge Graph. We pre-populate a Wikibase instance from Wikidata about many institutional, geographical or biographical facts of the domain [@diefenbach_wikibase_2021], or with elements of the Wikidata data model and its compatibility classes with other ontologies.
+Coding `Ján`. to Ján must be done with the knowledge of the data curator. We can only make this coding if we know that the string _Ján_ came from a `given name` (or equivalent) database table column, if indeed it comes from a database of Slovak persons.  This is one of the reasons why our `bots`, i.e., automated importing tools will map given names first to the `given name string` property.
+
+**Similar name string properties:**
+
+- [ ] `location of first performance (string)`, `location of creation (string)`: The strings `Bratislava`, `Bratislava, CS`, `Bratislava, SK`, `Bratislava, Austria-Hungary` or map to the `item:Bratislava`.
+
+- [x] `location of first performance`, `location of creation`: locations must be items of the class `city`, `town`, `village` (they all have their regional and country entities), or `region` (they have their country) or `country`.  The city item [Bratislava](https://www.wikidata.org/wiki/Q1780) contains the knowledge that this is the current capital city of the Slovak Republic, and it is a former town in Czechoslovakia and Austria-Hungary (it has 232 statements which enrich the concept of `Bratislava`), and it is connected to lists like [List of people from Bratislava](https://en.wikipedia.org/wiki/List_of_people_from_Bratislava).
+
+- [ ] `venue of first performance (string)`: the string _Jesuit Church of St. Francis Xavier_ will need to be matched to a venue item
+
+- [x] `venue of first performance`: [Jesuit Church of St. Francis Xavier, Skalica, Slovakia ](https://reprexbase.eu/demowiki/index.php?title=Item:Q94) as a venue item, which can be a class of building, or an atelier, or a concert hall within a building.
+
+- [ ] `event of the first performance (string)`: `Prague Spring International Music Festival`—this is not a venue but a festival event.
+- `event of the first performance`: [Prague Spring International Music Festival](https://www.wikidata.org/wiki/Q1776937) is a repeating event, and it has its own entity among music festivals.
+
+## The EU Knowledge Graph {#sec-eu-knowledge-graph}
+
+[![EU Academy Course: EU Knwoledge Graph](png/wikibase/EU-academy-course/EU-knowledge-graph.png){fig-align="center"}](https://linkedopendata.eu/wiki/The_EU_Knowledge_Graph)
+
+Because of the success of Wikidata, many projects and institutions are looking into Wikibase, the software that runs Wikidata. They aim to reuse the software to construct institutional or cross-institutional, domain-specific knowledge graphs. Two main factors make Wikibase attractive:
+
+- [x] the fact that it is a well-maintained open-source software;
+
+- [x] there is a rich ecosystem of users and tools around it;
+
+- [x] [Wikimedia Deutschland↗](https://www.wikimedia.de/) (WMDE), the maintainer of Wikibase, has made considerable investments in optimising the software's use outside of Wikidata or other Wikimedia projects;
+
+- [x] The [EU Knowledge Graph↗](https://linkedopendata.eu/wiki/The_EU_Knowledge_Graph) runs on Wikibase;
+
+- [x] The _EU Academy_ and the _EU Open Data Portal_ actively disseminate good practices and know-how on its implementation in cross-institutional data-sharing programs.
+
+Our OpenCollections instances are prepared with a similar mindset to the creation of the [EU Knowledge Graph↗](https://linkedopendata.eu/wiki/The_EU_Knowledge_Graph). We pre-populate a Wikibase instance from Wikidata about many institutional, geographical or biographical facts of the domain [@diefenbach_wikibase_2021], or with elements of the Wikidata data model and its compatibility classes with other ontologies.
 
 ## EU Academy Course on Wikibase
 
