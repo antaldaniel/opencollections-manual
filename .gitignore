@@ -2,6 +2,7 @@
 
 _book/
 _wikidata_files/
+_book/*.*
 
 # History files
 .Rhistory

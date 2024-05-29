@@ -4,12 +4,34 @@ project:
 
 book:
   title: "OpenCollections Manual"
-  author: "Daniel Antal"
-  date: "2024-05-20"
+  author:
+     - name: "Daniel Antal, CFA"
+       orcid: 0000-0001-7513-6760
+       affiliations:
+               - name: Reprex
+                 address: "Saturnusstraat 14"
+                 city: The Hague
+                 state: Zuid-Holland
+                 country: The Netherlands
+                 postal-code: "2516 AH"
+                 url: https://reprex.nl/
+     - name: "Ádám Lázár"
+       orcid: 0009-0000-7257-3690
+       affiliations:
+               - name: Reprex
+                 address: "Saturnusstraat 14"
+                 city: The Hague
+                 state: Zuid-Holland
+                 country: The Netherlands
+                 postal-code: "2516 AH"
+                 url: https://reprex.nl/ 
+  date: "2024-05-29"
   repo-url: https://github.com/dataobservatory-eu/opencollections-manual
   repo-actions: [edit]
   chapters:
     - index.qmd
+    - inspiration.qmd
+    - tidy.qmd
     - wikidata.qmd
     - wikibase.qmd
     - sandbox.qmd

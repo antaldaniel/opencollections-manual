@@ -2,7 +2,7 @@
 
 `OpenCollections` aims to provide a high degree of technical, syntactic, and semantic interoperability among the data systems of the partners in the data-sharing space. It imports data (or data maps) into a graph format, which is optimal for using heterogeneous data sources. Our innovative solutions aim to make this complex process as fast and weightless as possible.
 
-The system is built around Wikibase, an information management software developed by Wikipedia based on the MariaDB relational database management system. Wikibase manages the world's most extensive open knowledge graph, Wikidata, and enables users to work in many natural languages with little or no IT or information science knowledge. Many use cases, including the creation of the EU Knowledge graph, inspired us because Wikibase has a much lower learning need than more optimised graph database management systems.
+The system is built around Wikibase, an information management software developed by Wikipedia based on the MariaDB relational database management system. Wikibase manages the world's most extensive open knowledge graph, Wikidata, and enables users to work in many natural languages with little or no IT or information science knowledge. Many use cases, including the creation of the EU Knowledge Graph, inspired us because Wikibase has a much lower learning need than more optimised graph database management systems.
 
 `OpenCollections` improves the Wikibase experience with automated data-importing components with suitable job aids for users and exporting tools into more complex graphs that can provide data for training trustworthy AI systems.
 
@@ -31,7 +31,7 @@ The WB-CIDOC provides rules for writing data into Wikibase in a way that transla
 Most domain experts would think that a biographical entity of `Albert Einstein` should have a birthday property with the date of `March 14, 1879`, while an event-based ontology would create first an abstract event, the `Birth of Albert Einstein`, with a timespan of `March 14, 1879, 0:00` to `23.59`. It is far easier to search for parallel events in this time window or connect further information— like persons present at birth, certificates created, etc.—than to connect this information to a simple, literal date.
 
 ::: callout-note
-Domain-level experts like copyright specialists, ESG experts, musicologists, bank professionals, and other users usually need formal computer- or information science training and find the entity-based approach closer to real-world experience. We design our knowledge-base instances with hooks for more complex knowledge-base ontologies. This allows our users to review the information in a natural, entity-based format; our intelligent applications translate the information to more complex structures, such as event-based conceptual models, to allow more reasoning capacity for our AI systems.
+Domain-level experts like copyright specialists, ESG experts, musicologists, bank professionals, and other users usually need formal computer- or information science training and find the entity-based approach closer to real-world experience. We design our knowledge-base instances with hooks for more complex knowledge-base ontologies. This allows our users to review the information in a natural, entity-based format; our intelligent applications translate the information to more complex structures, such as event-based conceptual models, to allow more reasoning capacity for our AI systems.
 :::
 
 ### Record-keeping and retention
