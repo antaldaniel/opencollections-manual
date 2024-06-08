@@ -1,0 +1,56 @@
+# Tidy work
+
+Collective work involving data and data annotations and descriptions requires a shared understanding of the syntax and file formats. Our curators need to be familiar with two ideas.
+
+- [x]  Tidy data means that tabular datasets are organised in a simple but particular manner. All observations are in rows, and all measured variables or characteristics are in columns, with no merged columns or rows. This is the optimal formatting for working with relational databases, and it is also a helpful start for graph databases. (See: @sec-tidy-data.)
+
+- [x] Word processors like Word Work on different operational systems like Windows, MacOS, and Linux, creating very different text files and adding their formatting and other metadata to what you type. When we work together on the World Wide Web, we need something simpler than HTML but a bit more rich than a plain text file, clearly separating text editing from text formatting. The various markup notations, for example, _markdown_, are conventions for indicating that you want to make a text part **bold** or *italics* that works on all computer systems exactly the same way.(See: @sec-markup-text.)
+
+## Tidy data {#sec-tidy-data}
+
+Our reproducible research practice follows the tidy data principle, which has very complex computer science and information management consequences. Still, for the lay user of data, it boils down to simplicity.
+
+Tidy data is a standard way of mapping the meaning of a dataset to its structure. A dataset is messy or tidy depending on how rows, columns and tables are matched up with observations, variables and types.
+
+![Following three rules makes a dataset tidy: variables are in columns, observations are in rows, and values are in cells. From [R For Data Science - 12. Tidy Data](https://r4ds.had.co.nz/tidy-data.html)](https://d33wubrfki0l68.cloudfront.net/6f1ddb544fc5c69a2478e444ab8112fb0eea23f8/91adc/images/tidy-1.png){fig-align="center"}
+
+In tidy data:
+
+- [x] Every column is a variable. We do not use colours (our machine-to-machine pipelines is colourblind). If we need comments or specifications, we add a new column.
+
+- [x] Every row is an observation. Every variable belonging to `Bulgaria` is in the `Bulgaria` row, and there is one and only `Bulgaria row`.
+
+- [x] Every cell is a single value. We never merge cells! A tidy dataset has no divided columns and no divided rows.
+
+This is often far more easier to write than to do, but still, if you can make it that simple, then you already mastered Codd’s 3rd normal form framed in statistical language.
+
+## Markup text {#sec-markup-text}
+
+We create interconnected, interoperable (web) resources. We want to ensure that our research results are findable, accessible, and reusable. The World Wide Web has been a source of high interoperability and findability in the last 30 years, with the introduction of the HTTP protocol and the standardization of the HTML text markup language.
+
+All our output needs to be converted to HTML, but that does not mean we need to work in an HTML editor. However, the need for interoperability among operating systems (Windows, MacOs, Linux) and software packages (at least from Word, Libre, and Google Docs to HTML, preferably to PDF, too) requires a simple, common notation.
+
+Markdown is a simplified HTML text notation that works well with word processors. 
+
+![](https://mdg.imgix.net/assets/images/markdown-flowchart.png?auto=format&fit=clip&q=40&w=1080){fig-align="center"}
+
+If you want Word output, Word is rendered instead of HTML. You can also create a PDF or EPUB and even a PPTX output.
+
+### Markdown editors
+
+There are countless Markdown editors. Because Markdown is so simple, you can, if you want to, edit markdown files in Notepad, WordPad (Windows) or VIM (Linux).
+
+Most word processors support markdown. For example, Google Docs has a [free extension](https://workspace.google.com/marketplace/app/docs_to_markdown/700168918607) that converts and document from Docs to markdown.
+
+![Dilinger is one of the best editors, and it is particularly suitable foor first-time markup users, as you immediately get visual feedback on how you mark up your text.](png/dilliger_example.png){fig-align="center"}
+
+There are several online Markdown editors that you can use to try writing in Markdown. [Dillinger](https://dillinger.io/) is one of the best online Markdown editors. Just open the site and start typing in the left pane. A preview of the rendered document appears in the right pane.
+
+- [Basic Syntax](https://www.markdownguide.org/basic-syntax/)
+- [Extended Syntax](https://www.markdownguide.org/extended-syntax/)
+
+### Wikipedia & MediaWiki
+
+The documentation of our knowledge base and terminological agreements is documented in MediaWiki, the software that makes Wikipedia editable, too. It uses a form of markdown for an interoperable and simple editing of interlinked documents, images, and data documents.
+
+

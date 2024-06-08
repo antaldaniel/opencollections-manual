@@ -1,0 +1,15 @@
+# Technology
+
+A knowledge graph represents a network of real-world entities—such as objects, events, situations or concepts—and illustrates the relationship among them.
+
+Most companies and institutions work with a variety of information systems that are not well integrated. Information is located in different places, inside and outside the organisation, and it cannot be simply accessed as a whole. In the last decades, it has become clear that unifying these information sources into central databases or data lakes is rarely a good solution. Creating such centralised data stores is very costly and requires a lot of organisation. By the time centralisation is completed and finished, it often becomes apparent that both the knowledge requirements and the methodology for organising data have changed.
+
+Here's where knowledge graphs come in. They have the unique ability to automatically integrate and present a unified view of diverse and initially unrelated data sources. For instance, in an enterprise, they can power initiatives like Customer 360. Moreover, knowledge graphs are an ideal tool for implementing the Human-in-the-Loop (HITL) design principle in AI deployment. They offer a comprehensive view of the knowledge base that algorithms rely on, enhancing oversight and control.
+
+## Wikibase
+
+Wikidata is a collaboratively edited multilingual knowledge graph hosted by the Wikimedia Foundation. It is a common source of open data that Wikimedia projects, such as Wikipedia, and anyone else, is able to use under the CC0 public domain license. As of early 2023, Wikidata had 1.54 billion item statements, or small, verifiable, scientific statements about our world.
+
+Wikidata is a [document-oriented database](https://en.wikipedia.org/wiki/Document-oriented_database "Document-oriented database"), focusing on items, which represent any kind of topic, concept, or object.
+
+![Wikidata is a document-oriented database. This document connects a lot of knowledge about the late English writer and humorist, Douglas Adams.](png/wikidata/File_Datamodel_in_Wikidata.png){fig-align="center"}
