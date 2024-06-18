@@ -1,5 +1,7 @@
 # Wikidata and Other Open Knowledge Graphs {#wikidata-open-graph}
 
+<!--- special: elipsis: …  ; emdash: — ; arrow-out ↗ ; ▷ ;--->
+
 A knowledge graph represents a network of real-world entities—such as objects, events, situations or concepts—and illustrates the relationship among them.
 
 Most companies and institutions work with a variety of information systems that are not well integrated. Information is located in different places, inside and outside the organisation, and it cannot be simply accessed as a whole. In the last decades, it has become clear that unifying these information sources into central databases or data lakes is rarely a good solution. Creating such centralised data stores is very costly and requires a lot of organisation. By the time centralisation is completed and finished, it often becomes apparent that both the knowledge requirements and the methodology for organising data have changed.
@@ -14,7 +16,7 @@ Wikidata is a [document-oriented database](https://en.wikipedia.org/wiki/Documen
 
 ![Wikidata is a document-oriented database. This document connects a lot of knowledge about the late English writer and humorist, Douglas Adams.](png/wikidata/File_Datamodel_in_Wikidata.png){fig-align="center"}
 
-Knowledge graphs connect things in the real world, because their nodes - in Wikidata, the conceptual document -, represent people, objects, and their relationships as they are out there, and not as they are represented by an "ordinary" database <!--- how it is compared to Wikidata an ordinary database? --->. The [Q42](https://www.wikidata.org/wiki/Q42) document about the late English writer and humorist Douglas Adams connects facts about his life (birthday, place of birth, time of death), and connects him to his books, their translations, identifiers to look up these books, and so on.
+Knowledge graphs connect things in the real world, because their nodes—in Wikidata, the conceptual document—, represent people, objects, and their relationships as they are out there, and not as they are represented by an "ordinary" database <!--- how it is compared to Wikidata an ordinary database? --->. The [Q42](https://www.wikidata.org/wiki/Q42) document about the late English writer and humorist Douglas Adams connects facts about his life (birthday, place of birth, time of death), and connects him to his books, their translations, identifiers to look up these books, and so on.
 
 Wikidata is a knowledge graph: it connects the concept of Douglas Adams ([Q42](https://www.wikidata.org/wiki/Q42)), to the concept of his most quoted humorous episode from his world-famous *Hitchhiker's Guide to the Galaxy* ([Q25169](https://www.wikidata.org/wiki/Q25169)) , which is a similarly structured document about the five books of his series, which document is further connected in the graph to the concept of the books' Serbian translation ([Q117279887](https://www.wikidata.org/wiki/Q117279887)). <!--- this item is missing its label and description --->
 
@@ -60,21 +62,23 @@ You can see how creating a new item looks like in the system:
 
 ![](png/wikidata-tutorial/wikidata-create-new-item-20240204.png){fig-align="center"}
 
-The first step in creating an item (in this case an item for János Barasits) is providing the two most important information for an item, which is the "Label" and the "Description".
+The first step in creating an item (in this case an item for János Barasits) is providing the two most important information for an item, which is the `Label` and the `Description`.
 
-The "Label" is the name of the item (in our case the label of the item will be "János Barasits").
+The `Label` is the name of the item (in our case the label of the item will be "János Barasits").
 
-The "Description" contains a short explanation of our item (in our case the description for the item will be "Hungarian postcard maker and publisher).
+The `Description` contains a short explanation of our item (in our case the description for the item will be "Hungarian postcard maker and publisher).
 
-"Aliases" are alternative names for the item.
+`Aliases` are alternative names for the item.
 
 <!--- A description regarding the different language inputs for the same item is needed (e.g., János Barasits in English, and Barasits János in Hungarian, following the Eastern name order) ---->
 
-After creating the item with the basic information of "Label" and "Description" we can weave this information entry into the knowledge graph. At this point, `János Barasits` could be a person, it could be a book titled after the person, or a photo of the person. Connecting János Barasits to other entities, such as the concept of a human being, will allow other people and their computer systems to understand that we are talking about a person here.You can do that by creating "Statements". The property "instance of" defines the class our item is a particular example or member of. In this case we would like to make a statement about our item "János Barasits" defining with the property "instance of" that he is a member of the "human" class.
+After creating the item with the basic information of `Label` and `Description` we can weave this information entry into the knowledge graph. At this point, `János Barasits` could be a person, it could be a book titled after the person, or a photo of the person. Connecting János Barasits to other entities, such as the concept of a human being, will allow other people and their computer systems to understand that we are talking about a person here.You can do that by creating "Statements". The property "instance of" defines the class our item is a particular example or member of. In this case we would like to make a statement about our item "János Barasits" defining with the property "instance of" that he is a member of the "human" class.
 
 ![](png/wikidata-tutorial/wikidata-create-new-item-Janos-Barasits-20240204-2.png){fig-align="center"}
 
-Through the sandbox explore the different type of properties and statements. Add a few basic statement to your new item: - János Barasits is a human - his gender was male - he was born in 1859 (with the precision of a year only) - he died in 1935
+Through the sandbox explore the different type of properties and statements. Add a few basic statement to your new item: 
+
+- János Barasits is a human—his gender was male—he was born in 1859 (with the precision of a year only)—he died in 1935.
 
 It should look similar to this:
 
@@ -97,6 +101,15 @@ While SQL is widely used, it does have a significant limitation: your query scri
 Remember, the significant advantage of Wikidata and other open knowledge graphs is that millions of people work on improvements and extensions daily. This means that an SQL request would be outdated every day. Instead of SQL, SPARQL queries do not look for cells in data tables, but they use intelligent knowledge to find the cells containing data about what you need. In SQL, you need to know which table contains people's birthdays and death dates to find out the year when János Barasits died. In SPARQL, you are looking for the cell that contains the date of death for the human known as János Barasits.
 
 ### SPARQL basics {#sec-sparql}
+
+SPARQL is the standard query language and protocol for Linked Open Data and RDF databases. Having been designed to query a great variety of data, it can efficiently extract information hidden in non-uniform data and store it in various formats and sources. SPARQL, pronounced 'sparkle', is the standard query language and protocol for Linked Open Data on the web or RDF triplestores. The SPARQL standard is designed and endorsed by the World Wide Web Consortium and helps users and developers focus on what they would like to know instead of how a database is organised.
+
+Our data curators must be able to run SPARQL queries and make elementary modifications to them. Because we often import very large datasets, it would be very difficult to manually control every record on the graphical user interface. We use pre-written SPARQL queries (the data curator is expected to run via a simple URL link, perhaps modifying a class's QID or a property's PID) that serve as so-called _unit tests_. These queries programmed by Reprex allow simple tests like these:
+
+- [x] If the curator gave us 5432 person records, we have 5432 persons in the Reprexbase instance;
+- [x] If the gender breakup of a person's records is  2834:2598, the instance results in exactly the same persons of two genders (assuming that no third gender is used in the original data.)
+- [x] If we received data on Ján Levoslav Bella's Symphony in B minor, the publication year is 1982. 
+
 
 A simple SPARQL query looks like this:
 
@@ -222,7 +235,7 @@ SELECT DISTINCT ?itemLabel ?itemLabelLang ?itemDescription ?itemDescriptionLang 
 -  [x] We asked the labelling in six languages. You can use `IN ("en", "de")` or even `IN ("de")` if you want to reduce the number of languages or change the language codes.
 
 
-You would like to copy property definitions to your Wikibase instance. The following code will provide you the necessary information (without additional statements) about the property `wd:P31`--a very important property for data modeling.
+You would like to copy property definitions to your Wikibase instance. The following code will provide you the necessary information (without additional statements) about the property `wd:P31`—a very important property for data modelling.
 
 ```{r property-heading, eval=FALSE}
 SELECT ?property ?propertyLabel ?dataType ?propertyDescription ?lang ?alias WHERE {
