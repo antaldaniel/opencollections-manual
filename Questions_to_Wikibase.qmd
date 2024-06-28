@@ -58,13 +58,13 @@ Scroll down and select: "Create a New Item"
 
 Fill the form with the question's data:
 
-Language - Choose the language (en)
+-   Language - Choose the language (en)
 
-Label - Give a short name for the question
+-   Label - Give a short name for the question
 
-Description - Enter the question itself in the format specified above.
+-   Description - Enter the question itself in the format specified above.
 
-Aliases - leave it empty
+-   Aliases - leave it empty
 
 ![](png/question_to_wikibase/wikibase_createNewItem_2x1.png){fig-align="center"}
 
@@ -80,7 +80,7 @@ Note: The system assigns a uniqe ID to every entry. In our example the ID is Q11
 
 ## 3. Add a statement
 
-With statements you can provide additional information for your entry. Let's start by specifying the entry we created as a question.
+With statements you can provide additional information to your entry. Let's start by specifying the entry we created as a question.
 
 Select "+add statement".
 
@@ -89,6 +89,20 @@ Select "+add statement".
 Using the "instance of" property, define the entry as a question.
 
 ![](png/question_to_wikibase/statement_property_and_class_2x1.png){fig-align="center"}
+
+Using statements you can define the representation of the variables. You can choose from the following categories:
+
+-   category representation base type: if the answers are categories (for example: Female, Male, Prefer not to say)
+
+-   category representation base type with a scale: if the answers are categories and follow a scale (for example: Very important - Fairly important - Not very important - Not at all important)
+
+-   ranking representation base type: if the answers should be ranked
+
+-   numeric variable representation base type: if the answer should be a number
+
+-   textual variable representation base type: if the answer should be some text
+
+![](png/question_to_wikibase/VariableRepresentation_6x4.png){fig-align="center"}
 
 ## 4 Define the question in other languages as well
 
