@@ -1,9 +1,3 @@
----
-editor: 
-  markdown: 
-    wrap: 72
----
-
 # Wikibase and Enterprise Knowledge Graphs {#sec-wikibase}
 
 <!--- special: elipsis: …  ; emdash: — ; arrow-out ↗ ; ▷ ;--->
