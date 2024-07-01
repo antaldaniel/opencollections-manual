@@ -80,7 +80,11 @@ Note: The system assigns a uniqe ID to every entry. In our example the ID is Q11
 
 ## 3. Add a statement
 
-With statements you can provide additional information to your entry. Let's start by specifying the entry we created as a question.
+With statements you can provide additional information to your entry.
+
+## Question types
+
+Let's start by specifying the entry we created as a question.
 
 Select "+add statement".
 
@@ -89,6 +93,46 @@ Select "+add statement".
 Using the "instance of" property, define the entry as a question.
 
 ![](png/question_to_wikibase/statement_property_and_class_2x1.png){fig-align="center"}
+
+Types of questions:
+
+-   question:
+
+### Matrix Questions
+
+In case of a matrix question, use the concept of model questions and question items.
+
+-   model question: a harmonised question that may be altered with different qualifiers, or connected to different concepts
+
+-   question item: a harmonised question that may be altered with different qualifiers, or connected to different concepts
+
+![](png/question_to_wikibase/matrix_question.png){fig-align="center"}
+
+#### Model Question
+
+Create the Model Question with the "Create a new Item" function.
+
+![](png/question_to_wikibase/model_question_2x1.png){fig-align="center"}
+
+The model question should be in the following format:
+
+`Model Question text`
+
+`+ [ ] Item` - symbolizing the question items
+
+`+ [ ] Scale` - symbolizing the answer options
+
+> Example:
+>
+> *In your opinion, how important is each of the following in reducing plastic waste and littering? \[ \] item \[ \] scale*
+
+::: callout-note
+Note: When defining the model question's name (label) add "\[model\]" to the end of the name.
+:::
+
+Next, create an "instance of" statement to the group "model questions".
+
+**Variable Representation**
 
 Using statements you can define the representation of the variables. You can choose from the following categories:
 
@@ -103,6 +147,12 @@ Using statements you can define the representation of the variables. You can cho
 -   textual variable representation base type: if the answer should be some text
 
 ![](png/question_to_wikibase/VariableRepresentation_6x4.png){fig-align="center"}
+
+#### Question Item
+
+Now you can create entries for all the question items from the matrix question, using the "Create a New Item" function.
+
+![](png/question_to_wikibase/question_Item_6x4.png){fig-align="center"}
 
 ## 4 Define the question in other languages as well
 
