@@ -140,7 +140,7 @@ Following the functions "Special Pages" -\> "Create New Item" you should feed in
 
 -   Aliases - leave it empty
 
-[Q140](https://reprexbase.eu/demowiki/index.php?title=Item:Q140) is the model questions, which follows the structure:
+[Q140](https://reprexbase.eu/demowiki/index.php?title=Item:Q140) is a sub-questions, which follows the structure:
 
 -   Language - Choose the language (en)
 -   label: `Important for reduction of plastic - collection facilities`
@@ -180,7 +180,7 @@ Following the functions "Special Pages" -\> "Create New Item" you should feed in
 
 -   Aliases - leave it empty
 
-[Q144](https://reprexbase.eu/demowiki/index.php?title=Item:Q144) is the model questions, which follows the structure:
+[Q144](https://reprexbase.eu/demowiki/index.php?title=Item:Q144) is a question item, which follows the structure:
 
 -   Language - Choose the language (en)
 -   label: `Important for reduction of plastic - collection facilities`
@@ -206,7 +206,6 @@ Select `+add statement`.
 ![](png/question_to_wikibase/addStatement_2x1.png){fig-align="center"}
 
 Using the [instance of](https://reprexbase.eu/demowiki/index.php?title=Property:P2) property, which is defining the taxonomical class of the entered item (in this case, a question.)
-
 
 In case of simple questions, with one questions define them as "`questions`".
 
