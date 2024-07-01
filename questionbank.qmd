@@ -24,7 +24,7 @@ And a question based on a model question, taken from
 
 -   label: `Trust in EU ECOLABEL`
 
--   questionText (description): `Please tell me to what extent you agree or disagree with the following statement: “I trust that products carrying the EU ecolabel are environmentally-friendly.” [ ] Totally agree [ ], Tend to agree [ ], Tend to disagree [ ], Totally disagree [ ], DK`
+-   questionText (description): `Please tell me to what extent you agree or disagree with the following statement:` `“I trust that products carrying the EU ecolabel are environmentally-friendly.”` `[ ] Totally agree [ ], Tend to agree [ ], Tend to disagree [ ], Totally disagree [ ], DK`
 
 -   variable representation: [scale representation base type](https://reprexbase.eu/demowiki/index.php?title=Item:Q116)
 
@@ -58,11 +58,16 @@ Note: There should be a space between the square brackets \["space"\]
 
 ## Example
 
-### 2. Access Wikibase
+### 1. Access Wikibase
 
 Login in with you account to Wikibase.
 
-### 3. Create a new Question
+### 2. Create a New Question Item
+
+::: note 
+For a clearer definition, see  the [disco:Question](https://rdf-vocabulary.ddialliance.org/discovery.html#question) class.
+
+:::
 
 Go to "Special Pages"
 
@@ -91,18 +96,18 @@ The question now is created on Wikibase.
 ![](png/question_to_wikibase/example_question_2x1.png){fig-align="center"}
 
 ::: callout-note
-Note: The system assigns a uniqe ID to every entry. In our example the ID is Q111
+Note: The system assigns a unique ID to every entry. In our example the ID is [Q111](https://reprexbase.eu/demowiki/index.php?title=Item:Q111).
 :::
 
-### 3. Add Statements
+### 3. Add Metadata Statements
 
-With statements you can provide additional information to your entry.
+You need to add further metadata statements to the question bank item.  Metadata is a statement about the data.  We are adding standard, basic statements in subject, predicate, and object (triplet) format to each question bank item.
 
-#### 3.1 Question Types
+#### Questionnaire Classes
 
-Let's start by specifying the entry we created as a question.
+Let's start by specifying the entry we created as a `question`, `model question` or `question item`.
 
-Select "+add statement".
+Select `+add statement`.
 
 ![](png/question_to_wikibase/addStatement_2x1.png){fig-align="center"}
 
@@ -110,41 +115,49 @@ Using the [instance of](https://reprexbase.eu/demowiki/index.php?title=Property:
 
 ![](png/question_to_wikibase/statement_property_and_class_2x1.png){fig-align="center"}
 
-#### 3.1. Variable Representation
+#### Variable Representation
+
+When the questionnaire will be filled out in a raw dataset, each response of a question(item) will be translated into a variable. We need to define how we want to represent those answers in the resulting output dataset. (See [DDI 3.3 (2020) documentation - Variable Value Representation and Question Response Domain](https://ddi-lifecycle-documentation.readthedocs.io/en/latest/TechnicalGuide/Value%20Representation%20and%20Response%20Domain.html))
+
 
 Using statements you can define the representation of the variables. You can choose from the following categories:
 
--   category representation base type: if the answers are categories (for example: Female, Male, Prefer not to say)
+-  [x] category representation base type: if the answers are categories (for example: `[ ] Female`, `[ ] Male`, `[ ] Prefer not to say`)
 
--   category representation base type with a scale: if the answers are categories and follow a scale (for example: Very important - Fairly important - Not very important - Not at all important)
+-  [x] category representation base type with a **scale**: if the answers are categories and follow a scale (for example: `[] Very important`,  `[ ] Fairly important`,  `[ ] Not very important`, `[ ] Not at all important`. )
 
--   ranking representation base type: if the answers should be ranked
+-  [x]  ranking representation base type: the respondant must rank the answer options, like 1st, 2nd, 3rd, etc.
 
--   numeric variable representation base type: if the answer should be a number
+-  [x] numeric variable representation base type: the answer should be a number, for example, the age of the respondant as an integer number or a postal code in a country where postal codes contain only numeric digits, f.e., `1051`.
 
--   textual variable representation base type: if the answer should be some text
+-  [x]  textual variable representation base type: the answer should be some text, for example, and open answer, or a geographical location typed as a simple text, for example, `Bratislava`.
 
 ![](png/question_to_wikibase/VariableRepresentation_6x4.png){fig-align="center"}
 
-#### 3.3. Link studies
+#### Define the source study
 
-With the [study (DDI) P270](https://reprexbase.eu/demowiki/index.php?title=Property:P270) property you can link as a statement the *study* where you found the (model) question (item).
+::: callout-tip
+For further details, please check the [disco:Study](https://rdf-vocabulary.ddialliance.org/discovery.html#study) class.
+:::
+
+
+With the [study (DDI) P270](https://reprexbase.eu/demowiki/index.php?title=Property:P270) property you must link as a statement the *study* where you found the (model) question (item).
 
 ![](png/question_to_wikibase/statement_study_2x1.png){fig-align="center"}
 
 An example for a study: [Eurobarometer 88.1 (2017) Q139](https://reprexbase.eu/demowiki/index.php?title=Item:Q139)
 
 ::: callout-note
-Note: If the study is not yet in Wikibase, you can create an entry for it using the "Create a New Item" function.
+Note: If the study is not yet in Wikibase, you can create an entry for it using the `Create a New Item` function.
 :::
 
-#### 3.4. Statement on related concept
+#### Add related concept
 
 With the [related survey concept (P267)](https://reprexbase.eu/demowiki/index.php?title=Property:P267) property you can link concepts, that a study (group), question (group) or question item aims to measure, for example [environmental protection (Q131)](https://reprexbase.eu/demowiki/index.php?title=Item:Q131).
 
 ![](png/question_to_wikibase/statement_relatedSurveyConcept_2x1.png){fig-align="center"}
 
-### 4 Define the question in other languages as well
+### Add the questionText translations
 
 On Wikibase you can add different language versions to the same question.
 
