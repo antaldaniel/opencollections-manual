@@ -25,17 +25,17 @@ book:
                  country: The Netherlands
                  postal-code: "2516 AH"
                  url: https://reprex.nl/ 
-       - name: "Andor Kornél Barát"
-         orcid: 0009-0005-6773-6543
-         affiliations:
-                 - name: Reprex
-                   address: "Saturnusstraat 14"
-                   city: The Hague
-                   state: Zuid-Holland
-                   country: The Netherlands
-                   postal-code: "2516 AH"
-                   url: https://reprex.nl/
-  date: "2024-05-20"
+     - name: "Andor Kornél Barát"
+       orcid: 0009-0005-6773-6543
+       affiliations:
+               - name: Reprex
+                 address: "Saturnusstraat 14"
+                 city: The Hague
+                 state: Zuid-Holland
+                 country: The Netherlands
+                 postal-code: "2516 AH"
+                 url: https://reprex.nl/
+  date: "2024-07-01"
   repo-url: https://github.com/dataobservatory-eu/opencollections-manual
   repo-actions: [edit]
   chapters:
@@ -47,6 +47,10 @@ book:
     - sandbox.qmd
     - opencollections.qmd
     - references.qmd
+    - questionbank.qmd
+
+version: 0.2.1
+doi: 10.5281/zenodo.12092221
 
 bibliography: 
     - bib/cm.bib

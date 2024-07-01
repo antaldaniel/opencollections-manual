@@ -1,0 +1,145 @@
+# Question Bank Items In Wikibase {.appendix #sec-questionbank}
+
+DDI-Lifecycle is not yet available in RDF. Some elements of DDI are standardised; others are not. Whenever possible, we use the standardised vocabulary and annotation; when no such ontology is present, we create our interpretation of DDI.
+
+DDI organises questions into 3+1 hierarchical levels.
+
+- [x] `QuestionItem`:  the concept being measured by the question, text for the question, response domain information, clarifying instructions, external aids (clarifying objects used in presenting the question to the respondent), Input and Output Parameters and Bindings, allowed response cardinality and estimation of the time required to respond.
+
+- [x] `QuestionBlock`: This structure is intended to bundle together a set of questions (items and/or grids) that have meaning only about a specified object expressed as the evaluation material. This form of question set is common in educational testing where a text, image, or other material is provided, and the respondent is asked questions specific to the material. For example, a portion of a play script is provided, and the respondent is asked questions concerning the dialogue and/or stage directions provided in the script. Note that the intent of QuestionBlock is not to bundle together a set of questions that are commonly used together or used in a specified order. 
+
+- [x] `QuestionGroup` is only for administrative purposes.
+
+## Model question
+
+A [model question](https://reprexbase.eu/demowiki/index.php?title=Item:Q126) is a question template that can create simple questions or question items in question grids or blocks.
+
+- URI: [Q127](https://reprexbase.eu/demowiki/index.php?title=Item:Q127)
+- label: `Trust in EU ECOLABEL [model]`
+- questionText (description): `Please tell me to what extent you agree or disagree with the following statement: “I trust that products carrying the EU ecolabel are environmentally-friendly.” [ ] scale `
+
+And a question based on a model question, taken from 
+
+QID: [https://reprexbase.eu/demowiki/index.php?title=Item:Q111](https://reprexbase.eu/demowiki/index.php?title=Item:Q111)
+label: `Trust in EU ECOLABEL`
+questionText (description):  `Please tell me to what extent you agree or disagree with the following statement: “I trust that products carrying the EU ecolabel are environmentally-friendly.” [ ] Totally agree [ ], Tend to agree [ ], Tend to disagree [ ], Totally disagree [ ], DK`
+variable representation: [scale representation base type](https://reprexbase.eu/demowiki/index.php?title=Item:Q116)
+study (DDI): [Eurobarometer 88.1 (2017)](https://reprexbase.eu/demowiki/index.php?title=Item:Q139)
+
+Our model questions follow the following format: 
+
+- `questionText (description)`, `[ ]` `concept`, for example: , where the question connects to a concept, such as [environmental protection (Q131)](https://reprexbase.eu/demowiki/index.php?title=Item:Q131).
+- `questionText (description)`, `[ ]` `scale`, for example:
+- `questionText (description)`, `[ ]` `category`, for example:
+- `questionText (description)`, `[ ]` `ranking``, for example:
+- `questionText (description)`, `[ ]` `concept`, `scale` for example:
+
+The DDI-Discovery ontology requires the questions to take this format: 
+> *Please tell me to what extent you agree or disagree with the following statement: “I trust that products carrying the EU ecolabel are environmentally-friendly.” \[ \], Totally agree \[ \], Tend to agree \[ \], Tend to disagree \[ \], Totally disagree \[ \], DK*
+
+> *Please tell me to what extent you agree or disagree with the following statement: “I trust that products carrying the EU ecolabel are environmentally-friendly.” \[ \], Agree \[ \], \[ \], Disagree \[ \], DK*
+
+This is a good representation to for an existing questionnaire, but it is not really good for a questionbank, because in some cases, the agreement scale may be a 3-level, in others, a 5-level agreement scale. This is why we separately record the model question and the answer options.
+
+::: callout-note
+Note: There should be a space between the square brackets \["space"\]
+:::
+
+### Question properties
+
+- [variable representation (P265)](https://reprexbase.eu/demowiki/index.php?title=Property:P265): a DDI-Lifecycle category for the creation of variables from the answer options, for example, 
+
+- [related survey concept (P267)](https://reprexbase.eu/demowiki/index.php?title=Property:P267): a concept that a study (group), question (group) or question item aims to measure, for example [environmental protection (Q131)](https://reprexbase.eu/demowiki/index.php?title=Item:Q131).
+
+- [study (DDI) P270](https://reprexbase.eu/demowiki/index.php?title=Property:P270): the _study_ where you can find this (model) question (item). In DDI, a study represents the process by which a data set was generated or collected (in a survey). For example, [Eurobarometer 88.1 (2017) Q139](https://reprexbase.eu/demowiki/index.php?title=Item:Q139)
+
+
+## Example
+
+### 2. Access Wikibase
+
+Login in with you account to Wikibase.
+
+### 3. Create a new Question
+
+Go to "Special Pages"
+
+![](png/question_to_wikibase/wikidata_specialPages_2x1.png){fig-align="center"}
+
+Scroll down and select: "Create a New Item"
+
+![](png/question_to_wikibase/wikibase_addNewItem_2x1.png){fig-align="center"}
+
+Fill the form with the question's data:
+
+-   Language - Choose the language (en)
+
+-   Label - Give a short name for the question
+
+-   Description - Enter the question itself in the format specified above.
+
+-   Aliases - leave it empty
+
+![](png/question_to_wikibase/wikibase_createNewItem_2x1.png){fig-align="center"}
+
+Click `Create`.
+
+The question now is created on Wikibase.
+
+![](png/question_to_wikibase/example_question_2x1.png){fig-align="center"}
+
+::: callout-note
+Note: The system assigns a uniqe ID to every entry. In our example the ID is Q111
+:::
+
+### 3. Add a statement
+
+> This should be rewritten: add statement on study; add statment on related concept, add statement on representation of variable (not all needs sepearta screenshots)
+
+With statements you can provide additional information to your entry. Let's start by specifying the entry we created as a question.
+
+Select "+add statement".
+
+![](png/question_to_wikibase/addStatement_2x1.png){fig-align="center"}
+
+Using the [instance of](https://reprexbase.eu/demowiki/index.php?title=Property:P2) property, which is defining the taxonomical class of the enterred item (in this case, a question.)
+
+![](png/question_to_wikibase/statement_property_and_class_2x1.png){fig-align="center"}
+
+Using statements you can define the representation of the variables. You can choose from the following categories:
+
+-   category representation base type: if the answers are categories (for example: Female, Male, Prefer not to say)
+
+-   category representation base type with a scale: if the answers are categories and follow a scale (for example: Very important - Fairly important - Not very important - Not at all important)
+
+-   ranking representation base type: if the answers should be ranked
+
+-   numeric variable representation base type: if the answer should be a number
+
+-   textual variable representation base type: if the answer should be some text
+
+![](png/question_to_wikibase/VariableRepresentation_6x4.png){fig-align="center"}
+
+### 4 Define the question in other languages as well
+
+On Wikibase you can add different language versions to the same question.
+
+To do so, go to "Special Pages"
+
+![](png/question_to_wikibase/wikidata_specialPages_2x1.png){fig-align="center"}
+
+Scroll down and select: "Set Item/Property Description"
+
+![](png/question_to_wikibase/SpecialPages_Set_ItemProperty_Description_2x1.png){fig-align="center"}
+
+Fill the form:
+
+ID - The QiD of the question
+
+Language code - the new language you want to input the question
+
+Description - The question itself in the new language
+
+![](png/question_to_wikibase/Set_IetmProperty_Description_2x1.png){fig-align="center"} Select "Set Description".
+
+The entry is now updated with another language.
