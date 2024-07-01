@@ -1,0 +1,129 @@
+---
+title: "How to feed questions into Wikibase"
+papersize: A4
+format:
+  html: 
+    toc-depth: 3
+  epub: default
+  docx: 
+    toc-depth: 3
+  pdf:
+    colorlinks: true
+    latex: 
+       - lof: true
+editor: visual
+toc: true
+lang: en-GB
+bibliography: 
+ - bib/wikidata.bib
+---
+
+# How to feed questions into Wikibase
+
+## 1. Get the question in the right format
+
+The questions should be in the following format:
+
+`Question?`
+
+`+ [ ], Answer(1)`
+
+`+ [ ], Answer(2)`
+
+`+ ... +`
+
+`+ [ ], Answer(N)`
+
+> Example:
+>
+> *Please tell me to what extent you agree or disagree with the following statement: “I trust that products carrying the EU ecolabel are environmentally-friendly.” \[ \], Totally agree \[ \], Tend to agree \[ \], Tend to disagree \[ \], Totally disagree \[ \], DK*
+
+::: callout-note
+Note: There should be a space between the square brackets \["space"\]
+:::
+
+## 2. Access Wikibase
+
+Login in with you account to Wikibase.
+
+## 3. Create a new Question
+
+Go to "Special Pages"
+
+![](png/question_to_wikibase/wikidata_specialPages_2x1.png){fig-align="center"}
+
+Scroll down and select: "Create a New Item"
+
+![](png/question_to_wikibase/wikibase_addNewItem_2x1.png){fig-align="center"}
+
+Fill the form with the question's data:
+
+-   Language - Choose the language (en)
+
+-   Label - Give a short name for the question
+
+-   Description - Enter the question itself in the format specified above.
+
+-   Aliases - leave it empty
+
+![](png/question_to_wikibase/wikibase_createNewItem_2x1.png){fig-align="center"}
+
+Click "Create".
+
+The question now is created on Wikibase.
+
+![](png/question_to_wikibase/example_question_2x1.png){fig-align="center"}
+
+::: callout-note
+Note: The system assigns a uniqe ID to every entry. In our example the ID is Q111
+:::
+
+## 3. Add a statement
+
+With statements you can provide additional information to your entry. Let's start by specifying the entry we created as a question.
+
+Select "+add statement".
+
+![](png/question_to_wikibase/addStatement_2x1.png){fig-align="center"}
+
+Using the "instance of" property, define the entry as a question.
+
+![](png/question_to_wikibase/statement_property_and_class_2x1.png){fig-align="center"}
+
+Using statements you can define the representation of the variables. You can choose from the following categories:
+
+-   category representation base type: if the answers are categories (for example: Female, Male, Prefer not to say)
+
+-   category representation base type with a scale: if the answers are categories and follow a scale (for example: Very important - Fairly important - Not very important - Not at all important)
+
+-   ranking representation base type: if the answers should be ranked
+
+-   numeric variable representation base type: if the answer should be a number
+
+-   textual variable representation base type: if the answer should be some text
+
+![](png/question_to_wikibase/VariableRepresentation_6x4.png){fig-align="center"}
+
+## 4 Define the question in other languages as well
+
+On Wikibase you can add different language versions to the same question.
+
+To do so, go to "Special Pages"
+
+![](png/question_to_wikibase/wikidata_specialPages_2x1.png){fig-align="center"}
+
+Scroll down and select: "Set Item/Property Description"
+
+![](png/question_to_wikibase/SpecialPages_Set_ItemProperty_Description_2x1.png){fig-align="center"}
+
+Fill the form:
+
+ID - The QiD of the question
+
+Language code - the new language you want to input the question
+
+Description - The question itself in the new language
+
+![](png/question_to_wikibase/Set_IetmProperty_Description_2x1.png){fig-align="center"} Select "Set Description".
+
+The entry is now updated with another language.
