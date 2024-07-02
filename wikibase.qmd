@@ -11,8 +11,7 @@ other related costs. Can we rely on similar knowledge graphs that are
 more specific to our professional domain and have more nuanced
 information than Wikidata? What if we want to keep music rights
 management databases or music distribution inventories updated and
-prefilled with data? Do we want to connect reliable, science-based data
-to our internal ESG systems?
+prefilled with data? Do we want to connect reliable, science-based data to our internal ESG systems?
 
 Private enterprise knowledge graphs are usually made for precisely this
 purpose. Wikidata was originally created to support the increasingly
