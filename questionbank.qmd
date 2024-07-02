@@ -14,17 +14,45 @@ DDI is part of  the **General Statistical Information Model** (GSIM)[@GSIM_v20_2
 
 Applying the *Data Documentation Initiatve* (DDI) will ensure that we will remain compatible with official statistical microdata and metadata services and other social sciences archives, like GESIS, the official data archive of all European Commission-mandated survey research dating back over 50 years [@vardigan_DDI_2008].
 
+## Need for Questions
+
+The need for questions arises from the fact that you want to collect some data systematically, either in an online or face-to-face questionnaire, in a structured interview, or in making data requests to an API or a form to record repeated answers to this question. After statistical manipulations, such as summarising and averaging, the responses will create empirical variables in a dataset. You can rely on existing data and expand your knowledge utilising already collected (open) data if you use the same questions that other researchers or statisticians have used before you.
+
+Without addressing the theory of data harmonisation, these are the steps you are likely to make:
+
+1. For example, if you need data on reusable plastic bags, you need to find a widely shared definition of `plastic`, `reusability` and `bags`.
+2. You should consult a database or a question bank to find out if others have already asked about reusable plastic bags.
+3. If you formulate a questionnaire using the exact wording and answering options as earlier surveys on attitudes to reusable plastic bags, you will be able to compare the results. So, you need access to question forms (question texts) and answer options.
+4. If you work on an international project or want a global comparison, you will need to ensure that the question texts and answer options are translated very similarly and understood equally in different languages. 
+5. As a practical last step, the responses must be coded the same way as in international data repositories; for example, female respondents are coded with `F` in most statistical data repositories, even if the word 'female' may start with a different letter in many languages.
+
+Our question bank is designed to be searchable by concepts, question types, question labels or question texts.
+
 ## Question Types
 
-DDI organises questions into 3+1 hierarchical levels.
+What is a survey question after all? DDI organises questions into 3+1 hierarchical levels.
 
--   [x] `QuestionItem`: the concept being measured by the question, text for the question, response domain information, clarifying instructions, external aids (clarifying objects used in presenting the question to the respondent), Input and Output Parameters and Bindings, allowed response cardinality and estimation of the time required to respond.
+-   [x] `Question`: A question and its answer options formulated in at least one natural language, for example, 
+`Please tell me to what extent you agree or disagree with the following statement:` 
+`“I trust that products carrying the EU ecolabel are environmentally-friendly.”` 
+`[ ] Totally agree [ ], Tend to agree [ ], Tend to disagree [ ], Totally disagree [ ], DK`. In this example DK refers to declined to comment on the question, or a refusal to answer this question.
+
+-   [x] `QuestionItem`: the concept (i.e., unemployment, or plastic bags) being measured by the question, text for the question, response domain information, clarifying instructions, external aids (clarifying objects used in presenting the question to the respondent), Input and Output Parameters and Bindings, allowed response cardinality and estimation of the time required to respond.
 
 -   [x] `QuestionBlock`: This structure is intended to bundle together a set of questions (items and/or grids) that have meaning only about a specified object expressed as the evaluation material. This form of question set is common in educational testing where a text, image, or other material is provided, and the respondent is asked questions specific to the material. For example, a portion of a play script is provided, and the respondent is asked questions concerning the dialogue and/or stage directions provided in the script. Note that the intent of QuestionBlock is not to bundle together a set of questions that are commonly used together or used in a specified order.
 
 -   [x] `QuestionGroup` is only for administrative purposes.
 
 ### Model question
+
+One other way to make questions and resulting responses and their statistically processed variables comparable is to ask questions about different concepts in a same way?  A standard quesiton in a Cultural Access and Participation Survey is:
+
+`How many times in the past 12 months have you been to ...`
+`                                                 ... a concert?`
+`                                                 ... cinema?`
+`                                                 ... church?`
+
+While people may have recollection biases about the 12 months, and may use a bit differently the concept of concert or cinema, because of the same syntax, context, we can assume that their responses are comparable. In this case, `How many times in the past 12 months have you been to ...` is a model question.
 
 A [model question](https://reprexbase.eu/demowiki/index.php?title=Item:Q126) is a question template that can create simple questions or question items in question grids or blocks.
 
@@ -44,7 +72,7 @@ And a question based on a model question, taken from
 
 -   study (DDI): [Eurobarometer 88.1 (2017)](https://reprexbase.eu/demowiki/index.php?title=Item:Q139)
 
-Our model questions follow the following format:
+Our model questions follow one of the following formats:
 
 -   `questionText (description)`, `[ ]` `concept`, where the question connects to a concept, such as [environmental protection (Q131)](https://reprexbase.eu/demowiki/index.php?title=Item:Q131).
 -   `questionText (description)`, `[ ]` `scale`, where the answers are on a scale, for example [Estimated number of employees in FTE \[model\] (Q123)](https://reprexbase.eu/demowiki/index.php?title=Item:Q123)
@@ -52,11 +80,20 @@ Our model questions follow the following format:
 -   `questionText (description)`, `[ ]` `ranking`, where the respondent has to create a rank from the answer options, for example: [Important environmental issue \[model\] (Q143)](https://reprexbase.eu/demowiki/index.php?title=Item:Q143)
 -   `questionText (description)`, `[ ]` `concept,` `[ ] scale,` where beside the model question there are other sub-questions as well, for example: [Important for reduction of plastic \[model\] (Q128)](https://reprexbase.eu/demowiki/index.php?title=Item:Q128)
 
+Based on the DDI-Lifecycle model we could generate differently structured model questions, and if there will be user need, we will introduce further question templates.
+
 The DDI-Discovery ontology requires the questions to take this format:
+
+
+> *Please tell me to what extent you agree or disagree with the following statement: “I trust that products carrying the EU ecolabel are environmentally-friendly.” [ ] Totally agree [ ], Tend to agree [ ], Tend to disagree [ ], Totally disagree [ ], DK*. 
+
+This is a good representation to for an existing questionnaire, but it is not really good for a questionbank, because in some cases, the agreement scale may be a 3-level, in others, a 5-level agreement scale:
 
 > *Please tell me to what extent you agree or disagree with the following statement: “I trust that products carrying the EU ecolabel are environmentally-friendly.” \[ \], Agree \[ \], \[ \], Disagree \[ \], DK*
 
-This is a good representation to for an existing questionnaire, but it is not really good for a questionbank, because in some cases, the agreement scale may be a 3-level, in others, a 5-level agreement scale. This is why we separately record the model question, the subquestions and the answer options.
+We can argue that the responses are still comparable, but `[ ] Totally agree [ ], Tend to agree [ ]` should be added together for a broader `[ ] Agree` category if one survey uses the 5-scale version of the response scale while the other uses the 3-scale (agree, disagree, decline) version. 
+
+This is why we separately record the model question, the subquestions and the answer options.
 
 ### Simple, Multiple Choice and Matrix Questions
 
@@ -75,7 +112,7 @@ Different question types have different elements. Some questions consist of one 
 In case of Simple Questions there's only one question.
 
 ::: callout-note
-## For a clearer definition, see the disco:Question class
+For a clearer definition, see the [disco:Question](https://rdf-vocabulary.ddialliance.org/discovery.html#question) class.
 :::
 
 ![This question is taken from the question block D (QD) from the Eurobarometer 88.1 study.](png/question_to_wikibase/question_simple_2x1.png){fig-align="center"}
@@ -84,13 +121,13 @@ Let's see how to create a simple question entry in Wikibase. Go to "Special Page
 
 ![](png/question_to_wikibase/wikidata_specialPages_2x1.png){fig-align="center"}
 
-Scroll down and select: "Create a New Item"
+Scroll down and select: `Create a New Item`
 
 ![](png/question_to_wikibase/wikibase_addNewItem_2x1.png){fig-align="center"}
 
 Fill the form with the question's data:
 
--   Language - Choose the language (en)
+-   Language ▷ Choose the language (en)
 
 -   Label - Give a short name for the question
 
@@ -128,7 +165,7 @@ Following the functions "Special Pages" ▷ "Create New Item" you should feed in
 
 -   Language ▷ Choose the language (en)
 
--   Label - *questionName + \[model\]* - `Important for reduction of plastic [model]` 
+-   Label - *questionName + \[model\]* - `Important for reduction of plastic [model]`
 
 -   questionText (description)
 
