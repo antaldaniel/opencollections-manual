@@ -1,14 +1,24 @@
 # OpenCollections Manual
 
+Version 0.2.1 (2024.07.02.)
+
 ## Source text of the chapters
 
 In the main folder, the chapters can be found in the following files:
 
--   index.qmd
--   wikidata.qmd
--   wikibase.qmd
--   sandbox.qmd
--   reference.qmd
+- index.qmd
+- inspiration.qmd
+- tidy.qmd
+- wikidata.qmd
+- wikibase.qmd
+- sandbox.qmd
+- opencollections.qmd
+- references.qmd
+
+## Appendixes
+
+-   questionbank.qmd 
+-   musicapi.qmd
 
 ## Illustrations, screenshots
 

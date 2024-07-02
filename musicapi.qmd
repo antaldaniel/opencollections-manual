@@ -1,9 +1,15 @@
 # Variables in Music Databases {#sec-musicapi .appendix}
 
-We use two informaiton models:
+We use two information models:
 
 - SDMX for statistical concepts
 - DDI for the documentation of microdata
+
+When repeatedly querying a music API, such as the Spotify API, we carry out an automated survey in which the respondent is not a human but a machine. Sending the same query to a well-designed API will yield a comparable answer to our question sent to the same API yesterday or tomorrow. 
+
+There are still many similarities with survey harmonisation: you would usually like to combine the data from the API with other data sources, in which case you still have to harmonise the concepts, the labelling, the translations, and the coding of your responses (processed in a dataset into variables.)
+
+The previous Appendix introduces the key concepts and practices of survey harmonisation. When working with APIs, you do not need to harmonise question texts in human languages, because you harmonise them in a marchine-readable query language (for example, in SQL or SPARQL.) The rest of the data harmonisation workflow is the same.
 
 ## String versus item
 
@@ -15,76 +21,50 @@ Whenever possible, we want to refer to well-defined nodes in the knowledge graph
 Our aim is to have a rich and standardised description to each variable, and as much as possible, to very constant (or attribute.)  _Katarína Kubošiová_ is a Slovak singer-songwriter, also known as _Katarzia_. To avoid any ambigouity with other people potentially called _Katarína Kubošiová_ or _Katarzia_, we would like to refer to her with a globally unique identifier.  Her ISNI identifier (ISNI: ) is [isni: 0000000467220673](
 https://isni.org/isni/0000000467220673), which identifies her with global clarity.
 
+The metadata enrichment is possible to make data points into nodes. For example, if we conceptualise `Slovakia` into a node, than we can connect to this node sound recordings (regardless if they have a Slovak or English-language title) if they were registered with the Slovak national ISRC registrant's `SK` prefix.  We can connect `Katarína Kubošiová`, `Katarzia`, `SK`, `Slovakia` in a graph to the concept of _Slovakia_ with less or more clarity; in this case, for example, defining that a sound recording was registered in Slovakia, or the artist known as _Katarzia_ was born in Slovakia or sung in the Slovak language.
 
-
-
-
-### Question properties
-
--   [variable representation (P265)](https://reprexbase.eu/demowiki/index.php?title=Property:P265): a DDI-Lifecycle category for the creation of variables from the answer options, for example,
-
--   [related survey concept (P267)](https://reprexbase.eu/demowiki/index.php?title=Property:P267): a concept that a study (group), question (group) or question item aims to measure, for example [environmental protection (Q131)](https://reprexbase.eu/demowiki/index.php?title=Item:Q131).
-
--   [study (DDI) P270](https://reprexbase.eu/demowiki/index.php?title=Property:P270): the *study* where you can find this (model) question (item). In DDI, a study represents the process by which a data set was generated or collected (in a survey). For example, [Eurobarometer 88.1 (2017) Q139](https://reprexbase.eu/demowiki/index.php?title=Item:Q139)
-
-## Example
 
 ### 1. Access Wikibase
 
 Login in with you account to Wikibase.
 
-### 2. Create a New Question Item
+### 2. Create a New Item
 
-::: note 
-For a clearer definition, see  the [disco:Question](https://rdf-vocabulary.ddialliance.org/discovery.html#question) class.
 
-:::
-
-Go to "Special Pages"
+Go to `Special Pages`
 
 ![](png/question_to_wikibase/wikidata_specialPages_2x1.png){fig-align="center"}
 
-Scroll down and select: "Create a New Item"
+Scroll down and select: `Create a New Item`
 
 ![](png/question_to_wikibase/wikibase_addNewItem_2x1.png){fig-align="center"}
 
-Fill the form with the question's data:
+Fill the form with the item's data:
 
 -   Language - Choose the language (en)
 
--   Label - Give a short name for the question
+-   Label - Give a short name for the node, for example, _Katarína Kubošiová_
 
--   Description - Enter the question itself in the format specified above.
+-   Description - Enter the item description, for example _Singer-songwriter born in the Slovak Republic_
 
--   Aliases - leave it empty
+-   Aliases - you can add _Katarzia_ or any other known names here.
 
 ![](png/question_to_wikibase/wikibase_createNewItem_2x1.png){fig-align="center"}
 
 Click `Create`.
 
-The question now is created on Wikibase.
+The item now is created on Wikibase. For each concept that you want to use in your research, its documentation should be present. For key persons, names, musical works, it is also advisable to have an item defined.
 
 ![](png/question_to_wikibase/example_question_2x1.png){fig-align="center"}
 
 ::: callout-note
-Note: The system assigns a unique ID to every entry. In our example the ID is [Q111](https://reprexbase.eu/demowiki/index.php?title=Item:Q111).
+Note: The system assigns a unique ID to every entry. For example, in our system, the ID of _Ján Levoslav Bella_ (Slovak conductor, composer and educator), aslo known under the alias with no Slovak special characters as _Jan Levoslav Bella_ is  [Q93](https://reprexbase.eu/demowiki/index.php?title=Item:Q93). With Q93 you cannot make the mistake of confusing the fact that _Ján Levoslav Bella_ is the same person as _Jan Levoslav Bella_.
 :::
 
 ### 3. Add Metadata Statements
 
 You need to add further metadata statements to the question bank item.  Metadata is a statement about the data.  We are adding standard, basic statements in subject, predicate, and object (triplet) format to each question bank item.
 
-#### Questionnaire Classes
-
-Let's start by specifying the entry we created as a `question`, `model question` or `question item`.
-
-Select `+add statement`.
-
-![](png/question_to_wikibase/addStatement_2x1.png){fig-align="center"}
-
-Using the [instance of](https://reprexbase.eu/demowiki/index.php?title=Property:P2) property, which is defining the taxonomical class of the entered item (in this case, a question.)
-
-![](png/question_to_wikibase/statement_property_and_class_2x1.png){fig-align="center"}
 
 #### Variable Representation
 
@@ -114,7 +94,7 @@ For further details, please check the [disco:Study](https://rdf-vocabulary.ddial
 :::
 
 
-With the [study (DDI) P270](https://reprexbase.eu/demowiki/index.php?title=Property:P270) property you must link as a statement the *study* where you found the (model) question (item).
+With the [study (DDI) P270](https://reprexbase.eu/demowiki/index.php?title=Property:P270) property you must link as a statement the *study* where you found the concept definition. If it was a formal ontology, or Wikibase, use different properties (see below).
 
 ![](png/question_to_wikibase/statement_study_2x1.png){fig-align="center"}
 
@@ -135,26 +115,26 @@ Where are the related concepts coming from?
 3. You can create your definition if you are still looking for a suitable definition in an accepted ontology or on Wikidata. For this, you should create a definition in Wikibase (as a new item.) See, for example, [model question (Q126)](https://reprexbase.eu/demowiki/index.php?title=Item:Q126), which is our own proprietary definition until we find a more consensual one.
  
 
-### Add the questionText translations
+### Add national langugage translations to your concept
 
 On Wikibase you can add different language versions to the same question.
 
-To do so, go to "Special Pages"
+To do so, go to `Special Pages`
 
 ![](png/question_to_wikibase/wikidata_specialPages_2x1.png){fig-align="center"}
 
-Scroll down and select: "Set Item/Property Description"
+Scroll down and select: `Set Item/Property Description`
 
 ![](png/question_to_wikibase/SpecialPages_Set_ItemProperty_Description_2x1.png){fig-align="center"}
 
 Fill the form:
 
--   ID - The QiD of the question
+-   ID - The QiD of the question (for example, if you want to add a Dutch description to _Ján Levoslav Bella_, i.e., Slovak conductor, composer and educator, you must reference  [Q93](https://reprexbase.eu/demowiki/index.php?title=Item:Q93).
 
--   Language code - the new language you want to input the question
+-   Language code - the new language you want to input the question, in this case, `nl`.
 
--   Description - The question itself in the new language
+-   Description - Write a short definition (up to 250 characters) in the new language.
 
 ![](png/question_to_wikibase/Set_IetmProperty_Description_2x1.png){fig-align="center"} Select "Set Description".
 
-The entry is now updated with another language.
+The entry is now updated with another language label or description.
