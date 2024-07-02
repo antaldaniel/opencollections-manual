@@ -47,7 +47,9 @@ book:
     - sandbox.qmd
     - opencollections.qmd
     - references.qmd
+  appendices:
     - questionbank.qmd
+    - musicapi.qmd
 
 version: 0.2.1
 doi: 10.5281/zenodo.12092221

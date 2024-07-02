@@ -1,6 +1,6 @@
 # Final output
 
-_book/
+_book/*.html
 _wikidata_files/
 _book/*.*
 
