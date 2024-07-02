@@ -1,6 +1,6 @@
 # Question Bank Items In Wikibase {#sec-questionbank .appendix}
 
-In this guide you are going to learn how to feed different types of questions and information related tot hem to Wikibase.
+In this guide you are going to learn how to feed different types of questions and information related to them to Wikibase.
 
 First, you will read about how to feed into Wikibase different type of questions. Second, you will learn about different types of information and how to link them to your question. Last, you will see how to add different translations to a question.
 
