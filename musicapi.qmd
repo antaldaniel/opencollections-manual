@@ -1,0 +1,160 @@
+# Variables in Music Databases {#sec-musicapi .appendix}
+
+We use two informaiton models:
+
+- SDMX for statistical concepts
+- DDI for the documentation of microdata
+
+## String versus item
+
+- [Slovakia (Q79)](https://reprexbase.eu/demowiki/index.php?title=Item:Q79) is a well-defined node in our Wikibase graph.
+- `Slovakia` as a string is not well-defined; it can only be understood if we add `"Slovakia"@en` a reference to the natural language of the string. 
+
+Whenever possible, we want to refer to well-defined nodes in the knowledge graph.  For example, our entry [Slovakia (Q79)](https://reprexbase.eu/demowiki/index.php?title=Item:Q79) states that it is equivalent with [Slovakia (Q214) on Wikidata](https://www.wikidata.org/wiki/Q214), and Wikidata connects plenty of metadata to this concept: the geographical boundaries, the fact that it is an independent state since 1993, it predecessors, capital, etc.
+
+Our aim is to have a rich and standardised description to each variable, and as much as possible, to very constant (or attribute.)  _Katarína Kubošiová_ is a Slovak singer-songwriter, also known as _Katarzia_. To avoid any ambigouity with other people potentially called _Katarína Kubošiová_ or _Katarzia_, we would like to refer to her with a globally unique identifier.  Her ISNI identifier (ISNI: ) is [isni: 0000000467220673](
+https://isni.org/isni/0000000467220673), which identifies her with global clarity.
+
+
+
+
+
+### Question properties
+
+-   [variable representation (P265)](https://reprexbase.eu/demowiki/index.php?title=Property:P265): a DDI-Lifecycle category for the creation of variables from the answer options, for example,
+
+-   [related survey concept (P267)](https://reprexbase.eu/demowiki/index.php?title=Property:P267): a concept that a study (group), question (group) or question item aims to measure, for example [environmental protection (Q131)](https://reprexbase.eu/demowiki/index.php?title=Item:Q131).
+
+-   [study (DDI) P270](https://reprexbase.eu/demowiki/index.php?title=Property:P270): the *study* where you can find this (model) question (item). In DDI, a study represents the process by which a data set was generated or collected (in a survey). For example, [Eurobarometer 88.1 (2017) Q139](https://reprexbase.eu/demowiki/index.php?title=Item:Q139)
+
+## Example
+
+### 1. Access Wikibase
+
+Login in with you account to Wikibase.
+
+### 2. Create a New Question Item
+
+::: note 
+For a clearer definition, see  the [disco:Question](https://rdf-vocabulary.ddialliance.org/discovery.html#question) class.
+
+:::
+
+Go to "Special Pages"
+
+![](png/question_to_wikibase/wikidata_specialPages_2x1.png){fig-align="center"}
+
+Scroll down and select: "Create a New Item"
+
+![](png/question_to_wikibase/wikibase_addNewItem_2x1.png){fig-align="center"}
+
+Fill the form with the question's data:
+
+-   Language - Choose the language (en)
+
+-   Label - Give a short name for the question
+
+-   Description - Enter the question itself in the format specified above.
+
+-   Aliases - leave it empty
+
+![](png/question_to_wikibase/wikibase_createNewItem_2x1.png){fig-align="center"}
+
+Click `Create`.
+
+The question now is created on Wikibase.
+
+![](png/question_to_wikibase/example_question_2x1.png){fig-align="center"}
+
+::: callout-note
+Note: The system assigns a unique ID to every entry. In our example the ID is [Q111](https://reprexbase.eu/demowiki/index.php?title=Item:Q111).
+:::
+
+### 3. Add Metadata Statements
+
+You need to add further metadata statements to the question bank item.  Metadata is a statement about the data.  We are adding standard, basic statements in subject, predicate, and object (triplet) format to each question bank item.
+
+#### Questionnaire Classes
+
+Let's start by specifying the entry we created as a `question`, `model question` or `question item`.
+
+Select `+add statement`.
+
+![](png/question_to_wikibase/addStatement_2x1.png){fig-align="center"}
+
+Using the [instance of](https://reprexbase.eu/demowiki/index.php?title=Property:P2) property, which is defining the taxonomical class of the entered item (in this case, a question.)
+
+![](png/question_to_wikibase/statement_property_and_class_2x1.png){fig-align="center"}
+
+#### Variable Representation
+
+DDI has standard variable representation definitions. When a  questionnaire will be filled out in a raw dataset, or data will be systematically queried from and API, each response will be translated into a variable. We need to define how we want to represent those answers in the resulting output dataset. (See [DDI 3.3 (2020) documentation - Variable Value Representation and Question Response Domain](https://ddi-lifecycle-documentation.readthedocs.io/en/latest/TechnicalGuide/Value%20Representation%20and%20Response%20Domain.html))
+
+
+Using statements you can define the representation of the variables. You can choose from the following categories:
+
+-  [x] category representation base type: if the answers are categories (for example: `[ ] Female`, `[ ] Male`, `[ ] Prefer not to say`)
+
+-  [x] category representation base type with a **scale**: if the answers are categories and follow a scale (for example: `[] Very important`,  `[ ] Fairly important`,  `[ ] Not very important`, `[ ] Not at all important`. )
+
+-  [x]  ranking representation base type: the respondant must rank the answer options, like 1st, 2nd, 3rd, etc.
+
+-  [x] numeric variable representation base type: the answer should be a number, for example, the age of the respondant as an integer number or a postal code in a country where postal codes contain only numeric digits, f.e., `1051`.
+
+-  [x]  textual variable representation base type: the answer should be some text, for example, and open answer, or a geographical location typed as a simple text, for example, `Bratislava`.
+
+![](png/question_to_wikibase/VariableRepresentation_6x4.png){fig-align="center"}
+
+
+
+#### Define the source study
+
+::: callout-tip
+For further details, please check the [disco:Study](https://rdf-vocabulary.ddialliance.org/discovery.html#study) class.
+:::
+
+
+With the [study (DDI) P270](https://reprexbase.eu/demowiki/index.php?title=Property:P270) property you must link as a statement the *study* where you found the (model) question (item).
+
+![](png/question_to_wikibase/statement_study_2x1.png){fig-align="center"}
+
+An example for a study: [Eurobarometer 88.1 (2017) Q139](https://reprexbase.eu/demowiki/index.php?title=Item:Q139)
+
+::: callout-note
+Note: If the study is not yet in Wikibase, you can create an entry for it using the `Create a New Item` function.
+:::
+
+#### Add related concept
+
+Where are the related concepts coming from?  
+
+1. The best case is that you use a widely accepted conceptualisation (ontology item) of your domain. For example, we took the [duration (Q132)](https://reprexbase.eu/demowiki/index.php?title=Item:Q132) concept from the Music Ontology. You can connect statements of equivalence to a well-defined ontology via [equivalent class (P69) ](https://reprexbase.eu/demowiki/index.php?title=Property:P69). In other words, our Q149 entity is equivalent to Music Ontology's `duration` (in short: `mo:duration`.)
+
+2. If there are no accepted ontologies or you are uncertain, it is a very good practice to use a concept definition from Wikidata. Even in the case of an ontological definition, adding the Wikidata QID is a great idea because Wikidata connects equivalent definitions across various domains' ontologies. You can make a statement about an equivalent Wikidata URI (for an item) by [Wikibase URI (P73)](https://reprexbase.eu/demowiki/index.php?title=Property:P73). See, for example [duration (Q132)](https://reprexbase.eu/demowiki/index.php?title=Item:Q132), [Wikibase URI (P73)](https://reprexbase.eu/demowiki/index.php?title=Property:P73), [https://www.wikidata.org/wiki/Q16038819](https://www.wikidahttps://www.wikidata.org/wiki/Q16038819), meaning that our `plastic` definition is equivalent to the Wikidata definition of `plastic` (which has a QID of `Q16038819` on Wikidata, and it received the QID of `Q132` on our Wikibase instance.) 
+
+3. You can create your definition if you are still looking for a suitable definition in an accepted ontology or on Wikidata. For this, you should create a definition in Wikibase (as a new item.) See, for example, [model question (Q126)](https://reprexbase.eu/demowiki/index.php?title=Item:Q126), which is our own proprietary definition until we find a more consensual one.
+ 
+
+### Add the questionText translations
+
+On Wikibase you can add different language versions to the same question.
+
+To do so, go to "Special Pages"
+
+![](png/question_to_wikibase/wikidata_specialPages_2x1.png){fig-align="center"}
+
+Scroll down and select: "Set Item/Property Description"
+
+![](png/question_to_wikibase/SpecialPages_Set_ItemProperty_Description_2x1.png){fig-align="center"}
+
+Fill the form:
+
+-   ID - The QiD of the question
+
+-   Language code - the new language you want to input the question
+
+-   Description - The question itself in the new language
+
+![](png/question_to_wikibase/Set_IetmProperty_Description_2x1.png){fig-align="center"} Select "Set Description".
+
+The entry is now updated with another language.
