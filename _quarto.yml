@@ -35,7 +35,7 @@ book:
                  country: The Netherlands
                  postal-code: "2516 AH"
                  url: https://reprex.nl/
-  date: "2024-07-01"
+  date: "2024-07-02"
   repo-url: https://github.com/dataobservatory-eu/opencollections-manual
   repo-actions: [edit]
   chapters:
@@ -56,6 +56,7 @@ doi: 10.5281/zenodo.12092221
 
 bibliography: 
     - bib/cm.bib
+    - bib/ddi.bib
     - bib/wikidata.bib
 
 format:

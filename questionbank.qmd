@@ -2,9 +2,17 @@
 
 In this guide you are going to learn how to feed different types of questions and information related to them to Wikibase.
 
-First, you will read about how to feed into Wikibase different type of questions. Second, you will learn about different types of information and how to link them to your question. Last, you will see how to add different translations to a question.
+First, you will read about how to load into Wikibase different type of questions. Second, you will learn about different types of information and how to link them to your question. Last, you will see how to add different translations to a question.
 
-The concept behind the workflows follows the DDI-Lifecycle framework. The DDI lifecycle model is designed to support the documentation and management of data throughout its entire lifecycle, ensuring that data can be effectively shared, reused, and preserved. DDI-Lifecycle is not yet available in RDF. Some elements of DDI are standardised; others are not. Whenever possible, we use the standardised vocabulary and annotation; when no such ontology is present, we create our interpretation of DDI.
+The concept behind the workflows follows the DDI-Lifecycle framework. The DDI lifecycle model is designed to support the documentation and management of data throughout its entire lifecycle, ensuring that data can be effectively shared, reused, and preserved. DDI-Lifecycle is not yet available in RDF. Some elements of DDI are standardised; others are not. Whenever possible, we use the standardised _DDI-RDF Discovery Vocabulary_; when no such ontology is present, we create our interpretation of DDI [@ddi_lifecycle_3-3, @ddi-rdf_discovery_2024].
+
+![](png/datamodels/gsim.png)
+
+DDI is part of  the **General Statistical Information Model** (GSIM)[@GSIM_v20_2014], which accompanies the **Generic Statistical Business Process Model** (GSBPM) as an international standard model that “describes and defines the set of business processes needed to produce official statistics.” We use the conceptualisation of GSIM so that our results will be similar in quality to official statistics; of course, similar processes allow us to create products that combine well with official statistical products. 
+
+![The two implementation standards, DDI and SDMX ensures that our observatories can work together with statistical offices, or respectable social sciences data repositories.](png/datamodels/gsim.png){fig-align="center"}
+
+Applying the *Data Documentation Initiatve* (DDI) will ensure that we will remain compatible with official statistical microdata and metadata services and other social sciences archives, like GESIS, the official data archive of all European Commission-mandated survey research dating back over 50 years [@vardigan_DDI_2008].
 
 ## Question Types
 
