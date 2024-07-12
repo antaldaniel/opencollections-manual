@@ -4,11 +4,11 @@ In this guide you are going to learn how to feed different types of questions an
 
 First, you will read about how to load into Wikibase different type of questions. Second, you will learn about different types of information and how to link them to your question. Last, you will see how to add different translations to a question.
 
-The concept behind the workflows follows the DDI-Lifecycle framework. The DDI lifecycle model is designed to support the documentation and management of data throughout its entire lifecycle, ensuring that data can be effectively shared, reused, and preserved. DDI-Lifecycle is not yet available in RDF. Some elements of DDI are standardised; others are not. Whenever possible, we use the standardised _DDI-RDF Discovery Vocabulary_; when no such ontology is present, we create our interpretation of DDI [@ddi_lifecycle_3-3, @ddi-rdf_discovery_2024].
+The concept behind the workflows follows the DDI-Lifecycle framework. The DDI lifecycle model is designed to support the documentation and management of data throughout its entire lifecycle, ensuring that data can be effectively shared, reused, and preserved. DDI-Lifecycle is not yet available in RDF. Some elements of DDI are standardised; others are not. Whenever possible, we use the standardised *DDI-RDF Discovery Vocabulary*; when no such ontology is present, we create our interpretation of DDI [@ddi_lifecycle_3-3, @ddi-rdf_discovery_2024].
 
 ![](png/datamodels/gsim.png)
 
-DDI is part of  the **General Statistical Information Model** (GSIM)[@GSIM_v20_2014], which accompanies the **Generic Statistical Business Process Model** (GSBPM) as an international standard model that “describes and defines the set of business processes needed to produce official statistics.” We use the conceptualisation of GSIM so that our results will be similar in quality to official statistics; of course, similar processes allow us to create products that combine well with official statistical products. 
+DDI is part of the **General Statistical Information Model** (GSIM)[@GSIM_v20_2014], which accompanies the **Generic Statistical Business Process Model** (GSBPM) as an international standard model that “describes and defines the set of business processes needed to produce official statistics.” We use the conceptualisation of GSIM so that our results will be similar in quality to official statistics; of course, similar processes allow us to create products that combine well with official statistical products.
 
 ![The two implementation standards, DDI and SDMX ensures that our observatories can work together with statistical offices, or respectable social sciences data repositories.](png/datamodels/gsim.png){fig-align="center"}
 
@@ -20,11 +20,11 @@ The need for questions arises from the fact that you want to collect some data s
 
 Without addressing the theory of data harmonisation, these are the steps you are likely to make:
 
-1. For example, if you need data on reusable plastic bags, you need to find a widely shared definition of `plastic`, `reusability` and `bags`.
-2. You should consult a database or a question bank to find out if others have already asked about reusable plastic bags.
-3. If you formulate a questionnaire using the exact wording and answering options as earlier surveys on attitudes to reusable plastic bags, you will be able to compare the results. So, you need access to question forms (question texts) and answer options.
-4. If you work on an international project or want a global comparison, you will need to ensure that the question texts and answer options are translated very similarly and understood equally in different languages. 
-5. As a practical last step, the responses must be coded the same way as in international data repositories; for example, female respondents are coded with `F` in most statistical data repositories, even if the word 'female' may start with a different letter in many languages.
+1.  For example, if you need data on reusable plastic bags, you need to find a widely shared definition of `plastic`, `reusability` and `bags`.
+2.  You should consult a database or a question bank to find out if others have already asked about reusable plastic bags.
+3.  If you formulate a questionnaire using the exact wording and answering options as earlier surveys on attitudes to reusable plastic bags, you will be able to compare the results. So, you need access to question forms (question texts) and answer options.
+4.  If you work on an international project or want a global comparison, you will need to ensure that the question texts and answer options are translated very similarly and understood equally in different languages.
+5.  As a practical last step, the responses must be coded the same way as in international data repositories; for example, female respondents are coded with `F` in most statistical data repositories, even if the word 'female' may start with a different letter in many languages.
 
 Our question bank is designed to be searchable by concepts, question types, question labels or question texts.
 
@@ -32,10 +32,7 @@ Our question bank is designed to be searchable by concepts, question types, ques
 
 What is a survey question after all? DDI organises questions into 3+1 hierarchical levels.
 
--   [x] `Question`: A question and its answer options formulated in at least one natural language, for example, 
-`Please tell me to what extent you agree or disagree with the following statement:` 
-`“I trust that products carrying the EU ecolabel are environmentally-friendly.”` 
-`[ ] Totally agree [ ], Tend to agree [ ], Tend to disagree [ ], Totally disagree [ ], DK`. In this example DK refers to declined to comment on the question, or a refusal to answer this question.
+-   [x] `Question`: A question and its answer options formulated in at least one natural language, for example, `Please tell me to what extent you agree or disagree with the following statement:` `“I trust that products carrying the EU ecolabel are environmentally-friendly.”` `[ ] Totally agree [ ], Tend to agree [ ], Tend to disagree [ ], Totally disagree [ ], DK`. In this example DK refers to declined to comment on the question, or a refusal to answer this question.
 
 -   [x] `QuestionItem`: the concept (i.e., unemployment, or plastic bags) being measured by the question, text for the question, response domain information, clarifying instructions, external aids (clarifying objects used in presenting the question to the respondent), Input and Output Parameters and Bindings, allowed response cardinality and estimation of the time required to respond.
 
@@ -45,12 +42,9 @@ What is a survey question after all? DDI organises questions into 3+1 hierarchic
 
 ### Model question
 
-One other way to make questions and resulting responses and their statistically processed variables comparable is to ask questions about different concepts in a same way?  A standard quesiton in a Cultural Access and Participation Survey is:
+One other way to make questions and resulting responses and their statistically processed variables comparable is to ask questions about different concepts in a same way? A standard quesiton in a Cultural Access and Participation Survey is:
 
-`How many times in the past 12 months have you been to ...`
-`                                                 ... a concert?`
-`                                                 ... cinema?`
-`                                                 ... church?`
+`How many times in the past 12 months have you been to ...` `... a concert?` `... cinema?` `... church?`
 
 While people may have recollection biases about the 12 months, and may use a bit differently the concept of concert or cinema, because of the same syntax, context, we can assume that their responses are comparable. In this case, `How many times in the past 12 months have you been to ...` is a model question.
 
@@ -84,20 +78,33 @@ Based on the DDI-Lifecycle model we could generate differently structured model 
 
 The DDI-Discovery ontology requires the questions to take this format:
 
-
-> *Please tell me to what extent you agree or disagree with the following statement: “I trust that products carrying the EU ecolabel are environmentally-friendly.” [ ] Totally agree [ ], Tend to agree [ ], Tend to disagree [ ], Totally disagree [ ], DK*. 
+> *Please tell me to what extent you agree or disagree with the following statement: “I trust that products carrying the EU ecolabel are environmentally-friendly.” \[ \] Totally agree \[ \], Tend to agree \[ \], Tend to disagree \[ \], Totally disagree \[ \], DK*.
 
 This is a good representation to for an existing questionnaire, but it is not really good for a questionbank, because in some cases, the agreement scale may be a 3-level, in others, a 5-level agreement scale:
 
 > *Please tell me to what extent you agree or disagree with the following statement: “I trust that products carrying the EU ecolabel are environmentally-friendly.” \[ \], Agree \[ \], \[ \], Disagree \[ \], DK*
 
-We can argue that the responses are still comparable, but `[ ] Totally agree [ ], Tend to agree [ ]` should be added together for a broader `[ ] Agree` category if one survey uses the 5-scale version of the response scale while the other uses the 3-scale (agree, disagree, decline) version. 
+We can argue that the responses are still comparable, but `[ ] Totally agree [ ], Tend to agree [ ]` should be added together for a broader `[ ] Agree` category if one survey uses the 5-scale version of the response scale while the other uses the 3-scale (agree, disagree, decline) version.
 
 This is why we separately record the model question, the subquestions and the answer options.
 
 ### Simple, Multiple Choice and Matrix Questions
 
-Different question types have different elements. Some questions consist of one question, others have group questions and several sub-questions. Let's see how to feed into Wikibase:
+Different question types have different elements. Some questions consist of one question, others have group questions and several sub-questions. 
+
+A question might consists of the following elements:
+
+`[Model question] +  [Question Items] +  [Answer options]`
+
+-   All elements should be added separately to the Wikibase
+
+-   The format changes based on the type of the question:
+
+    -   simple question: `[Model question] + [Answers]`
+    -   multiple choice question: `[Model question] + [Question Items]`
+    -   matrix question: `[Model question] +  [Question Items] +  [Answer options]`
+
+Let's see how to load into Wikibase:
 
 -   Simple Questions
 
@@ -116,6 +123,7 @@ For a clearer definition, see the [disco:Question](https://rdf-vocabulary.ddiall
 :::
 
 ![This question is taken from the question block D (QD) from the Eurobarometer 88.1 study.](png/question_to_wikibase/question_simple_2x1.png){fig-align="center"}
+The format of a simple question is: `[Model question] + [Answer options]`
 
 Let's see how to create a simple question entry in Wikibase. Go to "Special Pages"
 
@@ -141,7 +149,7 @@ Click `Create`.
 
 The question now is created on Wikibase.
 
-![](png/question_to_wikibase/example_question_2x1.png){fig-align="center"}
+![](png/question_to_wikibase/example_simple_question_2x1.png){fig-align="center"}
 
 ::: callout-note
 Note: The system assigns a unique ID to every entry. In our example the ID is [Q111](https://reprexbase.eu/demowiki/index.php?title=Item:Q111).
@@ -161,6 +169,8 @@ Matrix questions have:
 
 Following the functions "Special Pages" ▷ "Create New Item" you should feed into Wibikbase separately the model question and the questions items.
 
+![](png/question_to_wikibase/matrixQuestion_modelQuestion_2x1.png){fig-align="center"}
+
 [Q128](https://reprexbase.eu/demowiki/index.php?title=Item:Q128) is the model question, which follows the structure:
 
 -   Language ▷ Choose the language (en)
@@ -177,7 +187,9 @@ Following the functions "Special Pages" ▷ "Create New Item" you should feed in
 
 -   Aliases - leave it empty
 
-[Q140](https://reprexbase.eu/demowiki/index.php?title=Item:Q140) is a sub-questions, which follows the structure:
+![](png/question_to_wikibase/matrixQuestion_questionItem_2x1.png){fig-align="center"}
+
+[Q140](https://reprexbase.eu/demowiki/index.php?title=Item:Q140) is a question item, which follows the structure:
 
 -   Language ▷ Choose the language (en)
 -   label: `Important for reduction of plastic - collection facilities`
@@ -195,7 +207,7 @@ Following the functions "Special Pages" ▷ "Create New Item" you should feed in
 
 #### Multiple Choice Questions
 
-Matrix questions have:
+Multiple Choice questions have:
 
 -   a model question
 
@@ -204,6 +216,8 @@ Matrix questions have:
 ![This question is taken from the question block D (QD) from the Eurobarometer 88.1 study.](png/question_to_wikibase/question_multipleChoice_6x4.png){fig-align="center"}
 
 Following the functions "Special Pages" ▷ "Create New Item" you should feed into Wibikbase separately the model question and the questions items.
+
+![](png/question_to_wikibase/multipleChoiceQuestion_modelQuestion_2x1.png){fig-align="center"}
 
 [Q143](https://reprexbase.eu/demowiki/index.php?title=Item:Q143) is the model question, which follows the structure:
 
@@ -218,6 +232,8 @@ Following the functions "Special Pages" ▷ "Create New Item" you should feed in
     -   `[ ] ranking` - stands for the question items
 
 -   Aliases: leave it empty
+
+![](png/question_to_wikibase/multipleChoiceQuestion_questionItem_2x1.png){fig-align="center"}
 
 [Q144](https://reprexbase.eu/demowiki/index.php?title=Item:Q144) is a question item, which follows the structure:
 
@@ -250,19 +266,19 @@ IN the following this guide explain how to add information about:
 
 ### Questionnaire Classes
 
-Let's start by specifying the entry we created as a `question`, `model question` or `question item`.
+Let's start by specifying the entry we created as `model question` or `question item`.
 
-Select `+add statement`.
+Specify the entries created as `model question` or `question item`.
 
-![](png/question_to_wikibase/addStatement_2x1.png){fig-align="center"}
+-   Select `+add statement`.
 
-Using the [instance of](https://reprexbase.eu/demowiki/index.php?title=Property:P2) property, which is defining the taxonomical class of the entered item (in this case, a question.)
+-   Using the [instance of](https://reprexbase.eu/demowiki/index.php?title=Property:P2) property, which is defining the taxonomical class of the entered item (in this case, a question.)
 
-In case of simple questions, with one questions define them as "`questions`".
+-   In case of model questions, define them as `model question`.
 
-![](png/question_to_wikibase/statement_property_and_class_2x1.png){fig-align="center"}
+-   In case of question item, define them as `question items`.
 
-In case of multiple questions (matrix, multiple choice) define your `model questions` and the `question items`, then accordingly categorize them with the [instance of](https://reprexbase.eu/demowiki/index.php?title=Property:P2) property.
+![](png/question_to_wikibase/instanceOf_modelQuestion_6x4.png){fig-align="center"}
 
 ::: callout-caution
 ## In the case of questions items, always link them to the appropriate model questions using the [model question (P266)](https://reprexbase.eu/demowiki/index.php?title=Property:P266) property.
