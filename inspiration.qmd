@@ -1,8 +1,8 @@
 # Inspiration {#sec-inspiration}
 
-Data curators, as professionals, bear the responsibility of managing, maintaining, and enhancing the quality of an organisation’s data. Their work is instrumental in making data easily accessible, accurate, and relevant to the organisation’s needs. In large organisations, they collaborate closely with data and knowledge engineers, data analysts, data scientists, and other stakeholders to establish a robust data ecosystem.
+Data curators, as professionals, are responsible for managing, maintaining, and enhancing the quality of an organisation’s data. Their work is instrumental in making data easily accessible, accurate, and relevant to the organisation’s needs. Large organisations collaborate closely with data and knowledge engineers, analysts, scientists, and other stakeholders to establish a robust data ecosystem.
 
-In the music sector, because of the dominance of micro- and small enterprise (institution) sizes, very few competent data curators and specialised data or knowledge engineers are present. Our approach to solving this problem is to do the curatorial and engineering work collectively.
+Because of the dominance of micro- and small enterprise (institution) sizes in the music sector and many other creative industries and service sectors, very few competent data curators and specialised data or knowledge engineers are present. Our approach to solving this problem is to do the curatorial and engineering work collectively.
 
 -   [x] We pool those music experts within the stakeholder network who have data curatorial skills (for example, music librarians) or, due to their job, have background skills or an affinity to data curation.
 
@@ -36,7 +36,7 @@ Sometimes we put our hands on data that looks like a unique starting point to cr
 
 ### Machine Learning from Bad Data: Weapons of Math Destruction, Algorithms of Oppression
 
-Cathy O’Neil: [⏯ Weapons of math destruction](https://en.wikipedia.org/wiki/Weapons_of_Math_Destruction), which O’Neil are mathematical models or algorithms that claim to quantify important traits: teacher quality, recidivism risk, creditworthiness but have harmful outcomes and often reinforce inequality, keeping the poor poor and the rich rich. They have three things in common: opacity, scale, and damage. https://blogs.scientificamerican.com/roots-of-unity/review-weapons-of-math-destruction/](https://blogs.scientificamerican.com/roots-of-unity/review-weapons-of-math-destruction/)
+Cathy O’Neil: [⏯ Weapons of math destruction](https://en.wikipedia.org/wiki/Weapons_of_Math_Destruction), which O’Neil are mathematical models or algorithms that claim to quantify important traits: teacher quality, recidivism risk, creditworthiness but have harmful outcomes and often reinforce inequality, keeping the poor poor and the rich rich. They have three things in common: opacity, scale, and damage. https://blogs.scientificamerican.com/roots-of-unity/review-weapons-of-math-destruction/\](https://blogs.scientificamerican.com/roots-of-unity/review-weapons-of-math-destruction/)
 
 In [⏯ Algorithms of Oppression](https://nyupress.org/9781479837243/algorithms-of-oppression/), Safiya Umoja Noble challenges the idea that search engines like Google offer an equal playing field for all forms of ideas, identities, and activities. Data discrimination is a real social problem; Noble argues that the combination of private interests in promoting certain sites, along with the monopoly status of a relatively small number of Internet search engines, leads to a biased set of search algorithms that privilege whiteness and discriminate against people of colour, especially women of colour.
 
