@@ -35,13 +35,15 @@ book:
                  country: The Netherlands
                  postal-code: "2516 AH"
                  url: https://reprex.nl/
-  date: "2024-07-02"
+  date: today
   repo-url: https://github.com/dataobservatory-eu/opencollections-manual
   repo-actions: [edit]
+  downloads: [pdf, epub]
   chapters:
     - index.qmd
     - inspiration.qmd
     - tidy.qmd
+    - collections.qmd
     - wikidata.qmd
     - wikibase.qmd
     - sandbox.qmd
@@ -51,13 +53,18 @@ book:
     - questionbank.qmd
     - musicapi.qmd
 
-version: 0.2.1
-doi: 10.5281/zenodo.12092221
+version: 0.2.3
+doi: 10.5281/zenodo.13364493
 
 bibliography: 
     - bib/cm.bib
+    - bib/collections.bib
     - bib/datamodels.bib
     - bib/ddi.bib
+    - bib/identifiers.bib
+    - bib/metadata.bib
+    - bib/musicidentifiers.bib
+    - bib/nerd.bib
     - bib/wikidata.bib
 
 format:
@@ -66,6 +73,7 @@ format:
   pdf:
     documentclass: scrreprt
   epub: default 
+  docx: default
 
 editor: visual
 
