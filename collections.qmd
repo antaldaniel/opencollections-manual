@@ -1,4 +1,4 @@
-# Collections {#collections}
+# Collections {#sec-collections}
 
 <!--- special: elipsis: …  ; emdash: — ; arrow-out ↗ ; ▷ ; »«--->
 
@@ -14,11 +14,85 @@ In the digital era, without the limitations of transport costs, storage space co
 
 > "In a pragmatic approach, actors of digital curation include not just information professionals but also those involved in all aspects of the creation and reuse of a broad range of information objects. The latter comprise not just digital research data, static digital resources, and databases, but also derivations and performances of such objects, and representations of domain knowledge, including indigenous and community based." [@dallas_digital_curation_2016]
 
-## Naming things
+## Collection types
+
+### Playlists, repertoires, libraries
+
+The archetype of libraries contains books organized by title, author and topic, or music libraries by title, author and genre.
+
+Library-type collections use the Dublin Core metadata set, organized around titles, authors, and short descriptions.
+
+::: callout-tip
+#### Libraries, playlist
+
+Your collection will likely depend on the Dublin Core, DataCite or Europena mandatory metadata fields. For example, to place an item of your collection into Europeana you must identify each item with a `title` and/or a `description`; in a library system you will use titles, often with subtitles or alternative (translated) titles.
+
+-   [x] You will use the names of author(s), like *Mark Twain*, or *John Lennon* and *Paul McCartney*.
+-   [x] You will use titles, like *The Adventures of Huckleberry Finn* and *Hey Jude* and *Symphony No. 2.*. Literary works and classical music works often have translated titles like *2. szimfónia*.
+-   [x] You will use publication or public release or copyright registration dates (or at least years.)
+
+Because there may be several identically named authors or titles (think about the Symphony No. 2.), you will need unique identifiers for your items.
+:::
+
+Libraries suffer from name ambiguities and often name entity disambiguation. For example, many songs are called "Machinist," and many authors are called "James Campbell." Sometimes, names and titles need to be matched, which causes search errors, royalty payment errors, etc. See further details in the subsequent @sec-naming-individual-entities part of this chapter.
+
+### Webshops, galleries, museums
+
+Galleries and other exhibition places often show only (on the front page) a selection of diverse items available in your inventory. You do not only keep books or sound recordings but also keep various items (merchandise, tote bags, etc.); the items need to be better described with author-title relationships; after all, who is the 'author' of a tote bag?
+
+Gallery-type collections use a CIDOC-like information model for metadata and usually rely more heavily on thesauri to describe many different entities or things with a consistent language that is well understood by machines and people alike.
+
+::: callout-tip
+#### Webshops, galleries, museums
+
+Your collection will likely depend on a broader conceptual model like CIDOC, and well-established controlled vocabularies like AAT.
+
+-   [x] You will use titles, like *Mona Lisa* and *Ohne Titel*. Titles are often translated (*Without title*) or not useful for identification (like *Ohne Titel*).
+
+-   [x] Because the title may not be a good identifier, you will use short descriptions, like Tour *T-Shirt Female Medium*, *Tour T-Shirt Male XL*, *Blue kitchen apron from the 19th century*. In such cases, the title may be a shorter version of the description *This wonderful Tour T-Shirt is available in blue, yellow, and green for women*.
+
+-   [x] Various further information points on provenance may be recorded ("Designed in California", "Found in the Friesland region of the Netherlands") etc.
+
+Good descriptions are essential because your users may look for very different items in your collections. Good descriptions can be easily translated from English to Dutch or Latvian, and machines can read them or translate them without error. You will focus on using keywords, keyword chains, or descriptions that come from a controlled vocabulary, a classification, or a thesaurus.
+
+Unless your enterprise or organisation has its ontology, we will use CIDOC as a basis. CIDOC is a complex, event-based information model and you do not have to learn it. We need to ensure that the most important metadata about your collection is imported or entered into Wikibase so that we can export it, for example, into a CIDOC-compliant RDF.
+:::
+
+The challenge with galleries is that they have to describe many things consistently and independently from natural languages. For example, a dress historian may use the color [blue](http://vocab.getty.edu/page/aat/300129361) to describe a [cooking aprons](http://vocab.getty.edu/page/aat/300422315). How do we make sure that `blue`, `blauw`, `kék`, `ლურჯი`, or `синий`, labels are understood the same way, so that we can compare English, Dutch, Russian or Georgian collections? (See @sec-nerd later in this chapter.)
+
+### Documents, question banks, archives
+
+Archives and document databases often contain millions of various documents or other records. Compared to libraries and galleries, individual collection items usually have a lower value and a much lower level of documentation. An archive may contain millions of documents, but only a few may be interesting for our age or use case. Titles are often non-existent because the `document #3217454` is not very helpful for the user.
+
+Archives emphasize the provenance of their collections. We may have thousands of emails, which must be those of a late novelist or a former CEO. If they are boxed, the origin of the box, when it was boxed, and other aspects of their recording history are the most important guides for the person who wants to find *that* email sent to the editor about the final changes in a novel, or the *final aproval* of an investment project.
+
+Archives use the RiC conceptual model, ontology, or a metadata system on prior international archival standards.
+
+### Registers {#sec-collections-registers}
+
+Registers are collections that aim for completeness. They register every limited liability company in a jurisdiction, every copyright-protected musical work in a country, every living person, and every living musician in a city.
+
+Registers can be library-like (for example, for copyright-protected literary or musical works), or more archival, for registering every birth and death certificate to create a population register. Like in the case of archives, data provenance is important. As opposed to archives, registers add new items and delete or make them obsolete; when people move away, companies are liquidated, or the copyright term of musical work expires.
+
+::: callout-tip
+#### From business records to archives
+
+Your main challenge is that you have many very similar items in your collections, which are usually not very interesting and therefore researchers or curators do not spend time to individual describe and title them.
+
+-   [x] It is important to retain information about the record's structure: the letter has 3 pages, and the individual page is the 2nd of 3 pages.
+-   [x] Provenance is recorded with utmost care: the letters from the private drawer of the CEO, the private journal of the author, and the company's the counts in the year 1832.
+-   [x] Like libraries, our role is to connect people to the collection item, broadening the understanding of its significance. This connection is not limited to an author or editor role but extends to various roles such as project sponsor, judge, correspondence partner, sibling, etc.
+
+The international archival standards were modernised into RiC (Records in Context) for linking on the internet in 2023. We use the RIC ontology and conceptual model to work with archival documents. Our curators do not have to work with RIC directly in all cases, but they must use OpenCollections in a way that records they record the key metadata of RIC. We will set up a Wikibase for you in a way that can be translated to RIC (and earlier archival standards.)
+:::
+
+Registers can be formed around libraries, galleries, and archives, but they always have a time dimension, showing valid from and valid till date of every item.
+
+## Identifying, Naming, and Describing Collection Items
+
+### Naming people and indvidual things {#sec-naming-individual-entities}
 
 When interacting with the world of persons, things, and relations, we use human language and name the persons and things. When naming people, for example, we use a first name or a full name. Names can be unambiguous or have a certain level of ambiguity that can be resolved in a context. In the United States alone, more than 38,000 men were named James Smith, and more than 32,000 women were named Maria Garcia in 2013 [@hartman_john_smith_et_al]; identification by full name is an error-prone process.
-
-### Naming people
 
 `Taylor` is a unisex English name, and `Swift` is a family name that is not uncommon in English-speaking countries. The full name `Taylor Swift` name can refer to the American female superstar Taylor (Alison) Swift, the American male photographer Taylor Swift, or the event manager of Grand Hyatt New York, a woman who grew up in Missouri and used to sing in groups. (Newsweek: [What It's Like to Be Named Taylor Swift in 2014](https://www.newsweek.com/two-people-named-taylor-swift-talk-about-being-named-taylor-swift-age-taylor-283861))
 
@@ -47,8 +121,6 @@ The names are replaced with a unique string in a database or an application that
 -   [x] When there is no truly global identifier, create one in OpenCollections.
 :::
 
-### Naming individual things
-
 The `Eiffel Tower`, `Tour Eiffel`, `Eiffel-torony`, `Eiffeltoren` names refer to the same building in English, French, Hungarian and Dutch. While the building is individual, it has many names. Using a street address or the geocoordinates would be tempting; but street addresses keep changing. The geocoordinates do not show elevation (in case you would need the storey number), and there was *something* in another time, before the Eiffel Tower was built on the location of 48° 51' 29.1348'' North and 2° 17' 40.8984'' East. A popular location identifier, `geonames` identifies this famous building with [6254976](https://www.geonames.org/6254976/tour-eiffel.html); Wikidata uses the [Q243](https://www.wikidata.org/wiki/Q243) identifier.
 
 The `Symphony No. 2` suffers from the same problem (it is `2. szimfónia` in Hungarian and `Symfonie nr. 2` in Dutch), but also from the fact that it is given to many musical works: it may refer to Opus 36 of Ludwig van Beethoven ([Symphony No. 2 in D Major, Op. 36](https://www.wikidata.org/wiki/Q210451)), or [Symphony No. 2 in C Minor](https://www.wikidata.org/wiki/Q210549) by Gustav Mahler, or [Opus 73, Symphony No. 2 in D Major](https://www.wikidata.org/wiki/Q210469), by Johannes Brahms.
@@ -64,7 +136,7 @@ In collections, "information for display should be in a format and with syntax t
 -   [x] When there is no truly global identifier, create one in OpenCollections.
 :::
 
-### Naming abstract things: categories and groups of individual entities
+### Naming categories, groups of individual entities, and non-individual items
 
 > When discussing art vocabulary for categorizing works of art, we are really talking about the controlled terminology used to *index* art works. For our purposes, *indexing* refers to a conscious activity performed by knowledgeable cataloguers who consider the retrieval implications of the indexing terms that they apply to information objects; we are not referring to an automated process that simply parses every word in a text into indexes, as search engines like Google do on the open Web. Controlled vocabulary for art refers to standardized words and phrases used to refer to ideas, physical characteristics, people, places, events, subject matter, and many other concepts related to art, architecture, and other cultural heritage. The most important functions of a controlled vocabulary are to gather together variant terms and synonyms referring to concepts, and to link concepts in a logical order or into categories. Are a *rose window* and a *Catherine wheel* the same thing? How is *pot-metal glass* related to the more general term *stained glass*? The links and relationships in a controlled vocabulary ensure that these relationships are defined and maintained, for both cataloguing and retrieval.[@harpring_baca_categorizing_art_2016, p426]
 
@@ -97,6 +169,19 @@ Because modern IT systems can contain information about billions and billions of
 -   [x] A music playlist contains sound recordings. The recordings are often referred to by the name of the performer(s) and the title of the music work that they perform; however, in global systems, we may have dozens of same-name performers and even hundreds of same-title works (just think about Symphony No.2!). Instead, we can identify the performers with the ISNI International Standard Name Identifier and the recordings with the Spotify Track ID or the ISRC International Standard Recording Code.
 
 -   [x] A dress history database may identify specimens of shirts and aprons; as there may be many similar aprons, they usually do not have a specific name. Instead, they are either identified with a generic name, like `Male apron from the 19th century`, or by an inventory number.
+
+::: callout-note
+The most common standard numbering schemes of interest in digital rights management and digital asset management include
+
+-   ISBN: International Standard Book Numbering (ISBN)
+-   ISSN: International Standard Serial Number (ISSN)
+-   ISRC: International Standard Recording Code (ISRC)
+-   ISRN: International Standard Technical Report Number (ISRN)
+-   ISMN: ISO 10957:1993 International Standard Music Number (ISMN)
+-   ISWC: ISO 15707:2001 International Standard Musical Work Code (ISWC)
+-   ISAN: Draft ISO 15706: International Standard Audiovisual Number (ISAN)
+-   ISTC: Draft ISO 21047: International Standard Text Code (ISTC)
+:::
 
 ### Actionable identifiers
 
@@ -150,7 +235,7 @@ person:Taylor_Swift relation:author works:Gold_Rush .
 The standard *Japanese breakfast* consists of steamed white rice, a bowl of miso soup, and Japanese-style pickles (like takuan or umeboshi). In the context of music, `Japanese Breakfast` is the stage name of the Korean-American artist Michelle Zauner.
 
 | Subject                                                       | Predicate             | Object                                                             |
-|-------------------|------------------------|-----------------------------|
+|---------------------------------------------------------------|-----------------------|--------------------------------------------------------------------|
 | Japanese Breakfast                                            | is a                  | music group                                                        |
 | Japanese Breakfast                                            | performs the works of | Michelle Zauner                                                    |
 | Michelle Zauner                                               | wrote                 | `Machinist`                                                        |
@@ -186,7 +271,7 @@ The URI <http://vocab.getty.edu/page/aat/300444127> identifies `adhesive-coated 
 
 The URI <https://isni.org/isni/0000000078519858> helps to resolve the `0000000078519858` numeric identifier; it refer to the most famous Taylor Swift.
 
-## Named entity recognition and disambiguation
+## Named entity recognition and disambiguation {#sec-nerd}
 
 We started this chapter with the example that in the United States alone, more than 38,000 men were named James Smith, and more than 32,000 women were named Maria Garcia; the number increases with the addition of further English- and Spanish-language territories. We have also shown that some generic name titles, like `Symphony No. 2`. can refer to a great many musical works or even more recorded or music sheet notations.
 
@@ -195,7 +280,7 @@ Named entity recognition and disambiguation (NERD) is the task of identifying an
 NERD requires knowledge to connect the text `Machinist` correctly with either Michelle Zauner a.k.a. `Japanese Breakfast` or Lloyd Cole.
 
 | Subject                                                                                | Predicate       | Object                                                                                 |
-|-------------------|------------------------|-----------------------------|
+|----------------------------------------------------------------------------------------|-----------------|----------------------------------------------------------------------------------------|
 | [Machinist](https://open.spotify.com/track/13FGWUlqQpGugvEcnEUqou)                     | is written by   | Michelle Zauner                                                                        |
 | Japanese Breakfast                                                                     | recorded        | [Machinist](https://open.spotify.com/track/13FGWUlqQpGugvEcnEUqou)                     |
 | Lloyd Cole                                                                             | recorded        | [Machinist](https://open.spotify.com/track/3OQ3DP6IzwE5KRzSp9pUJB?si=b15f7e789f6848fc) |
@@ -215,7 +300,7 @@ We aim to create high-quality information resources that make such inference pos
 
 > In principle data infrastructures can be linked directly together. Stable identifiers of digital entities on one infrastructure can be maintained on another to link infrastructures in one direction, or there can be reciprocal links to traverse infrastructures in either direction. \[…\] An alternative to linking infrastructures is for a third party infrastructure to act as a broker between infrastructures. Wikidata is a collaboratively edited multilingual database hosted by the Wikimedia foundation, which can be used for this kind of data brokerage. [@meeus_2022_7238006 p10]
 
-The Dictionary of Archives Terminology identifiers use [acid-free-paper](https://dictionary.archivists.org/entry/acid-free-paper.html) for `acid-free paper`, while the AAT uses [300311608](http://vocab.getty.edu/page/aat/300311608). Which is better? There is no answer for this question, it depends on your application. If you want to exchange data with another collection that already uses AAT, then using the same thesaurus offers the most reward with the least work. However, if you use AAT but you want to connect to a collection that uses the Dictionary of Archives Terminology, then you will have to find a way to reconcile [acid-free-paper](https://dictionary.archivists.org/entry/acid-free-paper.html) with [300311608](http://vocab.getty.edu/page/aat/300311608).
+The Dictionary of Archives Terminology identifiers use [acid-free-paper](https://dictionary.archivists.org/entry/acid-free-paper.html) for `acid-free paper`, while the Art & Architecture Thesaurus® Online (a globally used resource of the Getty Research Institute; in short: AAT) uses [300311608](http://vocab.getty.edu/page/aat/300311608). Which is better? There is no answer for this question, it depends on your application. If you want to exchange data with another collection that already uses AAT, then using the same thesaurus offers the most reward with the least work. However, if you use AAT but you want to connect to a collection that uses the Dictionary of Archives Terminology, then you will have to find a way to reconcile [acid-free-paper](https://dictionary.archivists.org/entry/acid-free-paper.html) with [300311608](http://vocab.getty.edu/page/aat/300311608).
 
 Wikidata also identifies the different names, aliases, and potential identifiers of `acid-free paper` with the QID of `Q3178534` that resolves with <https://www.wikidata.org/wiki/Q3178534>. The reason why we use Wikidata QIDs whenever possible is that they offer a simple way to connect our users to many potential identifiers. By clicking to [Q3178534](https://www.wikidata.org/wiki/Q3178534), and scrolling down to Identifiers, you will find a links to several widely used thesauri.
 
@@ -251,6 +336,6 @@ Among the many advantages of this solution, one is resolving multi-language use.
 
 -   [x] `Adventures of Huckleberry Finn (Q215410)` connects to the French library catalogue item [cb120369031](https://catalogue.bnf.fr/ark:/12148/cb120369031) and [4311319-9](https://d-nb.info/gnd/4311319-9) in the German national library system.
 
-It is not only Wikidata (and Wikibase) that can provide a similar solution; in fact, for librarian, archivist, or musicological uses, there are better solutions available. But they all require specialist knowledge and expensive infrastructure. In the subsequent chapters, we introduce Wikidata (see @wikidata-open-graph) and Wikibase (see @sec-wikibase; where we continue the explaining how to create the entries like the one for *Adventures of Huckleberry Finn*.) We believe that Wikidata offers the most democratic, least costly and most accessible platform to create an international consensus among researchers or collectors of a topic. Wikibase, the software that powers Wikidata, is the easiest, less costly start for an avantgarde group of collectors, a small research group, or a niche research interest group to start building a shared knowledge base.
+It is not only Wikidata (and Wikibase) that can provide a similar solution; in fact, for librarian, archivist, or musicological uses, there are better solutions available. But they all require specialist knowledge and expensive infrastructure. In the subsequent chapters, we introduce Wikidata (see @sec-wikidata-open-graph) and Wikibase (see @sec-wikibase; where we continue the explaining how to create the entries like the one for *Adventures of Huckleberry Finn*.) We believe that Wikidata offers the most democratic, least costly and most accessible platform to create an international consensus among researchers or collectors of a topic. Wikibase, the software that powers Wikidata, is the easiest, less costly start for an avantgarde group of collectors, a small research group, or a niche research interest group to start building a shared knowledge base.
 
 <!--- special: elipsis: …  ; emdash: — ; arrow-out ↗ ; ▷ ; »«--->
