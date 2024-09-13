@@ -1,20 +1,14 @@
 # Tidy work {#sec-tidy}
 
->Все счастливые семьи похожи друг на друга, каждая несчастливая семья несчастлива по-своему.</br>
-All happy families are alike; each unhappy family is unhappy in its own way.
+> Все счастливые семьи похожи друг на друга, каждая несчастливая семья несчастлива по-своему.</br> All happy families are alike; each unhappy family is unhappy in its own way.
 
-Our `OpenCollections` systems are complex system which are intended to be used in trustworthy AI applications. They follow the Anna Karenina principle: a deficiency in any of a number of factors dooms an endeavour to fail. Consequently, a successful endeavour (subject to this principle) is one for which every possible deficiency has been avoided. 
+Our `OpenCollections` systems are complex system which are intended to be used in trustworthy AI applications. They follow the Anna Karenina principle: a deficiency in any of a number of factors dooms an endeavour to fail. Consequently, a successful endeavour (subject to this principle) is one for which every possible deficiency has been avoided.
 
-Once the data is messy, there is a semantic ambiguity (an ambiguity in the intended use or meaning of data) that will render automation impossible or will lead to logical faults when software agents or algorithms use your data. You must keep your numeric and text data tidy at all times. The best way to keep data and text tidy is to keep it simple. Very simple. 
+Once the data is messy, there is a semantic ambiguity (an ambiguity in the intended use or meaning of data) that will render automation impossible or will lead to logical faults when software agents or algorithms use your data. You must keep your numeric and text data tidy at all times. The best way to keep data and text tidy is to keep it simple. Very simple.
 
 Simplicity is simple, if you start simple and keep it that way. Simplifying messy text and messy data is always challenging.
 
-
-
 Collective work involving data and data annotations and descriptions requires a shared understanding of the syntax and file formats.
-
-
-
 
 Our curators need to be familiar with two ideas.
 
@@ -38,7 +32,11 @@ In tidy data:
 
 -   [x] **3. Every cell is a single value**. Your blue male apron length is 97? The length column of the blue male apron row is 97.
 
-We repeat the third principle:
+::: callout-note
+A `tidy dataset` is black-and-white, and each table cells contains one element of knowledge that cannot be further divided.
+:::
+
+We repeat in negative terms these seamingly simple principles:
 
 -   [ ] **Two observed values: two columns**. We do not use colours (our machine-to-machine pipelines is colourblind). If we need comments or specifications, we add a new column. The apron has a variable length of 96-98? Use a column for min and max length, and in the cases when there is a single number, put 97 as both max length and minimum length. But never write 96-98 in on column, it must be either 96 or 98.
 
@@ -50,14 +48,27 @@ Looks easy? If you start with a tidy table, it *is* very easy. If you have to ti
 
 Is there science behind this? Yes, and it is more complicated than it sounds. In computer science or algebraic terms, you must organise your data to Codd's 3rd standard form. If you start from a well-organised table, it is a piece of cake to keep it that way. Reorganising messy information into a tidy format requires a lot of experience. Understanding that the ambiguity in the meaning of 96-98 should be resolved by treating them as two separate values, one meaning minimum possible length and the other maximum length, will not come naturally for everybody. But we will help in those cases.
 
-## Markup text {#sec-markup-text}
+### Wide & Long Formats
 
+![Tidy data tables can be pivoted: in this example a tidy wide-format data table is pivoted to a long-form table which has exactly three columns, a subject, a predicate and object, i.e., the semantic triples of knowledge management.](png/tidy/pivot_longer_to_statements_notitle_2x1.png){fig-align="center"}
+
+The tidy format is unambiguous: we always know that a number or string (value) belongs to its observational subject (in the rows) and the measured property variable (in the columns). Because the meaning is unambiguous, it can be transposed to different formats without loss of knowledge or misunderstandings.
+
+Our knowledge base applications and Wikibase requires the three-column semantic triple format, because it can be organised into a graph; relational database managers usually prefer the wide format, because in this case every observed property of a data subject is in one record.
+
+::: callout-note
+A `tidy dataset` is black-and-white, and each table cells contains one element of knowledge that cannot be further divided.
+:::
+
+If your table is tidy, it will be easy to reuse in relational or graph database, or it can import easily into a spreadsheet or statistical program. Any further formatting with colours, divided columns, merged rows will stop the data portability, because only you will know why columns or rows are merged, divided, or coloured.
+
+## Markup text {#sec-markup-text}
 
 We create interconnected, interoperable (web) resources. We want to ensure that our research results are findable, accessible, and reusable. It must work in Word and Works, Notebook and VIM, Windows, MacOS, and Linux, with Latvian, English, Greek, and Thai character sets.
 
 The World Wide Web has been a source of high interoperability and findability in the last 30 years, with the introduction of the HTTP protocol and the standardization of the HTML text markup language. We use a much-simplified version of HTML called Markdown.
 
-Markdown text opens on MacOS, Windows, or Linux. It is very easy to translate into HTML, Word, Libre Office, Google Docs, LaTeX, or PDF.  Markdown is a simplified HTML text notation that works well with word processors.
+Markdown text opens on MacOS, Windows, or Linux. It is very easy to translate into HTML, Word, Libre Office, Google Docs, LaTeX, or PDF. Markdown is a simplified HTML text notation that works well with word processors.
 
 ![](https://mdg.imgix.net/assets/images/markdown-flowchart.png?auto=format&fit=clip&q=40&w=1080){fig-align="center"}
 
@@ -76,8 +87,7 @@ There are several online Markdown editors that you can use to try writing in Mar
 -   [Basic Syntax](https://www.markdownguide.org/basic-syntax/)
 -   [Extended Syntax](https://www.markdownguide.org/extended-syntax/)
 
-
-::: {.callout-tip}
+::: callout-tip
 ### Using Word or Works
 
 You can work on Word, your iWorks suite, or any preferred word processor. However, you will lose margin settings, font typefaces and sizes, background colors, and other finishing touches.
@@ -87,8 +97,6 @@ We discourage the use of word processors for footnotes and bibliographic referen
 Our recommended markdown editor is Quarto. You can copy and paste text from Word or other word processors into Quarto, and it will retain **bold**, *italics*, and headings.
 
 Remember, we want to create text that machines and people can read, too, to avoid fancy aesthetics. Keep the text fancy (but of course, you can dress it up in Word or Adobe Illustrator later).
-
-
 :::
 
 ### Wikipedia & MediaWiki

@@ -1,0 +1,39 @@
+# Bulk import {#bulk-import}
+
+<!--- special: elipsis: …  ; emdash: — ; arrow-out ↗ ; ▷ ; »«--->
+
+## Organise your data
+
+In the @sec-tidy chapter on tidy data we have shown one of the advantages of a tidy dataset: it can be pivoted into a sequence of triple-form semantic statements. This is possible because tidy format is unambiguous: we always know that a number or string (value) belongs to its observational subject (in the rows) and the measured property variable (in the columns). In other words, the meaning of a cell is unambiguous, because we know the subject (from the rows) and the predicate (from the column headings.)
+
+![](png/tidy/pivot_longer_to_statements_notitle_2x1.png){fig-align="center"}
+
+In the @sec-collections chapter we have seen that naming is hard. Weather we are talking about people, objects, or table variables, it is difficult to come up with good names. Most programmers and open-source communities apply variable naming conventions.
+
+We apply the `snake case` convention, which creates variables like `given_name_string`. We make these names tidier with grouping semantic elements into the beginning or ending of the variable name; this way the variable name can be filtered easily.
+
+When importing into Wikibase, we need to know what should be the `type` of the imported data. Shall we use a string for `Taylor` and `Swift`, or we want to create an entity for the name (variants) of `Taylor`?
+
+-   [x] The Q number (`QID`) is unique to each Wikibase, including your Wikibase or Wikidata. The `qid` variable should always contain your QID.
+
+-   [ ] If you want to connect your knowledge base with the public Wikidata and other wiki products, use the `Wikidata URI item` property to record the Wikidata QID, too. For example, in our demo wikibase the QID of Taylor Swift (the singer) is Q58, whereas on Wikidata it is Q26876.
+
+-   [x] Apply the `_string` ending if the variable should be imported as a [string](https://www.wikidata.org/wiki/Special:MyLanguage/Help:Data_type#string); in this case, it cannot form a node in the knowledge graph (no further relations can be made.) The `given_name_string` should import `Taylor` as a character string.
+
+-   [x] Apply the `_item` ending if the variable should be imported as as entity—in Wikibase, these entities are called items.The `given_name_item` should import [Taylor (Q3981665)](https://www.wikidata.org/wiki/Q3981665) as an item that can be the node in the knowledge graph. You can connect further statements (elements of knowledge) to nodes and therefore nodes can be made intelligent. For example, [Taylor (Q3981665)](https://www.wikidata.org/wiki/Q3981665) states that this is a unisex name, and it is wrong to assume that most Taylors are women.
+
+-   [x] Apply the `_date` ending if the variable should be imported as date; for example `inception_date`, `birth_date`. Dates are points in time, and they must be converted to a time type. (See: [Dates](https://www.wikidata.org/wiki/Special:MyLanguage/Help:Dates).)
+
+-   [x] Apply the `_id` ending if the variable should be imported as an actionable or not actionable [external identifier](https://www.wikidata.org/wiki/Special:MyLanguage/Help:Data_type#external-id); for example, `viaf_id`, or `my_database_id`. If the ID is actionable, like VIAF or ISNI, we will make them actionable, making sure that `88580701` as a `viaf_id` points to <https://viaf.org/viaf/88580701>.
+
+-   [x] Apply the `_url` ending if the variable should be imported as an URL, and not an actionable URI; for example `official_website_url`.
+
+-   [x] Apply the `_monotext` for [monolingual text](https://www.wikidata.org/wiki/Special:MyLanguage/Help:Data_type#monolingualtext) types.
+
+-   [ ] We have not yet written code to import geographical information, music notation, and some special data types.
+
+### Correspondence
+
+Applying dual headings can help to map your column variables into Wikibase properties easily while pivotting into longer format.
+
+![](png/tidy/pivot_longer_to_statements_dual_heading_notitle_2x1.png){fig-align="center"}
