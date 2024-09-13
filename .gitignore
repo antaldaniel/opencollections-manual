@@ -4,6 +4,9 @@ _book/*.html
 _wikidata_files/
 _book/*.*
 
+.DS_Store
+agya.qmd
+
 # History files
 .Rhistory
 .Rapp.history
