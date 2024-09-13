@@ -235,7 +235,7 @@ person:Taylor_Swift relation:author works:Gold_Rush .
 The standard *Japanese breakfast* consists of steamed white rice, a bowl of miso soup, and Japanese-style pickles (like takuan or umeboshi). In the context of music, `Japanese Breakfast` is the stage name of the Korean-American artist Michelle Zauner.
 
 | Subject                                                       | Predicate             | Object                                                             |
-|-------------------|------------------------|-----------------------------|
+|---------------------------------------------------------------|-----------------------|--------------------------------------------------------------------|
 | Japanese Breakfast                                            | is a                  | music group                                                        |
 | Japanese Breakfast                                            | performs the works of | Michelle Zauner                                                    |
 | Michelle Zauner                                               | wrote                 | `Machinist`                                                        |
@@ -280,7 +280,7 @@ Named entity recognition and disambiguation (NERD) is the task of identifying an
 NERD requires knowledge to connect the text `Machinist` correctly with either Michelle Zauner a.k.a. `Japanese Breakfast` or Lloyd Cole.
 
 | Subject                                                                                | Predicate       | Object                                                                                 |
-|-------------------|------------------------|-----------------------------|
+|----------------------------------------------------------------------------------------|-----------------|----------------------------------------------------------------------------------------|
 | [Machinist](https://open.spotify.com/track/13FGWUlqQpGugvEcnEUqou)                     | is written by   | Michelle Zauner                                                                        |
 | Japanese Breakfast                                                                     | recorded        | [Machinist](https://open.spotify.com/track/13FGWUlqQpGugvEcnEUqou)                     |
 | Lloyd Cole                                                                             | recorded        | [Machinist](https://open.spotify.com/track/3OQ3DP6IzwE5KRzSp9pUJB?si=b15f7e789f6848fc) |

@@ -84,7 +84,7 @@ It should look similar to this:
 
 ![](png/wikidata-tutorial/wikidata-create-new-item-Janos-Barasits-20240204-3.png){fig-align="center"}
 
-To see another example on how useful knowledge graphs can be consider the following. The four character, `1935` can be understood as a number for most readers, but such a data point without a defined meaning is useless. In a basic database you would see 1935 and know that it is a number. However, in knowledge graphs, like here on Wikidata, when we add the "metadata", and we connect 1935 to the definition of `date of death`, we add a meaning ("semantics") to the number 1935. Now, 1935 is not only a number but also a date of someone's death.
+To see another example on how useful knowledge graphs can be consider the following. The four characters, `1935` can be understood as a number for most readers, but such a data point without a defined meaning is useless. In a basic database you would see 1935 and know that it is a number. However, in knowledge graphs, like here on Wikidata, when we add the "metadata", and we connect 1935 to the definition of `date of death`, we add a meaning ("semantics") to the number 1935. Now, 1935 is not only a number but also a date of someone's death.
 
 The definition of date of death is useful in itself, but in a knowledge base, we can do even more with this piece of information. With this information we can combine the fact that in Europe the copyright protection term of people's creation runs up to 70 years after their death. Thus, a knowledge base can infer the fact that currently János Barasits's postcards are out of copyright and they can be freely copied and distributed!
 
@@ -179,6 +179,13 @@ Try the first query:
 
 [![Click on the image to try it out live on the Wikidata SPARQL Endpoint. The query will run if you press the ▶ sign on the endpoint in the bottom left corner.](png/wikidata-tutorial/sparql-example-bach-children-without-labels.png)](https://query.wikidata.org/#SELECT%20%3Fchild%0AWHERE%0A%7B%0A%23%20%3Fchild%20%20father%20%20%20Bach%0A%20%20%3Fchild%20wdt%3AP22%20wd%3AQ1339.%0A%7D)
 
+::: {.callout-note}
+If you recieve a `Query timeout limit reached` error message, it is likely that you tried to make a query that resulted in too many responses, and you ran out of memory or some other resource. This can be most likely solved with some kind of limitation on the number of possible answer rows that you get. 
+
+The simplest limitation is adding a last line to your query:
+`limit 10`, which limits the descendants of J.S. Back to the first 10 people (see the previous example with [this limit](https://query.wikidata.org/#SELECT%20%3Fchild%0AWHERE%0A%7B%0A%23%20%3Fchild%20%20father%20%20%20Bach%0A%20%20%3Fchild%20wdt%3AP22%20wd%3AQ1339.%0A%7D%20limit%2010).)
+:::
+
 The first querry will provide you with identifiers, which is great if you are a programmer and you are wiring your database to Wikidata, but less impressive if you are getting familiar with SPARQL and you want to see clearly the fruits of your work.
 
 Luckily, Wikidata has a human-friendly extension to SPARQL. If you add the following command to your query: `SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE]".`somewhere within the `WHERE` clause, you get additional variables: For every variable `?foo` in your query, you now also have a variable `?fooLabel`, which contains the label of the item behind `?foo`.
@@ -196,6 +203,7 @@ WHERE
 ```
 
 [![Click on the image to try it out live on the Wikidata SPARQL Endpoint. The query will run if you press the ▶ sign on the endpoint in the bottom left corner↗.](png/wikidata-tutorial/sparql-example-bach-children-with-labels.png){fig-align="center"}](https://query.wikidata.org/#SELECT%20%3Fchild%20%3FchildLabel%0AWHERE%0A%7B%0A%20%20%3Fchild%20wdt%3AP22%20wd%3AQ1339%3B%0A%20%20%20%20%20%20%20%20%20wdt%3AP25%20wd%3AQ57487.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%22.%20%7D%0A%7D)
+
 
 Try running that query – you should see not only the item numbers, but also the names of the various children.
 
@@ -232,6 +240,8 @@ SELECT DISTINCT ?itemLabel ?itemLabelLang ?itemDescription ?itemDescriptionLang 
 -   [x] You can modify the querry. In Line 3, the `wd:Q83326` identifies the QID for Béla Bartók. Try it out with ``` wd:``28104185 ```!
 
 -   [x] We asked the labelling in six languages. You can use `IN ("en", "de")` or even `IN ("de")` if you want to reduce the number of languages or change the language codes.
+
+-  [ ] If you reach the query timeout, try to limit your search (see previous example with limiting the descendants of J.S. Bach.)
 
 You would like to copy property definitions to your Wikibase instance. The following code will provide you the necessary information (without additional statements) about the property `wd:P31`—a very important property for data modelling.
 
@@ -292,7 +302,7 @@ SELECT ?item ?itemLabel  ?givenNameLabel ?lastnameLabel ?birthdate ?deathdate ?n
 order by ?itemLabel
 ```
 
-[Try it out↗](https://query.wikidata.org/#%23%20Photographers%20who%20were%20citizens%20of%20Hungary%0A%0ASELECT%20%3Fitem%20%3FitemLabel%20%20%3FgivenNameLabel%20%3FlastnameLabel%20%3Fbirthdate%20%3Fdeathdate%20%3FnationalityLabel%20%3FitemDescription%20WHERE%20%7B%0A%20%20%20%20%3Fitem%20wdt%3AP31%20wd%3AQ5%20.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20instance%20of%20human%0A%20%20%20%20%3Fitem%20wdt%3AP106%2Fwdt%3AP279%2a%20wd%3AQ33231.%20%20%23%20occupation%20or%20subclass%20of%20occupation%20that%20is%20photographer%20%0A%20%20%20%20%23%3Fitem%20wdt%3AP27%20wd%3AQ28.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20country%20of%20citizenship%20is%20Hungary%20%20%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP735%20%3Flastname%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP734%20%3FgivenName%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP569%20%3Fbirthdate%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP570%20%3Fdeathdate%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP27%20%3Fnationality%20.%20%7D%0A%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%2Chu%22%20%7D%0A%7D%0A%0Aorder%20by%20%3FitemLabel). Beware, that Wikidata is huge, and query may take minutes to run; you often get an error message that your query run out of resources. Then try again.
+[Try it out↗](https://query.wikidata.org/#%23%20Photographers%20who%20were%20citizens%20of%20Hungary%0A%0ASELECT%20%3Fitem%20%3FitemLabel%20%20%3FgivenNameLabel%20%3FlastnameLabel%20%3Fbirthdate%20%3Fdeathdate%20%3FnationalityLabel%20%3FitemDescription%20WHERE%20%7B%0A%20%20%20%20%3Fitem%20wdt%3AP31%20wd%3AQ5%20.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20instance%20of%20human%0A%20%20%20%20%3Fitem%20wdt%3AP106%2Fwdt%3AP279%2a%20wd%3AQ33231.%20%20%23%20occupation%20or%20subclass%20of%20occupation%20that%20is%20photographer%20%0A%20%20%20%20%23%3Fitem%20wdt%3AP27%20wd%3AQ28.%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%23%20country%20of%20citizenship%20is%20Hungary%20%20%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP735%20%3Flastname%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP734%20%3FgivenName%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP569%20%3Fbirthdate%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP570%20%3Fdeathdate%20.%20%7D%0A%20%20%20%20optional%20%7B%20%3Fitem%20wdt%3AP27%20%3Fnationality%20.%20%7D%0A%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22en%2Chu%22%20%7D%0A%7D%0A%0Aorder%20by%20%3FitemLabel). Beware, that Wikidata is huge, and the query may take minutes to run; you often get an error message that your query runs out of resources. Then try again, or add a limit statement like in the previous tipbox example with the descendants of J.S. Bach.
 
 Or similarly, with composers connected to Slovakia:
 
