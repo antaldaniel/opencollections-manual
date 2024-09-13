@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>OpenCollections Manual - 4&nbsp; Wikibase and Enterprise Knowledge Graphs</title>
+<title>OpenCollections Manual - 5&nbsp; Wikibase and Enterprise Knowledge Graphs</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -101,7 +135,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./wikibase.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Wikibase and Enterprise Knowledge Graphs</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./wikibase.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Wikibase and Enterprise Knowledge Graphs</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -119,6 +153,23 @@ div.csl-indent {
       <a href="./">OpenCollections Manual</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/dataobservatory-eu/opencollections-manual" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./OpenCollections-Manual.pdf">
+              <i class="bi bi-bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./OpenCollections-Manual.epub">
+              <i class="bi bi-bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
 </div>
     </div>
       </div>
@@ -149,26 +200,38 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./collections.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Collections</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./wikidata.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Wikidata and Other Open Knowledge Graphs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Wikidata and Other Open Knowledge Graphs</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./wikibase.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Wikibase and Enterprise Knowledge Graphs</span></span></a>
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Wikibase and Enterprise Knowledge Graphs</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./sandbox.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reprex’s Sandbox</span></span></a>
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reprex’s Sandbox</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./bulk-import.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Bulk import</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./opencollections.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">OpenCollections</span></span></a>
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">OpenCollections</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -210,20 +273,21 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#wikibase" id="toc-wikibase" class="nav-link active" data-scroll-target="#wikibase"><span class="header-section-number">4.1</span> Wikibase</a></li>
-  <li><a href="#populating-a-wikibase" id="toc-populating-a-wikibase" class="nav-link" data-scroll-target="#populating-a-wikibase"><span class="header-section-number">4.2</span> Populating a Wikibase</a>
+  <li><a href="#the-promise-of-the-semantic-web" id="toc-the-promise-of-the-semantic-web" class="nav-link active" data-scroll-target="#the-promise-of-the-semantic-web"><span class="header-section-number">5.1</span> The promise of the semantic web</a></li>
+  <li><a href="#wikibase" id="toc-wikibase" class="nav-link" data-scroll-target="#wikibase"><span class="header-section-number">5.2</span> Wikibase</a></li>
+  <li><a href="#populating-a-wikibase" id="toc-populating-a-wikibase" class="nav-link" data-scroll-target="#populating-a-wikibase"><span class="header-section-number">5.3</span> Populating a Wikibase</a>
   <ul class="collapse">
-  <li><a href="#creating-entities-or-items" id="toc-creating-entities-or-items" class="nav-link" data-scroll-target="#creating-entities-or-items"><span class="header-section-number">4.2.1</span> Creating entities or items</a></li>
-  <li><a href="#creating-properties" id="toc-creating-properties" class="nav-link" data-scroll-target="#creating-properties"><span class="header-section-number">4.2.2</span> Creating properties</a></li>
-  <li><a href="#adding-statements" id="toc-adding-statements" class="nav-link" data-scroll-target="#adding-statements"><span class="header-section-number">4.2.3</span> Adding statements</a></li>
-  <li><a href="#synchronize-with-wikidata" id="toc-synchronize-with-wikidata" class="nav-link" data-scroll-target="#synchronize-with-wikidata"><span class="header-section-number">4.2.4</span> Synchronize with Wikidata</a></li>
+  <li><a href="#creating-entities-or-items" id="toc-creating-entities-or-items" class="nav-link" data-scroll-target="#creating-entities-or-items"><span class="header-section-number">5.3.1</span> Creating entities or items</a></li>
+  <li><a href="#creating-properties" id="toc-creating-properties" class="nav-link" data-scroll-target="#creating-properties"><span class="header-section-number">5.3.2</span> Creating properties</a></li>
+  <li><a href="#adding-statements" id="toc-adding-statements" class="nav-link" data-scroll-target="#adding-statements"><span class="header-section-number">5.3.3</span> Adding statements</a></li>
+  <li><a href="#synchronize-with-wikidata" id="toc-synchronize-with-wikidata" class="nav-link" data-scroll-target="#synchronize-with-wikidata"><span class="header-section-number">5.3.4</span> Synchronize with Wikidata</a></li>
   </ul></li>
-  <li><a href="#good-practices" id="toc-good-practices" class="nav-link" data-scroll-target="#good-practices"><span class="header-section-number">4.3</span> Good practices</a>
+  <li><a href="#good-practices" id="toc-good-practices" class="nav-link" data-scroll-target="#good-practices"><span class="header-section-number">5.4</span> Good practices</a>
   <ul class="collapse">
-  <li><a href="#use-of-name-strings-or-controlled-vocabularies" id="toc-use-of-name-strings-or-controlled-vocabularies" class="nav-link" data-scroll-target="#use-of-name-strings-or-controlled-vocabularies"><span class="header-section-number">4.3.1</span> Use of name strings or controlled vocabularies</a></li>
+  <li><a href="#use-of-name-strings-or-controlled-vocabularies" id="toc-use-of-name-strings-or-controlled-vocabularies" class="nav-link" data-scroll-target="#use-of-name-strings-or-controlled-vocabularies"><span class="header-section-number">5.4.1</span> Use of name strings or controlled vocabularies</a></li>
   </ul></li>
-  <li><a href="#sec-eu-knowledge-graph" id="toc-sec-eu-knowledge-graph" class="nav-link" data-scroll-target="#sec-eu-knowledge-graph"><span class="header-section-number">4.4</span> The EU Knowledge Graph</a></li>
-  <li><a href="#eu-academy-course-on-wikibase" id="toc-eu-academy-course-on-wikibase" class="nav-link" data-scroll-target="#eu-academy-course-on-wikibase"><span class="header-section-number">4.5</span> EU Academy Course on Wikibase</a></li>
+  <li><a href="#sec-eu-knowledge-graph" id="toc-sec-eu-knowledge-graph" class="nav-link" data-scroll-target="#sec-eu-knowledge-graph"><span class="header-section-number">5.5</span> The EU Knowledge Graph</a></li>
+  <li><a href="#eu-academy-course-on-wikibase" id="toc-eu-academy-course-on-wikibase" class="nav-link" data-scroll-target="#eu-academy-course-on-wikibase"><span class="header-section-number">5.6</span> EU Academy Course on Wikibase</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/dataobservatory-eu/opencollections-manual/edit/main/wikibase.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -232,7 +296,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-wikibase" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Wikibase and Enterprise Knowledge Graphs</span></span></h1>
+<h1 class="title"><span id="sec-wikibase" class="quarto-section-identifier"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Wikibase and Enterprise Knowledge Graphs</span></span></h1>
 </div>
 
 
@@ -254,8 +318,40 @@ div.csl-indent {
 <p>We have shown how valuable an open knowledge graph, like Wikidata, can be in reducing a private database’s data curation, data control, and other related costs. Can we rely on similar knowledge graphs that are more specific to our professional domain and have more nuanced information than Wikidata? What if we want to keep music rights management databases or music distribution inventories updated and prefilled with data? Do we want to connect reliable, science-based data to our internal ESG systems?</p>
 <p>Private enterprise knowledge graphs are usually made for precisely this purpose. Wikidata was originally created to support the increasingly automated corrections of the vast, open-source Wikipedia encyclopedias.</p>
 <p>Encyclopedias have a limit of notability: they do not want to store information about every human living on Earth, but only those whose lives and work are notable enough to be interesting for the general public and who are living anyway in the public eye. (It would be unethical and even illegal to connect personal data about private individuals who do not wish to go out to the public space.) A private knowledge graph can connect information about all writers as rightsholders or their heirs, if they are deceased, to pay out royalties wherever they live.</p>
-<section id="wikibase" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="wikibase"><span class="header-section-number">4.1</span> Wikibase</h2>
+<section id="the-promise-of-the-semantic-web" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="the-promise-of-the-semantic-web"><span class="header-section-number">5.1</span> The promise of the semantic web</h2>
+<blockquote class="blockquote">
+<p>An essential process is the joining together of subcultures when a wider common language is needed. Often two groups independently develop very similar concepts, and describing the relation between them brings great benefits. […] A small group can innovate rapidly and efficiently, but this produces a subculture whose concepts are not understood by others. Coordinating actions across a large group, however, is painfully slow and takes an enormous amount of communication. The world works across the spectrum between these extremes, with a tendency to start small—from the personal idea—and move toward a wider understanding over time. […] The Semantic Web, in naming every concept simply by a URI, lets anyone express new concepts that they invent with minimal effort. Its unifying logical language will enable these concepts to be progressively linked into a universal Web. This structure will open up the knowledge and workings of humankind to meaningful analysis by software agents, providing a new class of tools by which we can live, work and learn together. <span class="citation" data-cites="berners-lee_semantic_web_2001">(<a href="references.html#ref-berners-lee_semantic_web_2001" role="doc-biblioref">Berners-Lee, Hendler, and Lassila 2001</a>)</span></p>
+</blockquote>
+<p>Tim Berners-Lee is often credited as the inventor of the World Wide Web. His seminal, co-authored paper in 2001 envisioned the semantic graph that connects all knowledge and workings of humankind, supported by intelligent software agents<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>This promise was much more difficult to fulfil than the creation of the original World Wide Web, which allowed the accessible publication of hypertext documents (pages of illustrated text that cross-refer to other pages regardless of the server’s physical location that stores the URL-referred connecting page).</p>
+<p>It goes well beyond the scope of our manual to describe the difficulties of working with the semantic web. One of the many reasons why it took two decades to become mainstream is partly the need for complex and expensive publication infrastructure and partly the shortage of skills in knowledge organisation. Wikipedia, Wikidata, and recently the Wikbase software as a free, stand-alone open-source product have contributed the most to democratising the semantic web.</p>
+<p>Recalling the Turtle representation of a semantic statement:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>http<span class="sc">:</span><span class="er">//</span>example.org<span class="sc">/</span>person<span class="sc">/</span>Mark_Twain<span class="sc">&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>   <span class="er">&lt;</span>http<span class="sc">:</span><span class="er">//</span>example.org<span class="sc">/</span>relation<span class="sc">/</span>author<span class="sc">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>   <span class="er">&lt;</span>http<span class="sc">:</span><span class="er">//</span>example.org<span class="sc">/</span>books<span class="sc">/</span>Huckleberry_Finn<span class="sc">&gt;</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>In the semantic web,</p>
+<p><em>Mark Twain</em> (the person) <em>created</em> (the verb) <em>Huckleberry Finn</em> (the book as object)</p>
+<p>can be all represented by URIs, in which case anybody, including a software agent can read this statement. Substituting for <code>http://example.org/</code>, a part of the WWW namespace that is reserved for examples (and will never be allocated for any user), we can write:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>www.wikidata.org<span class="sc">/</span>wiki<span class="sc">/</span>Q7245<span class="sc">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>   <span class="er">&lt;</span>https<span class="sc">:</span><span class="er">//</span>www.wikidata.org<span class="sc">/</span>wiki<span class="sc">/</span>Property<span class="sc">:</span>P50<span class="sc">&gt;</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>   <span class="er">&lt;</span>https<span class="sc">:</span><span class="er">//</span>www.wikidata.org<span class="sc">/</span>wiki<span class="sc">/</span>Q215410<span class="sc">&gt;</span> .</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Which resolves into : <code>Mark Twain (Q7245)</code> <em>author (P50)</em> <code>Adventures of Huckleberry Finn (Q215410)</code> .</p>
+<p>Among the many advantages of this solution, one is resolving multi-language use.</p>
+<ul class="task-list">
+<li><p><label><input type="checkbox" checked=""><code>Mark Twain (Q7245)</code> is connected to the international standard ISNI number <a href="https://isni.org/isni/0000000077209145">0000000077209145</a>, and to the ID of the this particular author in numerous national library systems.</label></p></li>
+<li><p><label><input type="checkbox" checked=""><code>author (P50)</code> resolves for <code>author</code> in English, <code>szerző</code> in Hungarian, <code>लेखक</code> in Hindi, and <code>συγγραφέας</code> in Greek; buy publishing this statement, you can connect with Indian or Greek sources even if you computer does not have such characters.</label></p></li>
+<li><p><label><input type="checkbox" checked=""><code>Adventures of Huckleberry Finn (Q215410)</code> connects to the French library catalogue item <a href="https://catalogue.bnf.fr/ark:/12148/cb120369031">cb120369031</a> and <a href="https://d-nb.info/gnd/4311319-9">4311319-9</a> in the German national library system.</label></p></li>
+</ul>
+<p>It is not only Wikidata (and Wikibase) that can provide a similar solution; in fact, for librarian, archivist, or musicological uses, there are better solutions available. But they all require specialist knowledge and expensive infrastructure.</p>
+<p>To paraphase Tim Berners-Lee from the previous larger quote, <em>“Coordinating actions across a large group, however, is painfully slow and takes an enormous amount of communication”</em>, for example, it took the world’s archivists 10 years of hard work to come up with a better conceptual model for connected records in archives. On Wikibase, <em>“… a small group can innovate rapidly and efficiently, but this produces a subculture whose concepts are not understood by others”</em>. Wikibase can be thought of a local, private Wikidata; if it reaches a critical size, it can be connected to Wikidata for a global reach and a higher level of international consensus. Eventually, for specialists needs, one may develop a more customised set of definitions and relationships (a so-called ontology), for example, for handling problems with copyright data management. But Wikibase provides the easiest, less costly start for an avantgarde group to share knowledge and build a shared knowledge base.</p>
+</section>
+<section id="wikibase" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="wikibase"><span class="header-section-number">5.2</span> Wikibase</h2>
 <p>Wikibase is the software that runs Wikidata. Wikidata evolved into a central hub on the web of data and one of the largest existing knowledge graphs, with more than 100 million items maintained by a community effort. Since its launch, an impressive 1.3 billion edits have been made by 20,000+ active users. Today, Wikidata contains information about a wide range of topics such as people, taxons, countries, chemical compounds, astronomical objects, and more. This information is linked to other key data repositories maintained by institutions such as Eurostat, the German National Library, the BBC, and many others, using 6,000+ external identifiers. The knowledge from Wikidata is used by search engines such as Google Search, and smart assistants including Siri,Alexa, and Google Assistant in order to provide more structured results.</p>
 <p>While one of the main success factors of Wikidata is its community of editors, the software behind it also plays an important role. It enables the numerous editors to modify a substantial data repository in a scalable, multilingual, collaborative effort.</p>
 <p><strong>Wikibase</strong> is a software system that help the collaborative management of knowledge in a central repository. It was originally developed for the management of <a href="https://en.wikipedia.org/wiki/Wikidata" title="Wikidata">Wikidata</a>, but it is available now for the creation of private, or public-private partnership knowledge graphs. Its primary components are the <em>Wikibase Repository</em>, an extension for storing and managing data, and the <em>Wikibase Client</em> which allows for the retrieval and embedding of <a href="https://en.wikipedia.org/wiki/Structured_data" title="Structured data">structured data</a> from a Wikibase repository. It was developed by <a href="https://en.wikipedia.org/wiki/Wikimedia_Deutschland" title="Wikimedia Deutschland">Wikimedia Deutschland</a>.</p>
@@ -275,8 +371,8 @@ Note
 </div>
 <p>Wikibase has a <a href="https://en.wikipedia.org/wiki/JavaScript" title="JavaScript">JavaScript</a>-based user interface, and provides exports of all or subsets of data in many formats. Projects using it include Wikidata, <a href="https://en.wikipedia.org/wiki/Wikimedia_Commons" title="Wikimedia Commons">Wikimedia Commons</a>,<sup><a href="https://en.wikipedia.org/wiki/Wikibase#cite_note-5">[5]</a></sup> <a href="https://en.wikipedia.org/wiki/Europeana" title="Europeana">Europeana</a>’s <a href="https://wiki.eagle-network.eu/wiki/Main_Page">Eagle Project</a>, <a href="https://en.wikipedia.org/wiki/Lingua_Libre" title="Lingua Libre">Lingua Libre</a>,<sup><a href="https://en.wikipedia.org/wiki/Wikibase#cite_note-6">[6]</a></sup> <a href="https://en.wikipedia.org/wiki/FactGrid" title="FactGrid">FactGrid</a>, and the <a href="https://en.wikipedia.org/wiki/OpenStreetMap" title="OpenStreetMap">OpenStreetMap</a> wiki.<sup><a href="https://en.wikipedia.org/wiki/Wikibase#cite_note-7">[7]</a></sup></p>
 </section>
-<section id="populating-a-wikibase" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="populating-a-wikibase"><span class="header-section-number">4.2</span> Populating a Wikibase</h2>
+<section id="populating-a-wikibase" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="populating-a-wikibase"><span class="header-section-number">5.3</span> Populating a Wikibase</h2>
 <p>Wikibase is an open knowledge base or universe when installed. We start populating it with some <strong>items</strong>. In the Wikidata data model, items are similar to things, and classes are also defined as items.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -288,11 +384,11 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A <em>sandbox</em> instance is a Wikibase instance designated for learning, testing, experimenting. Reprex has created several sandbox instances for onboarding our data curators and for educational purposes. Please see <a href="sandbox.html" class="quarto-xref"><span>Chapter 5</span></a> for getting an account on such an instance.</p>
+<p>A <em>sandbox</em> instance is a Wikibase instance designated for learning, testing, experimenting. Reprex has created several sandbox instances for onboarding our data curators and for educational purposes. Please see <a href="sandbox.html" class="quarto-xref"><span>Chapter 6</span></a> for getting an account on such an instance.</p>
 </div>
 </div>
-<section id="creating-entities-or-items" class="level3" data-number="4.2.1">
-<h3 data-number="4.2.1" class="anchored" data-anchor-id="creating-entities-or-items"><span class="header-section-number">4.2.1</span> Creating entities or items</h3>
+<section id="creating-entities-or-items" class="level3" data-number="5.3.1">
+<h3 data-number="5.3.1" class="anchored" data-anchor-id="creating-entities-or-items"><span class="header-section-number">5.3.1</span> Creating entities or items</h3>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="png/wikibase/edit/create_new_item-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
@@ -313,10 +409,10 @@ Note
 </figure>
 </div>
 </section>
-<section id="creating-properties" class="level3" data-number="4.2.2">
-<h3 data-number="4.2.2" class="anchored" data-anchor-id="creating-properties"><span class="header-section-number">4.2.2</span> Creating properties</h3>
+<section id="creating-properties" class="level3" data-number="5.3.2">
+<h3 data-number="5.3.2" class="anchored" data-anchor-id="creating-properties"><span class="header-section-number">5.3.2</span> Creating properties</h3>
 <p>Properties are describing relationships between items. You can create them similary to items, but navigating to Special pages ➔ Wikibase ➔ Create a new property (<em>not item</em>). Properties are far more important than items, because they define the rules of the knowledge base. The type of relationships will allow our artificial intelligence applications to make deductive or inductive new discoveries and expand our knowledge.</p>
-<p>In our introduction to Wikidata (<a href="wikidata.html#sec-wikidata" class="quarto-xref"><span>Section 3.1</span></a>), you found exactly the same graphical interface to work with items as on Wikibase, but on the public Wikidata instance of Wikibase, you cannot find an add new property button.</p>
+<p>In our introduction to Wikidata (<a href="wikidata.html#sec-wikidata" class="quarto-xref"><span>Section 4.1</span></a>), you found exactly the same graphical interface to work with items as on Wikibase, but on the public Wikidata instance of Wikibase, you cannot find an add new property button.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -346,8 +442,8 @@ Note
 </ul>
 <p>For example, if you add <em>Mai Manó</em> as a string, it will be recorded, but you cannot connected with the works of Mai Manó, the photographer. If you create an entity (item) for <code>Mai Manó</code>, you will be able to link this entity to the works of Mai Manó, to his children, to his house.</p>
 </section>
-<section id="adding-statements" class="level3" data-number="4.2.3">
-<h3 data-number="4.2.3" class="anchored" data-anchor-id="adding-statements"><span class="header-section-number">4.2.3</span> Adding statements</h3>
+<section id="adding-statements" class="level3" data-number="5.3.3">
+<h3 data-number="5.3.3" class="anchored" data-anchor-id="adding-statements"><span class="header-section-number">5.3.3</span> Adding statements</h3>
 <p>Now we are ready to start to build an intelligent knowledge base. We connect the <strong>person</strong> item in our Wikibase via the <strong>equivalent class</strong> property to the <a href="https://www.cidoc-crm.org/html/cidoc_crm_v7.1.3.html#E21">E21_Person</a> definition of the CIDOC CRM. This will allow us to export our knowledge base to a standard museological graph.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -369,8 +465,8 @@ Note
 </div>
 </div>
 </section>
-<section id="synchronize-with-wikidata" class="level3" data-number="4.2.4">
-<h3 data-number="4.2.4" class="anchored" data-anchor-id="synchronize-with-wikidata"><span class="header-section-number">4.2.4</span> Synchronize with Wikidata</h3>
+<section id="synchronize-with-wikidata" class="level3" data-number="5.3.4">
+<h3 data-number="5.3.4" class="anchored" data-anchor-id="synchronize-with-wikidata"><span class="header-section-number">5.3.4</span> Synchronize with Wikidata</h3>
 <p>In our case, we want to be able to pre-fill data from Wikidata, and then, eventually suggest changes in the public Wikidata. This requires adding statements about Wikidata equivalent properties and items when applicable.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -388,11 +484,11 @@ Note
 <p><img src="png/wikibase/edit/create_new_item_mano-mai.png" class="img-fluid" alt="Putting it all together: creating a first bibliographic entry of a person with clear linking to Wikidata."> We immediately record that our entries about <em>Manó Mai</em>, the great photographer, should be talking about the same person as Wikidata’s <a href="https://www.wikidata.org/wiki/Q1163414">Q1163414</a> document item.</p>
 </section>
 </section>
-<section id="good-practices" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="good-practices"><span class="header-section-number">4.3</span> Good practices</h2>
+<section id="good-practices" class="level2" data-number="5.4">
+<h2 data-number="5.4" class="anchored" data-anchor-id="good-practices"><span class="header-section-number">5.4</span> Good practices</h2>
 <p>Let us consider the creation of an entry for the Slovak composer, <img src="png/wikibase/edit/bella/bella_1.png" class="img-fluid"></p>
-<section id="use-of-name-strings-or-controlled-vocabularies" class="level3" data-number="4.3.1">
-<h3 data-number="4.3.1" class="anchored" data-anchor-id="use-of-name-strings-or-controlled-vocabularies"><span class="header-section-number">4.3.1</span> Use of name strings or controlled vocabularies</h3>
+<section id="use-of-name-strings-or-controlled-vocabularies" class="level3" data-number="5.4.1">
+<h3 data-number="5.4.1" class="anchored" data-anchor-id="use-of-name-strings-or-controlled-vocabularies"><span class="header-section-number">5.4.1</span> Use of name strings or controlled vocabularies</h3>
 <p>In this case, we would like to code the <code>given name</code> property to <code>Ján</code>. We can do it in two ways: - add the string <em>Ján</em> without further control, or, - add <code>Ján</code> as a controlled string (an item <em>datatype</em> on Wikibase.)</p>
 <p><img src="png/wikibase/edit/bella/bella_2.png" class="img-fluid"> Unless we can import comprehensive datasets, usually data enrichment is a second step. In such cases, we import first to a <code>name string</code> property given names, locations, venue names, and other important nodes of our knowledge graph.</p>
 <p><img src="png/wikibase/edit/bella/bella_3.png" class="img-fluid" alt="Using name strings is in many cases a first importing step before data enrichment."> The use of controlled vocabularies makes filtering the database easier, and reduces the likelihood of errorneous entries. In the Wikidata data model, we can add a taxonomical class to such controlled vocabulary items. By coding <code>Ján</code> as an instance of the <code>Slovak make given name</code>, we can later search composers or persons easer by this name given name or we can infer that the composer was born as a man.</p>
@@ -415,8 +511,8 @@ Note
 </ul>
 </section>
 </section>
-<section id="sec-eu-knowledge-graph" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="sec-eu-knowledge-graph"><span class="header-section-number">4.4</span> The EU Knowledge Graph</h2>
+<section id="sec-eu-knowledge-graph" class="level2" data-number="5.5">
+<h2 data-number="5.5" class="anchored" data-anchor-id="sec-eu-knowledge-graph"><span class="header-section-number">5.5</span> The EU Knowledge Graph</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://linkedopendata.eu/wiki/The_EU_Knowledge_Graph"><img src="png/wikibase/EU-academy-course/EU-knowledge-graph.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="EU Academy Course: EU Knwoledge Graph"></a></p>
@@ -433,8 +529,8 @@ Note
 </ul>
 <p>Our OpenCollections instances are prepared with a similar mindset to the creation of the <a href="https://linkedopendata.eu/wiki/The_EU_Knowledge_Graph">EU Knowledge Graph↗</a>. We pre-populate a Wikibase instance from Wikidata about many institutional, geographical or biographical facts of the domain <span class="citation" data-cites="diefenbach_wikibase_2021">(<a href="references.html#ref-diefenbach_wikibase_2021" role="doc-biblioref">Diefenbach, Wilde, and Alipio 2021</a>)</span>, or with elements of the Wikidata data model and its compatibility classes with other ontologies.</p>
 </section>
-<section id="eu-academy-course-on-wikibase" class="level2" data-number="4.5">
-<h2 data-number="4.5" class="anchored" data-anchor-id="eu-academy-course-on-wikibase"><span class="header-section-number">4.5</span> EU Academy Course on Wikibase</h2>
+<section id="eu-academy-course-on-wikibase" class="level2" data-number="5.6">
+<h2 data-number="5.6" class="anchored" data-anchor-id="eu-academy-course-on-wikibase"><span class="header-section-number">5.6</span> EU Academy Course on Wikibase</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="https://academy.europa.eu/courses/wikibase-and-semantic-mediawiki-for-data-driven-semantics"><img src="png/wikibase/EU-academy-course/eu_academy_course.png" class="img-fluid figure-img" alt="The EU Academy course on using Wikibase and Semantic MediaWiki"></a></p>
@@ -456,10 +552,19 @@ Note
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-berners-lee_semantic_web_2001" class="csl-entry" role="listitem">
+Berners-Lee, Tim, James Hendler, and Ora Lassila. 2001. <span>“The Semantic Web.”</span> Scientific American, Incorporated.
+</div>
 <div id="ref-diefenbach_wikibase_2021" class="csl-entry" role="listitem">
 Diefenbach, Dennis, Max de Wilde, and Samantha Alipio. 2021. <span>“Wikibase as an Infrastructure for Knowledge Graphs: The <span>EU</span> Knowledge Graph.”</span> In <em><span>ISWC</span> 2021</em>. Online, France. <a href="https://hal.science/hal-03353225">https://hal.science/hal-03353225</a>.
 </div>
 </div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>A part of this text is repeated from <span class="citation" data-cites="collections">(<a href="references.html#ref-collections" role="doc-biblioref"><strong>collections?</strong></a>)</span> for readability.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
 </section>
 
 </main> <!-- /main -->
@@ -853,12 +958,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./wikidata.html" class="pagination-link  aria-label=" &lt;span="" and="" other="" open="" knowledge="" graphs&lt;="" span&gt;"="">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Wikidata and Other Open Knowledge Graphs</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Wikidata and Other Open Knowledge Graphs</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./sandbox.html" class="pagination-link" aria-label="<span class='chapter-number'>5</span>&nbsp; <span class='chapter-title'>Reprex's Sandbox</span>">
-        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Reprex’s Sandbox</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./sandbox.html" class="pagination-link" aria-label="<span class='chapter-number'>6</span>&nbsp; <span class='chapter-title'>Reprex's Sandbox</span>">
+        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Reprex’s Sandbox</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
