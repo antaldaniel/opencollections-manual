@@ -3,6 +3,7 @@
 _book/*.html
 _wikidata_files/
 _book/*.*
+_book/
 
 .DS_Store
 agya.qmd
