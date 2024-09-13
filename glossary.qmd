@@ -1,0 +1,9 @@
+# Glossary {.unnumbered #glossary}
+
+<!--- special: elipsis: …  ; emdash: — ; arrow-out ↗ ; ▷ ; »«--->
+
+
+`statement`: a simple element of knowledge with a true or false value; an _atomic statement_ is a declarative sentence that attributes one property or relationship to an object or event.
+
+
+semantic triple, or RDF triple or simply triple,
