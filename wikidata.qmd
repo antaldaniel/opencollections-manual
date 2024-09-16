@@ -10,11 +10,20 @@ Here’s where knowledge graphs come in. They can automatically integrate and pr
 
 ## Connect to Wikidata {#sec-wikidata}
 
-Wikidata is a collaboratively edited multilingual knowledge graph hosted by the Wikimedia Foundation. It is a common source of open data that Wikimedia projects, such as Wikipedia and anyone else, can use under the CC0 public domain license[^wikidata-1]. As of early 2023, Wikidata had 1.54 billion item statements or small, verifiable scientific statements about our world[^wikidata-2].
+Wikidata is a collaboratively edited multilingual knowledge graph hosted by the Wikimedia Foundation. It is a common source of open data that Wikimedia projects, such as Wikipedia and anyone else, can use under the CC0 public domain license[^wikidata-1]. As of early 2023, Wikidata had 1.54 billion item statements or small, verifiable scientific statements about our world.
+
+::: {#tip-statement .callout-tip}
+#### Statements
+
+A statement is simple element of knowledge with a true or false value.  An `atomic statement` is a declarative sentence that attributes one property or relationship to an object or event. For example, it states the birthday of a person, or the location of an event.
+
+A semantic triple, or RDF triple or simply triple, takes the form of an subject-predicate-object form, for example, S:Jane Doe P:has a birthday O:on 9 June.
+
+:::
 
 [^wikidata-1]: [CC0](https://creativecommons.org/public-domain/cc0/) enables scientists, educators, artists and other creators and owners of copyright- or database-protected content to waive those interests in their works and thereby place them as completely as possible in the public domain, so that others may freely build upon, enhance and reuse the works for any purposes without restriction under copyright or database law.
 
-[^wikidata-2]: We introduced the concept of statements as atomic knowledge carriers in @sec-identifiers-and-metadata.
+
 
 Wikidata is a [document-oriented database](https://en.wikipedia.org/wiki/Document-oriented_database "Document-oriented database"), focusing on items, which represent any kind of topic, concept, or object.
 
@@ -72,7 +81,10 @@ The `Description` contains a short explanation of our item (in our case the desc
 
 <!--- A description regarding the different language inputs for the same item is needed (e.g., János Barasits in English, and Barasits János in Hungarian, following the Eastern name order) ---->
 
-After creating the item with the basic information of `Label` and `Description` we can weave this information entry into the knowledge graph. At this point, `János Barasits` could be a person, it could be a book titled after the person, or a photo of the person. Connecting János Barasits to other entities, such as the concept of a human being, will allow other people and their computer systems to understand that we are talking about a person here.You can do that by creating "Statements". That can be simply done by clicking on "add statement" then choosing the properties. The property "instance of" defines the class our item is a particular example or member of. In this case we would like to make a statement about our item "János Barasits" defining with the property "instance of" that he is a member of the "human" class.
+After creating the item with the basic information of `Label` and `Description` we can weave this information entry into the knowledge graph. At this point, `János Barasits` could be a person, it could be a book titled after the person, or a photo of the person. Connecting János Barasits to other entities, such as the concept of a human being, will allow other people and their computer systems to understand that we are talking about a person here.You can do that by creating "statements" (See @tip-statement.)
+
+The property "instance of" defines the class our item is a particular example or member of. In this case we would like to make a statement about our item "János Barasits" defining with the property "instance of" that he is a member of the "human" class.
+
 
 ![](png/wikidata-tutorial/wikidata-create-new-item-Janos-Barasits-20240204-2.png){fig-align="center"}
 
@@ -179,7 +191,9 @@ Try the first query:
 
 [![Click on the image to try it out live on the Wikidata SPARQL Endpoint. The query will run if you press the ▶ sign on the endpoint in the bottom left corner.](png/wikidata-tutorial/sparql-example-bach-children-without-labels.png)](https://query.wikidata.org/#SELECT%20%3Fchild%0AWHERE%0A%7B%0A%23%20%3Fchild%20%20father%20%20%20Bach%0A%20%20%3Fchild%20wdt%3AP22%20wd%3AQ1339.%0A%7D)
 
-::: {.callout-note}
+::: {#tip-timeout .callout-tip}
+#### Query timeout limit reached
+
 If you recieve a `Query timeout limit reached` error message, it is likely that you tried to make a query that resulted in too many responses, and you ran out of memory or some other resource. This can be most likely solved with some kind of limitation on the number of possible answer rows that you get. 
 
 The simplest limitation is adding a last line to your query:
@@ -241,7 +255,7 @@ SELECT DISTINCT ?itemLabel ?itemLabelLang ?itemDescription ?itemDescriptionLang 
 
 -   [x] We asked the labelling in six languages. You can use `IN ("en", "de")` or even `IN ("de")` if you want to reduce the number of languages or change the language codes.
 
--  [ ] If you reach the query timeout, try to limit your search (see previous example with limiting the descendants of J.S. Bach.)
+-  [ ] If you reach the query timeout, try to limit your search (see (See @tip-timeout.)
 
 You would like to copy property definitions to your Wikibase instance. The following code will provide you the necessary information (without additional statements) about the property `wd:P31`—a very important property for data modelling.
 

@@ -2,17 +2,20 @@
 
 Version 0.2.2 (2024.08.17.)
 Version 0.2.3 (2024.08.23.) Small improvements.
+Version 0.2.31 (2024.09.13.) Small improvements.
 
 ## Source text of the chapters
 
 In the main folder, the chapters can be found in the following files:
 
-- index.qmd
-- inspiration.qmd
-- tidy.qmd
-- collections.qmd
-- wikidata.qmd
-- wikibase.qmd
+- `_quarto.yml`: A joint metadata and header information for all files as a book together.
+- `index.qmd`: this file holds together the entire book.
+- `glossary.qmd`: a glossary of terms
+- `inspiration.qmd`: needs a rewrite
+- `tidy.qmd`: a short, technical introduction into tidy data
+- `collections.qmd`: A chapter about working with collections in general.
+- `wikidata.qmd`: Wikidata and SPARQL basics.
+- `wikibase.qmd`: Wikibase basics
 - sandbox.qmd
 - opencollections.qmd
 - references.qmd

@@ -51,6 +51,7 @@ book:
   downloads: [pdf, epub]
   chapters:
     - index.qmd
+    - glossary.qmd
     - inspiration.qmd
     - tidy.qmd
     - collections.qmd

@@ -8,7 +8,7 @@ Our manual aims to remain practical and seeks no definition of collection or cur
 
 ## Curator
 
-Curators of physical collections have been recognised as professionals who search, acquire, preserve, research and communicate the individual items of collections to be preserved for further generation in musea: "…the notions of curation and curator to denote the person in charge of all tasks directly related to objects in a museum collection (i.e. their preservation, research, and communication) become firmly established in the English-speaking world only as late as the nineteenth century, their generalized use coinciding with the rise of museum professionalism." [@dallas_digital_curation_2016]
+Curators of physical collections have been recognised as professionals who search, acquire, preserve, research and communicate the individual items of collections to be preserved for further generation in musea: "…the notions of curation and curator to denote the person in charge of all tasks directly related to objects in a museum collection (i.e. their preservation, research, and communication) become firmly established in the English-speaking world only as late as the nineteenth century, their generalised use coinciding with the rise of museum professionalism." [@dallas_digital_curation_2016]
 
 In the digital era, without the limitations of transport costs, storage space costs, temperature or lightning requirements, we can create much larger collections; on the Internet they can attract a global user base. Digital curation requires a reflection on the physical curatorial policies.
 
@@ -58,7 +58,7 @@ Good descriptions are essential because your users may look for very different i
 Unless your enterprise or organisation has its ontology, we will use CIDOC as a basis. CIDOC is a complex, event-based information model and you do not have to learn it. We need to ensure that the most important metadata about your collection is imported or entered into Wikibase so that we can export it, for example, into a CIDOC-compliant RDF.
 :::
 
-The challenge with galleries is that they have to describe many things consistently and independently from natural languages. For example, a dress historian may use the color [blue](http://vocab.getty.edu/page/aat/300129361) to describe a [cooking aprons](http://vocab.getty.edu/page/aat/300422315). How do we make sure that `blue`, `blauw`, `kék`, `ლურჯი`, or `синий`, labels are understood the same way, so that we can compare English, Dutch, Russian or Georgian collections? (See @sec-nerd later in this chapter.)
+The challenge with galleries is that they have to describe many things consistently and independently from natural languages. For example, a dress historian may use the colour [blue](http://vocab.getty.edu/page/aat/300129361) to describe a [cooking aprons](http://vocab.getty.edu/page/aat/300422315). How do we make sure that `blue`, `blauw`, `kék`, `ლურჯი`, or `синий`, labels are understood the same way, so that we can compare English, Dutch, Russian or Georgian collections? (See @sec-nerd later in this chapter.)
 
 ### Documents, question banks, archives
 
@@ -125,7 +125,7 @@ The `Eiffel Tower`, `Tour Eiffel`, `Eiffel-torony`, `Eiffeltoren` names refer to
 
 The `Symphony No. 2` suffers from the same problem (it is `2. szimfónia` in Hungarian and `Symfonie nr. 2` in Dutch), but also from the fact that it is given to many musical works: it may refer to Opus 36 of Ludwig van Beethoven ([Symphony No. 2 in D Major, Op. 36](https://www.wikidata.org/wiki/Q210451)), or [Symphony No. 2 in C Minor](https://www.wikidata.org/wiki/Q210549) by Gustav Mahler, or [Opus 73, Symphony No. 2 in D Major](https://www.wikidata.org/wiki/Q210469), by Johannes Brahms.
 
-In collections, "information for display should be in a format and with syntax that is easily read and understood by users. This may be accomplished through data in the form of free text or concatenated displays, allowing for the expression of the nuances of language necessary to relay the uncertainty and ambiguity that are common in art information." [@harpring_baca_categorizing_art_2016, p429] Most collection management system use a `title` and a `description` field to achieve this affect; titles and descriptions are used in library, archive and museum-type memory institutions. Software codes and information systems also need good names, and coming up with good names is often considered as the one of the most difficult task in computer science. [@allamanis_suggesting_method_class_names_2015]
+In collections, "information for display should be in a format and with syntax that is easily read and understood by users. This may be accomplished through data in the form of free text or concatenated displays, allowing for the expression of the nuances of language necessary to relay the uncertainty and ambiguity that are common in art information." [@harpring_baca_categorizing_art_2016, p429] Most collection management systems use a `title` and a `description` field to achieve this effect; titles and descriptions are used in library, archive and museum-type memory institutions. Software codes and information systems also need good names, and coming up with good names is often considered as the one of the most difficult task in computer science. [@allamanis_suggesting_method_class_names_2015]
 
 ::: callout-tip
 ## Tips for individual names of things
@@ -138,7 +138,7 @@ In collections, "information for display should be in a format and with syntax t
 
 ### Naming categories, groups of individual entities, and non-individual items
 
-> When discussing art vocabulary for categorizing works of art, we are really talking about the controlled terminology used to *index* art works. For our purposes, *indexing* refers to a conscious activity performed by knowledgeable cataloguers who consider the retrieval implications of the indexing terms that they apply to information objects; we are not referring to an automated process that simply parses every word in a text into indexes, as search engines like Google do on the open Web. Controlled vocabulary for art refers to standardized words and phrases used to refer to ideas, physical characteristics, people, places, events, subject matter, and many other concepts related to art, architecture, and other cultural heritage. The most important functions of a controlled vocabulary are to gather together variant terms and synonyms referring to concepts, and to link concepts in a logical order or into categories. Are a *rose window* and a *Catherine wheel* the same thing? How is *pot-metal glass* related to the more general term *stained glass*? The links and relationships in a controlled vocabulary ensure that these relationships are defined and maintained, for both cataloguing and retrieval.[@harpring_baca_categorizing_art_2016, p426]
+> When discussing art vocabulary for categorizing works of art, we are really talking about the controlled terminology used to *index* art works. For our purposes, *indexing* refers to a conscious activity performed by knowledgeable cataloguers who consider the retrieval implications of the indexing terms that they apply to information objects; we are not referring to an automated process that simply parses every word in a text into indexes, as search engines like Google do on the open Web. Controlled vocabulary for art refers to standardised words and phrases used to refer to ideas, physical characteristics, people, places, events, subject matter, and many other concepts related to art, architecture, and other cultural heritage. The most important functions of a controlled vocabulary are to gather together variant terms and synonyms referring to concepts, and to link concepts in a logical order or into categories. Are a *rose window* and a *Catherine wheel* the same thing? How is *pot-metal glass* related to the more general term *stained glass*? The links and relationships in a controlled vocabulary ensure that these relationships are defined and maintained, for both cataloguing and retrieval.[@harpring_baca_categorizing_art_2016, p426]
 
 Information for display should be in a format and with syntax that is easily read and understood by users. This may be accomplished through data in the form of free text or concatenated displays, allowing for the expression of the nuances of language necessary to relay the uncertainty and ambiguity that are common in art information. In addition, certain key elements of information must be formatted to allow for retrieval, using controlled vocabularies where appropriate.
 
@@ -235,7 +235,7 @@ person:Taylor_Swift relation:author works:Gold_Rush .
 The standard *Japanese breakfast* consists of steamed white rice, a bowl of miso soup, and Japanese-style pickles (like takuan or umeboshi). In the context of music, `Japanese Breakfast` is the stage name of the Korean-American artist Michelle Zauner.
 
 | Subject                                                       | Predicate             | Object                                                             |
-|---------------------------------------------------------------|-----------------------|--------------------------------------------------------------------|
+|-------------------|------------------------|-----------------------------|
 | Japanese Breakfast                                            | is a                  | music group                                                        |
 | Japanese Breakfast                                            | performs the works of | Michelle Zauner                                                    |
 | Michelle Zauner                                               | wrote                 | `Machinist`                                                        |
@@ -269,18 +269,18 @@ URIs are not URLs, because they are supposed to identify things that are not on 
 
 The URI <http://vocab.getty.edu/page/aat/300444127> identifies `adhesive-coated paper`, while <http://vocab.getty.edu/page/aat/300311608> identifies the term `acid-free paper`; these terms are important in the identification, storage, preservation of paper-based artworks. Acid-free paper can be also labelled as `papel alcalino` in Portuguese, `Безкислотний папір` in Ukrainian. Using <http://vocab.getty.edu/page/aat/300311608> is very practical to connect catalogues of American, Portugese, Ukrainian and any other catalogues without the ambigouity of translation or understanding the type of paper we are talking about.
 
-The URI <https://isni.org/isni/0000000078519858> helps to resolve the `0000000078519858` numeric identifier; it refer to the most famous Taylor Swift.
+The URI <https://isni.org/isni/0000000078519858> helps to resolve the `0000000078519858` numeric identifier; it refers to the most famous Taylor Swift.
 
 ## Named entity recognition and disambiguation {#sec-nerd}
 
-We started this chapter with the example that in the United States alone, more than 38,000 men were named James Smith, and more than 32,000 women were named Maria Garcia; the number increases with the addition of further English- and Spanish-language territories. We have also shown that some generic name titles, like `Symphony No. 2`. can refer to a great many musical works or even more recorded or music sheet notations.
+We started this chapter with the example that in the United States alone, more than 38,000 men were named James Smith, and more than 32,000 women were named Maria Garcia; the number increases with the addition of further English- and Spanish-language territories. We have also shown some generic name titles, like `Symphony No. 2`. can refer to a great many musical works or even more recorded or music sheet no
 
 Named entity recognition and disambiguation (NERD) is the task of identifying and determining the meaning of named entities in a given context. It means that the text `Taylor Swift` is correctly recognised as the name of the American singer-songwriter born in 1989, or with the photographer or any other person with the same name.
 
 NERD requires knowledge to connect the text `Machinist` correctly with either Michelle Zauner a.k.a. `Japanese Breakfast` or Lloyd Cole.
 
 | Subject                                                                                | Predicate       | Object                                                                                 |
-|----------------------------------------------------------------------------------------|-----------------|----------------------------------------------------------------------------------------|
+|-------------------|------------------------|-----------------------------|
 | [Machinist](https://open.spotify.com/track/13FGWUlqQpGugvEcnEUqou)                     | is written by   | Michelle Zauner                                                                        |
 | Japanese Breakfast                                                                     | recorded        | [Machinist](https://open.spotify.com/track/13FGWUlqQpGugvEcnEUqou)                     |
 | Lloyd Cole                                                                             | recorded        | [Machinist](https://open.spotify.com/track/3OQ3DP6IzwE5KRzSp9pUJB?si=b15f7e789f6848fc) |
@@ -294,7 +294,7 @@ Identifiers are unique names that help us connect data and metadata or connect p
 
 High-quality identifiers are of utmost importance. In their absence, we rely on well-structured knowledge to deduce or infer the identity of a sound recording and its performer or author. For example, knowing that Machinist was recorded in 2001 when Michelle Zauner was 12, makes it unlikely that she is the performer. However, adding further information that she first started to play the guitar at the age of 15 (in the year 2004, later than 2001) and made her recorded debut in 2011 excludes this Machinist as hers.
 
-We aim to create high-quality information resources that make such inference possible even without a prior successful identification; for example, a dress historian may find [blue](http://vocab.getty.edu/page/aat/300129361) [cooking aprons](http://vocab.getty.edu/page/aat/300422315) even if their color is recorded as `blue`, `blauw`, `kék`, `ლურჯი`, or `синий`, and the inventory book is not talking about an apron but `schort`, `kötény`, `Фартук` or `ผ้ากันเปื้อน`. Such disambiguation can be a great tool in scientific research, or reduce the costs of copyright management.
+We aim to create high-quality information resources that make such inference possible even without a prior successful identification; for example, a dress historian may find [blue](http://vocab.getty.edu/page/aat/300129361) [cooking aprons](http://vocab.getty.edu/page/aat/300422315) even if their colour is recorded as `blue`, `blauw`, `kék`, `ლურჯი`, or `синий`, and the inventory book is not talking about an apron but `schort`, `kötény`, `Фартук` or `ผ้ากันเปื้อน`. Such disambiguation can be a great tool in scientific research, or reduce the costs of copyright management.
 
 ### Identity & Data Brokerage
 
