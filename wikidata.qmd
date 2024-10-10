@@ -12,18 +12,15 @@ Here’s where knowledge graphs come in. They can automatically integrate and pr
 
 Wikidata is a collaboratively edited multilingual knowledge graph hosted by the Wikimedia Foundation. It is a common source of open data that Wikimedia projects, such as Wikipedia and anyone else, can use under the CC0 public domain license[^wikidata-1]. As of early 2023, Wikidata had 1.54 billion item statements or small, verifiable scientific statements about our world.
 
+[^wikidata-1]: [CC0](https://creativecommons.org/public-domain/cc0/) enables scientists, educators, artists and other creators and owners of copyright- or database-protected content to waive those interests in their works and thereby place them as completely as possible in the public domain, so that others may freely build upon, enhance and reuse the works for any purposes without restriction under copyright or database law.
+
 ::: {#tip-statement .callout-tip}
 #### Statements
 
-A statement is simple element of knowledge with a true or false value.  An `atomic statement` is a declarative sentence that attributes one property or relationship to an object or event. For example, it states the birthday of a person, or the location of an event.
+A statement is simple element of knowledge with a true or false value. An `atomic statement` is a declarative sentence that attributes one property or relationship to an object or event. For example, it states the birthday of a person, or the location of an event.
 
 A semantic triple, or RDF triple or simply triple, takes the form of an subject-predicate-object form, for example, S:Jane Doe P:has a birthday O:on 9 June.
-
 :::
-
-[^wikidata-1]: [CC0](https://creativecommons.org/public-domain/cc0/) enables scientists, educators, artists and other creators and owners of copyright- or database-protected content to waive those interests in their works and thereby place them as completely as possible in the public domain, so that others may freely build upon, enhance and reuse the works for any purposes without restriction under copyright or database law.
-
-
 
 Wikidata is a [document-oriented database](https://en.wikipedia.org/wiki/Document-oriented_database "Document-oriented database"), focusing on items, which represent any kind of topic, concept, or object.
 
@@ -35,9 +32,14 @@ Wikidata is a knowledge graph: it connects the concept of Douglas Adams ([Q42](h
 
 Wikidata is not a database but a very useful system for filling up and keeping many databases in sync worldwide. If your own institutional or private library has a catalogue, you may have a copy of the *Hitchhiker's Guide to the Galaxy*; in this case, your catalogue is likely to have a local, private identifier to your copy of the book. Imagine your little private catalogue, where you, like the editors of Wikidata, reserved the #42 entry to Douglas Adams' book.
 
-| ID \| Author \| Title \|
+| Local ID | Author                                                          | Title                                                                               |
+|----------|-----------------------------------------------------------------|-------------------------------------------------------------------------------------|
+| My-01    |  Martell, Yann ([Q13914](https://www.wikidata.org/wiki/Q13914)) | *Life of Pi* ([Q374204](https://www.wikidata.org/wiki/Q374204))                     |
+| …      | …                                                             | …                                                                                 |
+| My-42    | Adams, Douglas ([Q42](https://www.wikidata.org/wiki/Q42))       | *Hitchhiker's Guide to the Galaxy (*[Q25169](https://www.wikidata.org/wiki/Q25169)) |
+| …      | …                                                             | …                                                                                 |
+: {.striped .hover tbl-colwidths="[20,30,50]"}
 
-\|-------\|----------------------------------------------------------------\|-------------------------------------------------------------------------------------\| \| My-01 \| Martell, Yann ([Q13914](https://www.wikidata.org/wiki/Q13914)) \| *Life of Pi* ([Q374204](https://www.wikidata.org/wiki/Q374204)) \| \| ... \| ... \| ... \| \| My-42 \| Adams, Douglas ([Q42](https://www.wikidata.org/wiki/Q42)) \| *Hitchhiker's Guide to the Galaxy (*[Q25169](https://www.wikidata.org/wiki/Q25169)) \| \| ... \| ... \| ... \|
 
 If you can connect your **My-42** entry of *Hitchhiker's Guide to the Galaxy* with the books' Wikidata entry [Q25169](https://www.wikidata.org/wiki/Q25169), you can import a wealth of information into your private catalogue (the book's metadata, information about its editions etc.). Furthermore, if you connect the Wikidata item [Q42](https://www.wikidata.org/wiki/Q42) of the author Douglas Adams to your catalogue's own entry about the author, you can import a lot of additional knowledge, for example, information about his other works, or the end term of these books' copyright protection, after which they will become public domain and they will be free to copy and distribute.
 
@@ -49,6 +51,27 @@ In Wikidata, each item has a unique, [persistent identifier](https://en.wikipedi
 
 ### Getting started with Wikidata {#sec-getting-started-wikidata}
 
+::: callout-tip
+Wikidata, the world's biggest open knowledge graph uses the same Wikibase software that we use. Editing entries on Wikidata is identical to editing Wikibase. Depending on your needs, you can follow our tutorial on working with the public, global, shared Wikidata or one of our private (Wikibase) versions. See @sec-first-edits-wikibase.
+:::
+
+### First editing on Wikidata {#sec-first-edits-wikidata}
+
+In the example below, you see an `Item` page. An `Item` is a person, a living thing, a group of person, or an inanimate object (thing). Each page collects knowledge in the form of `Statements` about this person or thing.
+
+### Definitions and their translations
+
+Each `Item` page has a `label`, in this case, `music artist`, which is a short title to the page. It also has a `description` about the meaning of a `music artist`. It may also have `alias` fields, which show that a `music artist` is often just simply called a `musician`.
+
+Probably the first and simplest editing is when you add a new translation of a `label`, a new `description` of the person or thing, or a new `alias` (an alternate name, a synonym or a pseudonym.)
+
+In this example, the Hungarian translation is changed from "zenei előadóművész", which refers to only performers, to the broader occupation of *zeneművész*, which includes componists and conductors, too, and a new description is added to a Wikidata page that has no good Hungarian description.
+
+![](png/wikidata/add_new_translation_wikidata_2x1.png){fig-align="center"}
+
+::: callout-caution
+You should only make changes on Wikidata when you *really* know what you do. Our Wikibase instances (private copies of Wikidata) allow you place to experiment and learn in a near-identical user interface, where only a few buttons are different from Wikidata. See @sec-first-edits-wikibase.
+:::
 #### Global Identities
 
 Mr and Mrs Barasits, a.k.a. `János Barasits` (1859-1935) and his wife, `Barasits, Jánosné`, born Pichler, Kornélia, were prominent postcard producers and publishers at the beginning of the 20th century. They produced plenty of beautiful postcards.
@@ -85,7 +108,6 @@ After creating the item with the basic information of `Label` and `Description` 
 
 The property "instance of" defines the class our item is a particular example or member of. In this case we would like to make a statement about our item "János Barasits" defining with the property "instance of" that he is a member of the "human" class.
 
-
 ![](png/wikidata-tutorial/wikidata-create-new-item-Janos-Barasits-20240204-2.png){fig-align="center"}
 
 Through the sandbox explore the different type of properties and statements. Add a few basic statement to your new item:
@@ -101,6 +123,13 @@ To see another example on how useful knowledge graphs can be consider the follow
 The definition of date of death is useful in itself, but in a knowledge base, we can do even more with this piece of information. With this information we can combine the fact that in Europe the copyright protection term of people's creation runs up to 70 years after their death. Thus, a knowledge base can infer the fact that currently János Barasits's postcards are out of copyright and they can be freely copied and distributed!
 
 Here is a very basic Wikidata page for [János Barasits](https://www.wikidata.org/wiki/Q124423018). What is very important, is that we have a globally unique identifier, `Q124423018` that uniquely identifies him as a human. If you have a collection of postcards (digitals or analogue, vintage physical objects), connecting your own database with `Q124423018` will help you to import the knowledge of the expired copyright protection term; it will help you finding other out-of-copyright scanned copies of Barasits' postcards; it will be easier to connect to other collections that hold items from them, and so on.
+
+::: callout-tip
+#### Further tutorial
+
+Working with Persons in Wikibase — [Adding persons as named entities to Wikidata or a Wikibase](https://opencollections.net/documents/tutorials/wikibase_persons_tutorial.html#/title-slide)
+
+:::
 
 ### Retrieve an item from Wikidata
 
@@ -194,10 +223,9 @@ Try the first query:
 ::: {#tip-timeout .callout-tip}
 #### Query timeout limit reached
 
-If you recieve a `Query timeout limit reached` error message, it is likely that you tried to make a query that resulted in too many responses, and you ran out of memory or some other resource. This can be most likely solved with some kind of limitation on the number of possible answer rows that you get. 
+If you recieve a `Query timeout limit reached` error message, it is likely that you tried to make a query that resulted in too many responses, and you ran out of memory or some other resource. This can be most likely solved with some kind of limitation on the number of possible answer rows that you get.
 
-The simplest limitation is adding a last line to your query:
-`limit 10`, which limits the descendants of J.S. Back to the first 10 people (see the previous example with [this limit](https://query.wikidata.org/#SELECT%20%3Fchild%0AWHERE%0A%7B%0A%23%20%3Fchild%20%20father%20%20%20Bach%0A%20%20%3Fchild%20wdt%3AP22%20wd%3AQ1339.%0A%7D%20limit%2010).)
+The simplest limitation is adding a last line to your query: `limit 10`, which limits the descendants of J.S. Back to the first 10 people (see the previous example with [this limit](https://query.wikidata.org/#SELECT%20%3Fchild%0AWHERE%0A%7B%0A%23%20%3Fchild%20%20father%20%20%20Bach%0A%20%20%3Fchild%20wdt%3AP22%20wd%3AQ1339.%0A%7D%20limit%2010).)
 :::
 
 The first querry will provide you with identifiers, which is great if you are a programmer and you are wiring your database to Wikidata, but less impressive if you are getting familiar with SPARQL and you want to see clearly the fruits of your work.
@@ -217,7 +245,6 @@ WHERE
 ```
 
 [![Click on the image to try it out live on the Wikidata SPARQL Endpoint. The query will run if you press the ▶ sign on the endpoint in the bottom left corner↗.](png/wikidata-tutorial/sparql-example-bach-children-with-labels.png){fig-align="center"}](https://query.wikidata.org/#SELECT%20%3Fchild%20%3FchildLabel%0AWHERE%0A%7B%0A%20%20%3Fchild%20wdt%3AP22%20wd%3AQ1339%3B%0A%20%20%20%20%20%20%20%20%20wdt%3AP25%20wd%3AQ57487.%0A%20%20SERVICE%20wikibase%3Alabel%20%7B%20bd%3AserviceParam%20wikibase%3Alanguage%20%22%5BAUTO_LANGUAGE%5D%22.%20%7D%0A%7D)
-
 
 Try running that query – you should see not only the item numbers, but also the names of the various children.
 
@@ -255,7 +282,7 @@ SELECT DISTINCT ?itemLabel ?itemLabelLang ?itemDescription ?itemDescriptionLang 
 
 -   [x] We asked the labelling in six languages. You can use `IN ("en", "de")` or even `IN ("de")` if you want to reduce the number of languages or change the language codes.
 
--  [ ] If you reach the query timeout, try to limit your search (see (See @tip-timeout.)
+-   [ ] If you reach the query timeout, try to limit your search (see (See @tip-timeout.)
 
 You would like to copy property definitions to your Wikibase instance. The following code will provide you the necessary information (without additional statements) about the property `wd:P31`—a very important property for data modelling.
 

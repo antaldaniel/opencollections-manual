@@ -72,6 +72,25 @@ The [data model](https://en.wikipedia.org/wiki/Data_model "Data model") for Wiki
 
 Wikibase has a [JavaScript](https://en.wikipedia.org/wiki/JavaScript "JavaScript")-based user interface, and provides exports of all or subsets of data in many formats. Projects using it include Wikidata, [Wikimedia Commons](https://en.wikipedia.org/wiki/Wikimedia_Commons "Wikimedia Commons"),^[\[5\]](https://en.wikipedia.org/wiki/Wikibase#cite_note-5)^ [Europeana](https://en.wikipedia.org/wiki/Europeana "Europeana")'s [Eagle Project](https://wiki.eagle-network.eu/wiki/Main_Page), [Lingua Libre](https://en.wikipedia.org/wiki/Lingua_Libre "Lingua Libre"),^[\[6\]](https://en.wikipedia.org/wiki/Wikibase#cite_note-6)^ [FactGrid](https://en.wikipedia.org/wiki/FactGrid "FactGrid"), and the [OpenStreetMap](https://en.wikipedia.org/wiki/OpenStreetMap "OpenStreetMap") wiki.^[\[7\]](https://en.wikipedia.org/wiki/Wikibase#cite_note-7)^
 
+## First edits on Wikibase {#sec-first-edits-wikibase}
+
+In the example below, you see an `Item` page. An `Item` is a person, a living thing, a group of person, or an inanimate object (thing). Each page collects knowledge in the form of `Statements` about this person or thing.
+
+### Definitions and their translations
+
+Each `Item` page has a `label`, in this case, `music artist`, which is a short title to the page. It also has a `description` about the meaning of a `music artist`. It may also have `alias` fields, which show that a `music artist` is often just simply called a `musician`.
+
+Probably the first and simplest editing is when you add a new translation of a `label`, a new `description` of the person or thing, or a new `alias` (an alternate name, a synonym or a pseudonym.)
+
+![](png/wikibase/edit/add_new_translation_2x1.png)
+
+::: callout-tip
+Wikidata, the world's biggest open knowledge graph uses the same Wikibase software that we use. Editing entries on Wikidata is identical to editing Wikibase. See @sec-first-edits-wikidata.
+:::
+
+### Adding knowledge in statements
+
+
 ## Populating a Wikibase
 
 Wikibase is an open knowledge base or universe when installed. We start populating it with some **items**. In the Wikidata data model, items are similar to things, and classes are also defined as items.
