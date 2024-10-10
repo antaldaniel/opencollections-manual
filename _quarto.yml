@@ -66,7 +66,7 @@ book:
     - musicapi.qmd
 
 version: 0.2.32
-doi: 10.5281/zenodo.13757359
+doi: 10.5281/zenodo.13912121
 
 bibliography: 
     - bib/cm.bib
@@ -74,6 +74,7 @@ bibliography:
     - bib/datamodels.bib
     - bib/ddi.bib
     - bib/identifiers.bib
+    - bib/ISOdata.bib
     - bib/metadata.bib
     - bib/musicidentifiers.bib
     - bib/nerd.bib

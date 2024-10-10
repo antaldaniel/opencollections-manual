@@ -3,7 +3,7 @@
 Version 0.2.2 (2024.08.17.)
 Version 0.2.3 (2024.08.23.) Small improvements.
 Version 0.2.31 (2024.09.13.) Small improvements.
-Version 0.2.32 (2024.10.10.) First steps in Wikidata and Wikibase; example with translations.
+Version 0.2.32 (2024.10.10.) First steps in Wikidata and Wikibase; example with translations. Glossary added.
 
 
 ## Source text of the chapters
