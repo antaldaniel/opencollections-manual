@@ -16,7 +16,7 @@ Encyclopaedias have a limit of notability: they do not want to store information
 
 Tim Berners-Lee is often credited as the inventor of the World Wide Web. His seminal, co-authored paper in 2001 envisioned the semantic graph that connects all knowledge and workings of humankind, supported by intelligent software agents[^repeatnote].
 
-[^repeatnote]: A part of this text is repeated from @collections for readability.
+[^repeatnote]: A part of this text is repeated from @sec-collections for readability.
 
 This promise was much more difficult to fulfil than the creation of the original World Wide Web, which allowed the accessible publication of hypertext documents (pages of illustrated text that cross-refer to other pages regardless of the server's physical location that stores the URL-referred connecting page).
 

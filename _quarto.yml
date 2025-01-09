@@ -64,6 +64,7 @@ book:
   appendices:
     - questionbank.qmd
     - musicapi.qmd
+    - iscc.qmd
 
 version: 0.2.33
 doi: 10.5281/zenodo.13912121

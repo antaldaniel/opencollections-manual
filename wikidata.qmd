@@ -258,7 +258,7 @@ Try running that query – you should see not only the item numbers, but also th
 
 When you work with OpenCollections or Wikibase, you may want to synchronize your knowledge graph with Wikidata. A straightforward way to do this is to import a part of the Wikidata knowledge graph into your instance.
 
-Imagine you would like to copy the definition of a human, Béla Bartók, to your Wikibase instances. The following querry
+Imagine you would like to copy the definition of a human, Béla Bartók, to your Wikibase instances. Consider the following query:
 
 ```{r copy-qid, eval=FALSE}
 SELECT DISTINCT ?itemLabel ?itemLabelLang ?itemDescription ?itemDescriptionLang ?aliases ?aliasesLang WHERE {
