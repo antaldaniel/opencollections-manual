@@ -1,0 +1,53 @@
+# ISCC {#sec-musicapi .appendix}
+
+1\. Upload a file to [demo.iscc.io](https://demo.iscc.io/).
+
+![](jpg/bartczky/01_ISCC-F-Bartczky_Victor_20241227.jpg)
+
+2\. Fill out the title and description, but do not download the updated file yet.
+
+3\. Go to [archive.org](https://archive.org/) (or the permanent storage, for example, Wikimedia) where you will make the image or work available.
+
+![](jpg/bartczky/02_archiveorg-F-Bartczky_Victor_20241227.jpg){fig-align="center"}
+
+4\. Select the same file for uploading, but do not upload it yet.
+
+5\. Fill in the exact same title and description.  You can still refine the Title and Description on both platforms.
+
+![](jpg/bartczky/03_archiveorg-F-Bartczky_Victor_20241227.jpg){fig-align="center"}
+
+6\. On demo.iscc.io press Update metadata & generate ISCC
+
+7\. Make sure that the ISCC is added to the archive.org upload (metadata field: ISCC), and that the archive.org preliminary address is added to the ISCC description.
+
+![](jpg/bartczky/04_archiveorg-F-Bartczky_Victor_20241227.jpg)
+
+8\. Download a new version of the file from demo.iscc.io the updated image file, which now contains the ISCC data in the file metadata.
+
+9\. Change the file to be uploaded to archive.org so that you upload the copy which embeds the ISCC code.
+
+10\. Upload to archive.org. Now you have made permanently available a file as (See: <https://archive.org/details/bartczky-victor-20241227>)
+
+![](jpg/bartczky/03_archiveorg-F-Bartczky_Victor_20241227.jpg){fig-align="center"}
+
+```{r eval=FALSE}
+{
+  "@context": "http://purl.org/iscc/context/0.4.0.jsonld",
+  "@type": "ImageObject",
+  "$schema": "http://purl.org/iscc/schema/0.4.0.json",
+  "iscc": "ISCC:KEC7D7EZ7Y2RLNKWX2C6EPUZMLUBTMVQO5BM2G7PZEXNV7QZCBGHRVY",
+  "name": "Bartczky, Victor: Unknown Child (CDV)",
+  "description": "A private photo of an unidentified child  from the atelier of Victor Bartczky (front side of a carte de visit).  Puchased in Soós Fotókereskedés, Budapest,  2024.  Demo for opencollections.net. Front side. Scanned on 2024.12.27.",
+  "media_id": "06a4kspb6b8cm",
+  "content": "https://demo.iscc.io/api/v1/media/06a4kspb6b8cm",
+  "mode": "image",
+  "filename": "F-Bartczky_Victor_20241227.jpg",
+  "filesize": 1006565,
+  "mediatype": "image/jpeg",
+  "width": 965,
+  "height": 1576,
+  "thumbnail": "data:image/webp;base64,UklGRrYFAABXRUJQVlA4IKoFAACwGgCdASpOAIAAPrVMn0wnI6KiJzquKOAWiWdnNVzJUbWTXAdbk+3dALZ+/mEibYHtJ1eV8lC0iUTDFrE8RfuUqZTHXSROrntGTTAjsjBcrqhw/nKAOgemwLV+cf59TrSE/6Vsuw5gCxcYZYpZQC5vtctY2Lp8hb9ClN2G0/w4L4Gu+jV0fV4YzvIH40tK15+QrUwCIHXq6K3w4utLeUf8GhMiSuKfk0u3T0YLk/a8sxI8B7AhUZk95ZWR+uDHnm+8IYGm7q4F/KDHV1G8HZ+QYYGLqgB8T7+z/i0m6wAA/vo3UmrenRU2JsDg7CtFcVL2koEKy6J776+RsXt95VLZhImUn1y1VbBwK8r9K22CygHZYWrouNGkgZ+V2DkOpHh1rqcD0NEx0cIgYy/+Js80uATxgDUjN8AElzFexqgp5PvgbYbj0jURQtDL54JmSPwjm/+fpwk2K0AD8aMdxVPneJ/wEJBXaA8u+iGa6FCp7rIBgXHKidqHvgbn5u8KDS6l+BSm521/c4VuZIAO9MrvaYQp1J7m2xXHd/2pRmWJmy7aOwLD77Zulq6oYn4JCNqZGfGMpb3FcKUF3GcBbjiGl+Y9nGVtPGXHZvVXemDmLl7gBpG68yRrvu3jYKiW0It+moEfvlYLCGlPi8S8H5u/BTmavTHSpjjTcAfzI1QGz2gNL5dQPShBrlYlXWDFxJUjPA/YL7LFALxRj4NoHJ1TMsMD64I93QDeDXMNKAkHfeGTKog/fl17xL4J+egZVrG5YLUO451cvCEzC5u6e6hWRoJ/tQ0iD93UkxQ7B9gCyMJcOdOi8NhoRZLuqfhkcdL13iFTCetrzIBqjHBav4ful0evV3e0YVQ7zQ0w9cexrj6vns//i+Kbm2M80Pc6DZJvIWIx/F8lUR5opJi4olWXSJ9z31wSzsIdhx1F4qsjqtm4BJk9zKlwT6wOxKCeoWoHCW26+Lo+vSUXQl6v0GtDIFk8KwoMcR1NEhTsQn5bLIodhcuBNhVOXF8sMC9IDLrvBlKbA7EDruxYTVaD0EghgG5TWgeB3J5M05GM5xbuDPdlFxfQjQ+mQOTEOOfTf1YQNqn7q9XVAjSyW57q/jgAierE4qM8vBO2czwhtv8g4SJgABMYe6vCFFwE4F8tk68KXPjE5RDICoxKaq36Slx8wx9avZQa46ATNozzqua+cw/WqD+S5G6/bre45huz0/anrs/LAE5Gftty05gp1cBDwtDYuoPhtm+Hln5QdH8Sp07qLOqmMINdlTov1IIv5u6btNe2C/Y7Oyk+KUKKL9wCSBaiDxdoyhl70xCNOIjh4Po3E57xaZFr47v0jmDSlBi/Rxd6/0LXjo+/HLcBLMhf5iAR98aq48GVE2c8NHnjBLEaIa4pGCuvbfN+craTE4SnyV8pWRbjZYQ7ofvyUmRKn/pNBke3pfYkWK7picBffIxZZnXEqc7gBjbgzHlSorhxk0PxxkdL683ECt1M7czAAZZpiAGBZqGpRV1F16Rhfh7jGPJsWHbgS5h6NvRHJWW3avK2BGHn1Sw3pBDcZUypMrk6sfKzuhTtBbwo96gC9QSWfQ8aoA7QRRhm+HDLjBBtcdnDQc9xLOPqu/c54SNRb200CydR4o2Umt4GEMiAp88cHCbldqxTJrU3XHYmvyp4T9EECPYj95ToxzHLlNTc9ZIyTiQc10CiHelD3VlcANaZCsuMhO8Rs90sduC7MPTt32Apw62F/Aj6LOk78uyHdsUBzXHPdz3WWuCTb7mG+2OpJDoxZlu2KJ989LBqIAtYBQt5N8f9r1ReG7pfYuD8h5p+1pEgAsMlfm49uLDNrpYEMJZysNC3SDtIjGmeHiYNw7Gly46U+2O0ryN9ezqS+AAFQmWTDD+O5tZo3O1LbBA909AsYOn9gH3DBojUES4xyhF9c6DvblgA",
+  "metahash": "1e20886d624b7fd6caa4d35aa1d6c3b5c1002e68339c704454cd0eab47e9e779c6fd",
+  "datahash": "1e202edafe19104c78d7f24172ac3a0056705c065ed5763304188e919f0a8a6831ef"
+}
+```
