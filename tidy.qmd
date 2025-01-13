@@ -38,13 +38,17 @@ In tidy data:
 A `tidy dataset` is black-and-white, and each table cells contains one element of knowledge that cannot be further divided.
 :::
 
-We repeat in negative terms these seamingly simple principles:
+We repeat in negative terms these seemingly simple principles:
 
 -   [ ] **Two observed values: two columns**. We do not use colours (our machine-to-machine pipelines is colourblind). If we need comments or specifications, we add a new column. The apron has a variable length of 96-98? Use a column for min and max length, and in the cases when there is a single number, put 97 as both max length and minimum length. But never write 96-98 in on column, it must be either 96 or 98.
 
 -   [ ] **Two items or two observations: two rows**: Do you have two types of blue male aprons: write a separate line for the kitchen apron and the gardening apron. Or just call it apron 1 and apron 2. Do you have two respondents in the apron customer satisfaction form: that will be two rows. You have repeating observations of the same thing or person in different time period: that will be two rows. One contains the measurements in period 1, the next in period 2.
 
 -   [x] **We never merge cells!** A tidy dataset has no divided or joined columns and no divided or joined rows. Never write 96-98 into a cell, because 96 goes to a separate cell than 98 because it has a different meaning: 96 means the minimum length of the apron, and 98 the maximum. Is there an apron with a length of 85 cm? That goes to a different row, because it refers to the length of a different type of apron.
+
+The exact, mathematically precise explanation of the 3NF data is difficult to understand. Intuitively, it boils down to two important characteristics. It minimises data duplication, and therefore the possibility of data contradicting itself (the same data was updated in one cell, but not in the other as new information came to light.) The other, even more important characteristic is semantic clarity: the second row of the second column can be interpreted on its own; there is no asterisk, little arrow, or yellow highlight; if there was, than we would have to ensure that the asterisk, the little arrow or the yellow highlight is also well understood and updated whenever new information comes to light.
+
+Tidy data is easy to understand and makes errors like contradicting information or missing data easier to spot. It is easier to understand well and rewrite tidy data than not-tidy data.
 
 Looks easy? If you start with a tidy table, it *is* very easy. If you have to tidy up a messy data table or an entire database, it often requires many years of data-wrangling experience to get it right first.
 
