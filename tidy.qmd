@@ -24,9 +24,11 @@ Tidy data is a standard way of mapping the meaning of a dataset to its structure
 
 ![Following three rules makes a dataset tidy: variables are in columns, observations are in rows, and values are in cells. From [R For Data Science - 12. Tidy Data](https://r4ds.had.co.nz/tidy-data.html)](https://d33wubrfki0l68.cloudfront.net/6f1ddb544fc5c69a2478e444ab8112fb0eea23f8/91adc/images/tidy-1.png){fig-align="center"}
 
+Tidy data is a statistical formulation of the Third Normal Form (3NF) defined in 1971 by Edgar F. Codd, an English computer scientist who invented the relational model for database management. It avoids duplications of the data, various data anomalies and misunderstandings, and the integrity of the "place" of the data in a database--be it a tabular or relational database or a graph database like Wikidata. When working with semi-automated knowledge graph management, the automated part is reading the already tidy data into a graph system. What often requires human ingenuity or just simply hard work is to tidy data that was recorded in an untidy way.
+
 In tidy data:
 
--   [x] **1. Every table column is a variable**. We do not use colours (our machine-to-machine pipelines is colourblind). If we need comments or specifications, we add a new column.
+-   [x] 1. **Every table column is a variable**. We do not use colours (our machine-to-machine pipelines is colourblind). If we need comments or specifications, we add a new column.
 
 -   [x] **2. Every row in the table represents an observation, or an individual piece of a collection.** Every variable belonging to `Bulgaria` is in the `Bulgaria` row, and there is one and only `Bulgaria row`.
 
@@ -40,7 +42,7 @@ We repeat in negative terms these seamingly simple principles:
 
 -   [ ] **Two observed values: two columns**. We do not use colours (our machine-to-machine pipelines is colourblind). If we need comments or specifications, we add a new column. The apron has a variable length of 96-98? Use a column for min and max length, and in the cases when there is a single number, put 97 as both max length and minimum length. But never write 96-98 in on column, it must be either 96 or 98.
 
--   [ ] **Two items or two observations: two rows**: Do you have two types of blue male aprons: write a separate line for the kitchen apron and the gardening apron. Or just call it apron 1 and apron 2. Do you have two responsdents in the apron customer satisfaction form: that will be two rows.
+-   [ ] **Two items or two observations: two rows**: Do you have two types of blue male aprons: write a separate line for the kitchen apron and the gardening apron. Or just call it apron 1 and apron 2. Do you have two respondents in the apron customer satisfaction form: that will be two rows. You have repeating observations of the same thing or person in different time period: that will be two rows. One contains the measurements in period 1, the next in period 2.
 
 -   [x] **We never merge cells!** A tidy dataset has no divided or joined columns and no divided or joined rows. Never write 96-98 into a cell, because 96 goes to a separate cell than 98 because it has a different meaning: 96 means the minimum length of the apron, and 98 the maximum. Is there an apron with a length of 85 cm? That goes to a different row, because it refers to the length of a different type of apron.
 
